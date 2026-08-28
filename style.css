@@ -1,3 +1,11 @@
+body {
+    background-color: #1a102f;
+    color: #f4e8c1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+    text-align: left;
+    padding: 20px;
+}
+
 h1 {
     color: #ff75a0;
     font-size: 55px;
@@ -15,4 +23,13 @@ h2 {
     border-radius: 8px;
     display: inline-block;
     margin-top: 30px;
+}
+
+iframe {
+    width: 100%;
+    max-width: 400px;
+    height: 225px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px 10px 10px 0;
 }
