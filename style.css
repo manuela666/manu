@@ -1,11 +1,48 @@
+body {
+    background-color: #1a102f;
+    color: #f4e8c1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+    text-align: left;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Georgia', serif;
+    color: #ff75a0;
+    font-size: 55px;
+    background-color: #2d1b4e;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border-left: 6px solid #ff75a0;
+    margin-bottom: 30px;
+}
+
+.secao-musica {
+    margin-bottom: 40px;
+    clear: both;
+}
+
 h2 {
     font-family: 'Georgia', serif;
     color: #ffb3c6;
-    font-size: 34px; /* Aumentamos o tamanho do texto! */
+    font-size: 26px;
     background-color: #251640;
-    padding: 10px 20px; /* Aumentamos o fundo para acompanhar o texto */
+    padding: 8px 15px;
     border-radius: 8px;
     display: block;
     width: fit-content;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+.videos {
+    display: block;
+}
+
+iframe {
+    width: 100%;
+    max-width: 400px;
+    height: 225px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px 10px 10px 0;
 }
