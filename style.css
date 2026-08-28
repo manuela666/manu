@@ -27,7 +27,7 @@ body {
 
 h1 {
     font-family: 'Fredoka', 'Matcha Mint', cursive, sans-serif;
-    font-size: 80px;
+    font-size: 95px; /* Aumentamos o tamanho da letra do título principal! */
     text-align: center;
     background-color: #2d1b4e;
     padding: 15px 30px;
@@ -45,9 +45,8 @@ h1 {
 }
 
 h2 {
-    font-family: 'Caveat', cursive, serif;
+    font-size: 58px; /* Aumentamos o tamanho dos títulos das seções! */
     color: #ffb3c6;
-    font-size: 52px;
     background-color: #251640;
     padding: 8px 24px;
     border-radius: 8px;
@@ -59,30 +58,31 @@ h2 {
 .videos {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 20px;
 }
 
 iframe {
     width: 360px;
     height: 215px;
     border-radius: 12px;
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid #ff007f;
+    /* Efeito LED Neon em volta dos vídeos */
+    box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #00f0ff;
 }
 
-/* Ajustes automáticos para Celular */
+/* Ajustes para Celular */
 @media (max-width: 600px) {
     body {
         padding: 12px;
     }
 
     h1 {
-        font-size: 48px;
+        font-size: 55px;
         padding: 10px 18px;
     }
 
     h2 {
-        font-size: 38px;
+        font-size: 40px;
         padding: 6px 16px;
     }
 
