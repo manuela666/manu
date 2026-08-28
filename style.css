@@ -10,9 +10,23 @@ body {
     min-height: 100vh;
 }
 
+@keyframes trocarCorEBrilho {
+    0% {
+        color: #ff75a0;
+        text-shadow: 0 0 10px #ff75a0, 0 0 20px #ff75a0;
+    }
+    50% {
+        color: #f4e8c1;
+        text-shadow: 0 0 10px #f4e8c1, 0 0 20px #f4e8c1;
+    }
+    100% {
+        color: #ff75a0;
+        text-shadow: 0 0 10px #ff75a0, 0 0 20px #ff75a0;
+    }
+}
+
 h1 {
     font-family: 'Fredoka', 'Matcha Mint', cursive, sans-serif;
-    color: #ff75a0;
     font-size: 60px;
     background-color: #2d1b4e;
     padding: 12px 20px;
@@ -20,6 +34,7 @@ h1 {
     border-left: 6px solid #ff75a0;
     margin-bottom: 30px;
     letter-spacing: 2px;
+    animation: trocarCorEBrilho 3s infinite;
 }
 
 .secao-musica {
