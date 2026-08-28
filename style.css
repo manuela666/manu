@@ -7,22 +7,35 @@ body {
 }
 
 h1 {
+    font-family: 'Georgia', serif;
     color: #ff75a0;
     font-size: 55px;
     background-color: #2d1b4e;
     padding: 12px 20px;
     border-radius: 12px;
     border-left: 6px solid #ff75a0;
+    margin-bottom: 30px;
+}
+
+.secao-musica {
+    margin-bottom: 40px;
+    clear: both;
 }
 
 h2 {
+    font-family: 'Georgia', serif;
     color: #ffb3c6;
     font-size: 26px;
     background-color: #251640;
     padding: 8px 15px;
     border-radius: 8px;
-    display: inline-block;
-    margin-top: 30px;
+    display: block;
+    width: fit-content;
+    margin-bottom: 15px;
+}
+
+.videos {
+    display: block;
 }
 
 iframe {
