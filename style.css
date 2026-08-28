@@ -1,5 +1,4 @@
 h1 {
-    font-family: 'Georgia', serif; /* Fonte clássica e super elegante */
     color: #ff75a0;
     font-size: 55px;
     background-color: #2d1b4e;
@@ -9,7 +8,6 @@ h1 {
 }
 
 h2 {
-    font-family: 'Georgia', serif; /* Aplicamos a mesma fonte elegante nos subtítulos */
     color: #ffb3c6;
     font-size: 26px;
     background-color: #251640;
