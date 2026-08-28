@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap');
+
 body {
     background-color: #1a102f !important;
     color: #f4e8c1;
@@ -9,7 +11,7 @@ body {
 }
 
 h1 {
-    font-family: 'Matcha Mint', 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Fredoka', 'Matcha Mint', cursive, sans-serif;
     color: #ff75a0;
     font-size: 60px;
     background-color: #2d1b4e;
