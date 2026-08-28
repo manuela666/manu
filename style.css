@@ -1,29 +1,20 @@
-body {
-    background-color: #1a102f;
-    color: #f4e8c1;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
-    text-align: left;
-    padding: 20px;
-}
-
 h1 {
+    font-family: 'Georgia', serif; /* Fonte clássica e super elegante */
     color: #ff75a0;
     font-size: 55px;
-    border-bottom: 2px solid #ff75a0;
-    padding-bottom: 10px;
+    background-color: #2d1b4e;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border-left: 6px solid #ff75a0;
 }
 
 h2 {
+    font-family: 'Georgia', serif; /* Aplicamos a mesma fonte elegante nos subtítulos */
     color: #ffb3c6;
     font-size: 26px;
+    background-color: #251640;
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-block;
     margin-top: 30px;
-}
-
-iframe {
-    width: 100%;
-    max-width: 400px;
-    height: 225px;
-    border-radius: 10px;
-    border: none;
-    margin: 10px 10px 10px 0;
 }
