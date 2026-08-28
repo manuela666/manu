@@ -1,13 +1,15 @@
 body {
-    background-color: #1a102f;
+    background-color: #1a102f !important;
     color: #f4e8c1;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
     text-align: left;
     padding: 20px;
+    margin: 0;
+    min-height: 100vh;
 }
 
 h1 {
-    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-family: 'Matcha Mint', 'Comic Sans MS', cursive, sans-serif;
     color: #ff75a0;
     font-size: 60px;
     background-color: #2d1b4e;
