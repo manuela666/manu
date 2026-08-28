@@ -27,13 +27,15 @@ body {
 
 h1 {
     font-family: 'Fredoka', 'Matcha Mint', cursive, sans-serif;
-    font-size: 60px;
+    font-size: 80px;
+    text-align: center;
     background-color: #2d1b4e;
-    padding: 12px 20px;
+    padding: 15px 30px;
     border-radius: 12px;
-    border-left: 6px solid #ff75a0;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
+    border-bottom: 6px solid #ff75a0;
+    margin: 0 auto 30px auto;
+    width: fit-content;
+    letter-spacing: 3px;
     animation: trocarCorEBrilho 3s infinite;
 }
 
