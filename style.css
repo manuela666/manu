@@ -82,24 +82,20 @@ h2 {
     background-color: transparent;
 }
 
-iframe, .card-video {
+/* Estilo dos Cartões com Capa */
+.card-video {
+    position: relative;
     width: 360px;
     height: 215px;
     border-radius: 12px;
     border: 2px solid #ff007f !important;
     box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #00f0ff;
     flex-shrink: 0;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    outline: none;
-    background-color: #1a102f;
-}
-
-/* Estilos específicos do Cartão com Capa */
-.card-video {
-    position: relative;
     overflow: hidden;
     display: inline-block;
     text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #1a102f;
 }
 
 .card-video img {
@@ -108,6 +104,7 @@ iframe, .card-video {
     object-fit: cover;
 }
 
+/* Botão de Play Estilizado */
 .botao-play {
     position: absolute;
     top: 50%;
@@ -115,15 +112,18 @@ iframe, .card-video {
     transform: translate(-50%, -50%);
     background: rgba(26, 16, 47, 0.85);
     color: #ffb3c6;
-    padding: 10px 18px;
-    border-radius: 20px;
-    border: 1px solid #ff007f;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: 2px solid #ff007f;
     font-weight: bold;
-    font-size: 14px;
-    white-space: nowrap;
+    font-size: 16px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px #ff007f;
+    transition: all 0.3s ease;
 }
 
-iframe:hover, .card-video:hover {
+/* Efeito ao passar o mouse */
+.card-video:hover {
     transform: scale(1.03);
     box-shadow: 0 0 20px #ff007f, 0 0 40px #00f0ff;
 }
@@ -131,6 +131,7 @@ iframe:hover, .card-video:hover {
 .card-video:hover .botao-play {
     background: #ff007f;
     color: #ffffff;
+    box-shadow: 0 0 20px #ff007f, 0 0 10px #ffffff;
 }
 
 @media (max-width: 600px) {
@@ -148,7 +149,7 @@ iframe:hover, .card-video:hover {
         padding: 6px 0;
     }
 
-    iframe, .card-video {
+    .card-video {
         width: 280px;
         height: 180px;
     }
