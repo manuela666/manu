@@ -64,11 +64,12 @@ iframe {
     width: 360px;
     height: 215px;
     border-radius: 12px;
-    border: 2px solid #ff007f;
+    border: 2px solid #ff007f !important;
     box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #00f0ff;
     flex-shrink: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    outline: none; /* Remove a borda branca ao clicar */
+    outline: none;
+    background-color: transparent;
 }
 
 /* Efeito ao passar o mouse em cada vídeo */
