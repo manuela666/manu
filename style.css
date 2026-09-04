@@ -82,7 +82,7 @@ h2 {
     background-color: transparent;
 }
 
-iframe, .card-video {
+iframe {
     width: 360px;
     height: 215px;
     border-radius: 12px;
@@ -94,43 +94,9 @@ iframe, .card-video {
     background-color: #1a102f;
 }
 
-/* Estilos específicos do Cartão com Capa */
-.card-video {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.card-video img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.botao-play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(26, 16, 47, 0.85);
-    color: #ffb3c6;
-    padding: 10px 18px;
-    border-radius: 20px;
-    border: 1px solid #ff007f;
-    font-weight: bold;
-    font-size: 14px;
-    white-space: nowrap;
-}
-
-iframe:hover, .card-video:hover {
+iframe:hover {
     transform: scale(1.03);
     box-shadow: 0 0 20px #ff007f, 0 0 40px #00f0ff;
-}
-
-.card-video:hover .botao-play {
-    background: #ff007f;
-    color: #ffffff;
 }
 
 @media (max-width: 600px) {
@@ -148,7 +114,7 @@ iframe:hover, .card-video:hover {
         padding: 6px 0;
     }
 
-    iframe, .card-video {
+    iframe {
         width: 280px;
         height: 180px;
     }
