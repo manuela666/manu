@@ -1,48 +1,155 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600&family=Pacifico&display=swap');
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Lily</title>
-</head>
-<body>
+* {
+    box-sizing: border-box;
+}
 
-<h1>Música</h1>
+body {
+    background-color: #1a102f !important;
+    color: #f4e8c1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+    text-align: left;
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+}
 
-<div class="secao-musica">
-    <h2>✨ ℝ𝕒𝕡 / ℍ𝕚𝕡 ℍ𝕠𝕡 ✨</h2>
-    <div class="videos">
-        <iframe src="https://www.youtube.com/embed/7c3SWrQIE0A" title="Chris MC ft. L7NNON - Fútil [Letra]" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Sofa, Breja e Netflix" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/jK2k1P56Cno" title="Poesia Acústica #6" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/uK6UB4yVXMU" title="PENSANDO EM MIM" allowfullscreen></iframe>
-    </div>
-</div>
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
 
-<div class="secao-musica">
-    <h2>✨ 𝕊𝕖𝕣𝕥𝕒𝕟𝕖𝕛𝕠 ✨</h2>
-    <div class="videos">
-        <iframe src="https://www.youtube.com/embed/iyI9RMkEzbQ" title="Matheus & Kauan, Anitta - Ao Vivo E A Cores" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/Z8N43B_aJ4I" title="Gusttavo Lima - Coladinho Em Mim" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/3eC29_JpT0w" title="Henrique & Diego ft. MC Guimê - Suíte 14" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/V61gB2S6eXw" title="Marília Mendonça ft. Gaab - Intenção" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/s3yC4aG1uSo" title="Luan Santana ft. MC Kekel - Vingança" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/7D5b8qIqT_E" title="Jorge & Mateus - Seu Astral" allowfullscreen></iframe>
-    </div>
-</div>
+::-webkit-scrollbar-track {
+    background: #1a102f;
+}
 
-<div class="secao-musica">
-    <h2>✨ 𝔽𝕦𝕟𝕜 ✨</h2>
-    <div class="videos">
-        <iframe src="https://www.youtube.com/embed/s8fW4uN0s-o" title="MC Zaac ft. Vigary - Vai Embrazando" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/NnI4KkJzG-0" title="Dadá Boladão ft. Tati Zaqui - Surtada" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/fW49eA_5S4Y" title="MC WM - Fuleragem" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/R_3U3kI-W9c" title="Felipe Original - Hit Contagiante" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/U2O149K_5tE" title="Trilogia 150" allowfullscreen></iframe>
-    </div>
-</div>
+::-webkit-scrollbar-thumb {
+    background: #ff007f;
+    border-radius: 5px;
+}
 
-</body>
-</html>
+::-webkit-scrollbar-corner {
+    background: #1a102f;
+}
+
+@keyframes trocarCorEBrilho {
+    0% {
+        color: #ff75a0;
+        text-shadow: 0 0 10px #ff75a0, 0 0 20px #ff75a0;
+    }
+    50% {
+        color: #f4e8c1;
+        text-shadow: 0 0 10px #f4e8c1, 0 0 20px #f4e8c1;
+    }
+    100% {
+        color: #ff75a0;
+        text-shadow: 0 0 10px #ff75a0, 0 0 20px #ff75a0;
+    }
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 95px;
+    text-align: center;
+    padding: 15px 30px;
+    border-bottom: 6px solid #ff75a0;
+    margin: 0 auto 30px auto;
+    width: fit-content;
+    letter-spacing: 3px;
+    animation: trocarCorEBrilho 3s infinite;
+}
+
+.secao-musica {
+    margin-bottom: 40px;
+    clear: both;
+}
+
+h2 {
+    font-size: 58px;
+    color: #ffb3c6;
+    padding: 8px 0;
+    display: block;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+.videos {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 15px;
+    background-color: transparent;
+}
+
+iframe, .card-video {
+    width: 360px;
+    height: 215px;
+    border-radius: 12px;
+    border: 2px solid #ff007f !important;
+    box-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f, 0 0 30px #00f0ff;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    background-color: #1a102f;
+}
+
+/* Estilos específicos do Cartão com Capa */
+.card-video {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.card-video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.botao-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(26, 16, 47, 0.85);
+    color: #ffb3c6;
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 1px solid #ff007f;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+iframe:hover, .card-video:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px #ff007f, 0 0 40px #00f0ff;
+}
+
+.card-video:hover .botao-play {
+    background: #ff007f;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 55px;
+        padding: 10px 18px;
+    }
+
+    h2 {
+        font-size: 40px;
+        padding: 6px 0;
+    }
+
+    iframe, .card-video {
+        width: 280px;
+        height: 180px;
+    }
+}
