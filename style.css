@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600&family=Pacifico&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #1a102f !important;
     color: #f4e8c1;
@@ -8,6 +12,24 @@ body {
     padding: 20px;
     margin: 0;
     min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a102f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff007f;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-corner {
+    background: #1a102f;
 }
 
 @keyframes trocarCorEBrilho {
@@ -51,13 +73,13 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* VÍDEOS NA HORIZONTAL COM ROLAGEM */
 .videos {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 20px;
     padding-bottom: 15px;
+    background-color: transparent;
 }
 
 iframe {
@@ -69,16 +91,14 @@ iframe {
     flex-shrink: 0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     outline: none;
-    background-color: transparent;
+    background-color: #1a102f;
 }
 
-/* Efeito ao passar o mouse em cada vídeo */
 iframe:hover {
     transform: scale(1.03);
     box-shadow: 0 0 20px #ff007f, 0 0 40px #00f0ff;
 }
 
-/* Ajustes automáticos para Celular */
 @media (max-width: 600px) {
     body {
         padding: 12px;
