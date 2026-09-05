@@ -1,157 +1,337 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600&family=Pacifico&display=swap');
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Lily</title>
-</head>
+* {
+    box-sizing: border-box;
+}
 
-<body>
+body {
+    background-color: #1a102f !important;
+    color: #f4e8c1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+    text-align: left;
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
 
-<div class="particulas">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-</div>
+.particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
 
-<h1>🎵 Música 🎵</h1>
+.particulas span {
+    position: absolute;
+    bottom: -50px;
+    background: currentColor;
+    clip-path: polygon(
+        50% 0%,
+        65% 35%,
+        100% 50%,
+        65% 65%,
+        50% 100%,
+        35% 65%,
+        0% 50%,
+        35% 35%
+    );
+    animation: flutuarEBrilhar 10s linear infinite;
+}
 
+.particulas span:nth-child(1) {
+    left: 8%;
+    width: 18px;
+    height: 18px;
+    color: #ff007f;
+    filter: drop-shadow(0 0 6px #ff007f);
+    animation-duration: 8s;
+}
 
-<!-- RAP / HIP HOP -->
-<div class="secao-musica">
-    <h2>✨ ℝ𝕒𝕡 / ℍ𝕚𝕡 ℍ𝕠𝕡 ✨</h2>
+.particulas span:nth-child(2) {
+    left: 18%;
+    width: 24px;
+    height: 24px;
+    color: #00f0ff;
+    filter: drop-shadow(0 0 8px #00f0ff);
+    animation-duration: 12s;
+    animation-delay: 1s;
+}
 
-    <div class="videos">
+.particulas span:nth-child(3) {
+    left: 32%;
+    width: 14px;
+    height: 14px;
+    color: #ff75a0;
+    filter: drop-shadow(0 0 5px #ff75a0);
+    animation-duration: 7s;
+    animation-delay: 2s;
+}
 
-        <!-- Vídeos que já estavam no site -->
-        <iframe
-            src="https://www.youtube.com/embed/7c3SWrQIE0A"
-            title="Chris MC ft. L7NNON - Fútil"
-            allowfullscreen>
-        </iframe>
+.particulas span:nth-child(4) {
+    left: 48%;
+    width: 20px;
+    height: 20px;
+    color: #ffe600;
+    filter: drop-shadow(0 0 8px #ffe600);
+    animation-duration: 11s;
+    animation-delay: 0.5s;
+}
 
-        <iframe
-            src="https://www.youtube.com/embed/ncLaAaENRWY"
-            title="Sofa, Breja e Netflix"
-            allowfullscreen>
-        </iframe>
+.particulas span:nth-child(5) {
+    left: 62%;
+    width: 26px;
+    height: 26px;
+    color: #a100ff;
+    filter: drop-shadow(0 0 10px #a100ff);
+    animation-duration: 9s;
+    animation-delay: 3s;
+}
 
-        <iframe
-            src="https://www.youtube.com/embed/jK2k1P56Cno"
-            title="Poesia Acústica #6"
-            allowfullscreen>
-        </iframe>
+.particulas span:nth-child(6) {
+    left: 78%;
+    width: 16px;
+    height: 16px;
+    color: #00ff88;
+    filter: drop-shadow(0 0 6px #00ff88);
+    animation-duration: 13s;
+    animation-delay: 1.5s;
+}
 
+.particulas span:nth-child(7) {
+    left: 88%;
+    width: 22px;
+    height: 22px;
+    color: #ff007f;
+    filter: drop-shadow(0 0 8px #ff007f);
+    animation-duration: 10s;
+    animation-delay: 4s;
+}
 
-        <!-- Novos vídeos -->
-        <iframe
-            src="https://www.youtube.com/embed/439kVuNoNrA"
-            title="Rap / Hip Hop"
-            allowfullscreen>
-        </iframe>
+.particulas span:nth-child(8) {
+    left: 24%;
+    width: 18px;
+    height: 18px;
+    color: #00f0ff;
+    filter: drop-shadow(0 0 6px #00f0ff);
+    animation-duration: 9s;
+    animation-delay: 2.5s;
+}
 
-        <iframe
-            src="https://www.youtube.com/embed/uK6UB4yVXMU"
-            title="Rap / Hip Hop"
-            allowfullscreen>
-        </iframe>
+.particulas span:nth-child(9) {
+    left: 42%;
+    width: 28px;
+    height: 28px;
+    color: #ff75a0;
+    filter: drop-shadow(0 0 10px #ff75a0);
+    animation-duration: 14s;
+    animation-delay: 0.8s;
+}
 
-        <iframe
-            src="https://www.youtube.com/embed/qcbrCmIt7ww"
-            title="Rap / Hip Hop"
-            allowfullscreen>
-        </iframe>
+.particulas span:nth-child(10) {
+    left: 72%;
+    width: 15px;
+    height: 15px;
+    color: #ffe600;
+    filter: drop-shadow(0 0 5px #ffe600);
+    animation-duration: 8s;
+    animation-delay: 3.5s;
+}
 
-    </div>
-</div>
+.particulas span:nth-child(11) {
+    left: 4%;
+    width: 20px;
+    height: 20px;
+    color: #00ff88;
+    filter: drop-shadow(0 0 7px #00ff88);
+    animation-duration: 11s;
+    animation-delay: 2s;
+}
 
+.particulas span:nth-child(12) {
+    left: 94%;
+    width: 14px;
+    height: 14px;
+    color: #a100ff;
+    filter: drop-shadow(0 0 5px #a100ff);
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
 
-<!-- SERTANEJO -->
-<div class="secao-musica">
-    <h2>✨ 𝕊𝕖𝕣𝕥𝕒𝕟𝕖𝕛𝕠 ✨</h2>
+.particulas span:nth-child(13) {
+    left: 54%;
+    width: 22px;
+    height: 22px;
+    color: #ff007f;
+    filter: drop-shadow(0 0 8px #ff007f);
+    animation-duration: 10s;
+    animation-delay: 1.8s;
+}
 
-    <div class="videos">
+.particulas span:nth-child(14) {
+    left: 38%;
+    width: 16px;
+    height: 16px;
+    color: #00f0ff;
+    filter: drop-shadow(0 0 6px #00f0ff);
+    animation-duration: 8.5s;
+    animation-delay: 0.3s;
+}
 
-        <iframe
-            src="https://www.youtube.com/embed/gmvFLIuVAbA"
-            title="Sertanejo"
-            allowfullscreen>
-        </iframe>
+.particulas span:nth-child(15) {
+    left: 82%;
+    width: 24px;
+    height: 24px;
+    color: #ffe600;
+    filter: drop-shadow(0 0 9px #ffe600);
+    animation-duration: 12.5s;
+    animation-delay: 2.2s;
+}
 
-        <iframe
-            src="https://www.youtube.com/embed/e5Ct8ZW_rcs"
-            title="Sertanejo"
-            allowfullscreen>
-        </iframe>
+@keyframes flutuarEBrilhar {
+    0% {
+        transform: translateY(0) scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
 
-        <iframe
-            src="https://www.youtube.com/embed/ex-cr18tKDE"
-            title="Sertanejo"
-            allowfullscreen>
-        </iframe>
+    25% {
+        opacity: 1;
+        transform: translateY(-25vh) scale(1.2) rotate(90deg);
+    }
 
-        <iframe
-            src="https://www.youtube.com/embed/1qKz_QohN7g"
-            title="Sertanejo"
-            allowfullscreen>
-        </iframe>
+    50% {
+        opacity: 0.6;
+        transform: translateY(-50vh) scale(0.7) rotate(180deg);
+    }
 
-        <iframe
-            src="https://www.youtube.com/embed/SETK2maosQY"
-            title="Sertanejo"
-            allowfullscreen>
-        </iframe>
+    75% {
+        opacity: 1;
+        transform: translateY(-75vh) scale(1.1) rotate(270deg);
+    }
 
-    </div>
-</div>
+    100% {
+        transform: translateY(-110vh) scale(0.4) rotate(360deg);
+        opacity: 0;
+    }
+}
 
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
 
-<!-- FUNK -->
-<div class="secao-musica">
-    <h2>✨ 𝔽𝕦𝕟𝕜 ✨</h2>
+::-webkit-scrollbar-track {
+    background: #1a102f;
+}
 
-    <div class="videos">
+::-webkit-scrollbar-thumb {
+    background: #ff007f;
+    border-radius: 5px;
+}
 
-        <iframe
-            src="https://www.youtube.com/embed/UTYNURBuv7o"
-            title="Funk"
-            allowfullscreen>
-        </iframe>
+::-webkit-scrollbar-corner {
+    background: #1a102f;
+}
 
-        <iframe
-            src="https://www.youtube.com/embed/V0MECgmHCOo"
-            title="Funk"
-            allowfullscreen>
-        </iframe>
+@keyframes trocarCorEBrilho {
+    0% {
+        color: #ff75a0;
+        text-shadow: 0 0 10px #ff75a0, 0 0 20px #ff75a0;
+    }
 
-        <iframe
-            src="https://www.youtube.com/embed/vhTrtN7e2bs"
-            title="Funk"
-            allowfullscreen>
-        </iframe>
+    50% {
+        color: #f4e8c1;
+        text-shadow: 0 0 10px #f4e8c1, 0 0 20px #f4e8c1;
+    }
 
-        <iframe
-            src="https://www.youtube.com/embed/wU1U7Jgq_uo"
-            title="Funk"
-            allowfullscreen>
-        </iframe>
+    100% {
+        color: #ff75a0;
+        text-shadow: 0 0 10px #ff75a0, 0 0 20px #ff75a0;
+    }
+}
 
-        <iframe
-            src="https://www.youtube.com/embed/6MNxuMgg58k"
-            title="Funk"
-            allowfullscreen>
-        </iframe>
+h1 {
+    position: relative;
+    z-index: 1;
+    font-family: 'Pacifico', cursive;
+    font-size: 95px;
+    text-align: center;
+    padding: 15px 30px;
+    border-bottom: 6px solid #ff75a0;
+    margin: 0 auto 30px auto;
+    width: fit-content;
+    letter-spacing: 3px;
+    animation: trocarCorEBrilho 3s infinite;
+}
 
-        <iframe
-            src="https://www.youtube.com/embed/ncLaAaENRWY"
-            title="Funk"
-            allowfullscreen>
-        </iframe>
+.secao-musica {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 40px;
+    clear: both;
+}
 
-    </div>
-</div>
+h2 {
+    font-size: 58px;
+    color: #ffb3c6;
+    padding: 8px 0;
+    display: block;
+    width: fit-content;
+    margin-bottom: 20px;
+}
 
-</body>
-</html>
+.videos {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 15px;
+    background-color: transparent;
+}
+
+iframe {
+    width: 360px;
+    height: 215px;
+    border-radius: 12px;
+    border: 2px solid #ff007f !important;
+    box-shadow:
+        0 0 10px #ff007f,
+        0 0 20px #ff007f,
+        0 0 30px #00f0ff;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    background-color: #1a102f;
+}
+
+iframe:hover {
+    transform: scale(1.03);
+    box-shadow:
+        0 0 20px #ff007f,
+        0 0 40px #00f0ff;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 55px;
+        padding: 10px 18px;
+    }
+
+    h2 {
+        font-size: 40px;
+        padding: 6px 0;
+    }
+
+    iframe {
+        width: 280px;
+        height: 180px;
+    }
+}
