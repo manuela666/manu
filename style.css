@@ -4,6 +4,21 @@
     box-sizing: border-box;
 }
 
+
+/* =========================================
+   ⭐ CURSOR DE ESTRELA
+   ========================================= */
+
+html,
+body {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M16 1 L19 12 L31 16 L19 20 L16 31 L13 20 L1 16 L13 12 Z' fill='white' stroke='%23d9d9d9' stroke-width='1'/></svg>") 16 16, auto;
+}
+
+
+/* =========================================
+   🌌 FUNDO
+   ========================================= */
+
 body {
     background-color: #1a102f !important;
     color: #f4e8c1;
@@ -62,50 +77,199 @@ body {
 
 
 /* =========================================
-   🌟 TAMANHOS VARIADOS
+   🌟 TAMANHOS DAS ESTRELAS
    ========================================= */
 
-.particulas span:nth-child(1) { left: 5%; width: 3px; height: 3px; }
-.particulas span:nth-child(2) { left: 12%; width: 13px; height: 13px; }
-.particulas span:nth-child(3) { left: 18%; width: 2px; height: 2px; }
-.particulas span:nth-child(4) { left: 25%; width: 7px; height: 7px; }
-.particulas span:nth-child(5) { left: 32%; width: 24px; height: 24px; }
-.particulas span:nth-child(6) { left: 39%; width: 3px; height: 3px; }
-.particulas span:nth-child(7) { left: 45%; width: 10px; height: 10px; }
-.particulas span:nth-child(8) { left: 51%; width: 2px; height: 2px; }
-.particulas span:nth-child(9) { left: 57%; width: 20px; height: 20px; }
-.particulas span:nth-child(10) { left: 63%; width: 4px; height: 4px; }
-.particulas span:nth-child(11) { left: 69%; width: 8px; height: 8px; }
-.particulas span:nth-child(12) { left: 75%; width: 3px; height: 3px; }
-.particulas span:nth-child(13) { left: 81%; width: 27px; height: 27px; }
-.particulas span:nth-child(14) { left: 87%; width: 2px; height: 2px; }
-.particulas span:nth-child(15) { left: 94%; width: 12px; height: 12px; }
+.particulas span:nth-child(1) {
+    left: 5%;
+    width: 3px;
+    height: 3px;
+}
 
-.particulas span:nth-child(16) { left: 8%; width: 2px; height: 2px; }
-.particulas span:nth-child(17) { left: 15%; width: 6px; height: 6px; }
-.particulas span:nth-child(18) { left: 22%; width: 3px; height: 3px; }
-.particulas span:nth-child(19) { left: 29%; width: 14px; height: 14px; }
-.particulas span:nth-child(20) { left: 36%; width: 2px; height: 2px; }
-.particulas span:nth-child(21) { left: 43%; width: 5px; height: 5px; }
-.particulas span:nth-child(22) { left: 50%; width: 3px; height: 3px; }
-.particulas span:nth-child(23) { left: 60%; width: 18px; height: 18px; }
-.particulas span:nth-child(24) { left: 67%; width: 2px; height: 2px; }
-.particulas span:nth-child(25) { left: 73%; width: 6px; height: 6px; }
-.particulas span:nth-child(26) { left: 79%; width: 3px; height: 3px; }
-.particulas span:nth-child(27) { left: 84%; width: 2px; height: 2px; }
-.particulas span:nth-child(28) { left: 90%; width: 7px; height: 7px; }
-.particulas span:nth-child(29) { left: 97%; width: 3px; height: 3px; }
-.particulas span:nth-child(30) { left: 3%; width: 5px; height: 5px; }
+.particulas span:nth-child(2) {
+    left: 12%;
+    width: 13px;
+    height: 13px;
+}
+
+.particulas span:nth-child(3) {
+    left: 18%;
+    width: 2px;
+    height: 2px;
+}
+
+.particulas span:nth-child(4) {
+    left: 25%;
+    width: 7px;
+    height: 7px;
+}
+
+.particulas span:nth-child(5) {
+    left: 32%;
+    width: 24px;
+    height: 24px;
+}
+
+.particulas span:nth-child(6) {
+    left: 39%;
+    width: 3px;
+    height: 3px;
+}
+
+.particulas span:nth-child(7) {
+    left: 45%;
+    width: 10px;
+    height: 10px;
+}
+
+.particulas span:nth-child(8) {
+    left: 51%;
+    width: 2px;
+    height: 2px;
+}
+
+.particulas span:nth-child(9) {
+    left: 57%;
+    width: 20px;
+    height: 20px;
+}
+
+.particulas span:nth-child(10) {
+    left: 63%;
+    width: 4px;
+    height: 4px;
+}
+
+.particulas span:nth-child(11) {
+    left: 69%;
+    width: 8px;
+    height: 8px;
+}
+
+.particulas span:nth-child(12) {
+    left: 75%;
+    width: 3px;
+    height: 3px;
+}
+
+.particulas span:nth-child(13) {
+    left: 81%;
+    width: 27px;
+    height: 27px;
+}
+
+.particulas span:nth-child(14) {
+    left: 87%;
+    width: 2px;
+    height: 2px;
+}
+
+.particulas span:nth-child(15) {
+    left: 94%;
+    width: 12px;
+    height: 12px;
+}
+
+.particulas span:nth-child(16) {
+    left: 8%;
+    width: 2px;
+    height: 2px;
+}
+
+.particulas span:nth-child(17) {
+    left: 15%;
+    width: 6px;
+    height: 6px;
+}
+
+.particulas span:nth-child(18) {
+    left: 22%;
+    width: 3px;
+    height: 3px;
+}
+
+.particulas span:nth-child(19) {
+    left: 29%;
+    width: 14px;
+    height: 14px;
+}
+
+.particulas span:nth-child(20) {
+    left: 36%;
+    width: 2px;
+    height: 2px;
+}
+
+.particulas span:nth-child(21) {
+    left: 43%;
+    width: 5px;
+    height: 5px;
+}
+
+.particulas span:nth-child(22) {
+    left: 50%;
+    width: 3px;
+    height: 3px;
+}
+
+.particulas span:nth-child(23) {
+    left: 60%;
+    width: 18px;
+    height: 18px;
+}
+
+.particulas span:nth-child(24) {
+    left: 67%;
+    width: 2px;
+    height: 2px;
+}
+
+.particulas span:nth-child(25) {
+    left: 73%;
+    width: 6px;
+    height: 6px;
+}
+
+.particulas span:nth-child(26) {
+    left: 79%;
+    width: 3px;
+    height: 3px;
+}
+
+.particulas span:nth-child(27) {
+    left: 84%;
+    width: 2px;
+    height: 2px;
+}
+
+.particulas span:nth-child(28) {
+    left: 90%;
+    width: 7px;
+    height: 7px;
+}
+
+.particulas span:nth-child(29) {
+    left: 97%;
+    width: 3px;
+    height: 3px;
+}
+
+.particulas span:nth-child(30) {
+    left: 3%;
+    width: 5px;
+    height: 5px;
+}
 
 
 /* =========================================
-   🌠 RASTROS DAS ESTRELAS CADENTES
+   🌠 ESTRELAS COM RASTRO
    ========================================= */
 
 .particulas span:nth-child(5),
 .particulas span:nth-child(9),
 .particulas span:nth-child(13),
 .particulas span:nth-child(23) {
+
     filter:
         drop-shadow(0 0 6px #ffffff)
         drop-shadow(0 0 14px #ffffff)
@@ -113,12 +277,6 @@ body {
         drop-shadow(0 0 40px rgba(255,255,255,0.8));
 }
 
-
-/*
-   Cauda da estrela.
-   A parte de cima é mais brilhante.
-   A parte de baixo desaparece.
-*/
 
 .particulas span:nth-child(5)::after,
 .particulas span:nth-child(9)::after,
@@ -156,7 +314,7 @@ body {
 
 
 /* =========================================
-   ✨ PONTINHOS BEM PEQUENOS
+   ✨ PONTINHOS
    ========================================= */
 
 .particulas span:nth-child(1),
@@ -176,6 +334,7 @@ body {
 .particulas span:nth-child(29) {
 
     clip-path: none;
+
     border-radius: 50%;
 
     background: #ffffff;
@@ -187,24 +346,83 @@ body {
 
 
 /* =========================================
-   ⭐ POSIÇÕES E VELOCIDADES
+   ⭐ VELOCIDADE DAS ESTRELAS
    ========================================= */
 
-.particulas span:nth-child(1) { animation-duration: 6s; animation-delay: 0s; }
-.particulas span:nth-child(2) { animation-duration: 7s; animation-delay: 1s; }
-.particulas span:nth-child(3) { animation-duration: 5s; animation-delay: 2s; }
-.particulas span:nth-child(4) { animation-duration: 7.5s; animation-delay: .5s; }
-.particulas span:nth-child(5) { animation-duration: 8s; animation-delay: 2s; }
-.particulas span:nth-child(6) { animation-duration: 5.5s; animation-delay: 1s; }
-.particulas span:nth-child(7) { animation-duration: 6.5s; animation-delay: 3s; }
-.particulas span:nth-child(8) { animation-duration: 5s; animation-delay: 1.5s; }
-.particulas span:nth-child(9) { animation-duration: 8.5s; animation-delay: 3s; }
-.particulas span:nth-child(10) { animation-duration: 5.5s; animation-delay: 2s; }
-.particulas span:nth-child(11) { animation-duration: 7s; animation-delay: .5s; }
-.particulas span:nth-child(12) { animation-duration: 5s; animation-delay: 3s; }
-.particulas span:nth-child(13) { animation-duration: 9s; animation-delay: 1s; }
-.particulas span:nth-child(14) { animation-duration: 5.5s; animation-delay: 2.5s; }
-.particulas span:nth-child(15) { animation-duration: 7s; animation-delay: 4s; }
+.particulas span:nth-child(1) {
+    animation-duration: 6s;
+    animation-delay: 0s;
+}
+
+.particulas span:nth-child(2) {
+    animation-duration: 7s;
+    animation-delay: 1s;
+}
+
+.particulas span:nth-child(3) {
+    animation-duration: 5s;
+    animation-delay: 2s;
+}
+
+.particulas span:nth-child(4) {
+    animation-duration: 7.5s;
+    animation-delay: .5s;
+}
+
+.particulas span:nth-child(5) {
+    animation-duration: 8s;
+    animation-delay: 2s;
+}
+
+.particulas span:nth-child(6) {
+    animation-duration: 5.5s;
+    animation-delay: 1s;
+}
+
+.particulas span:nth-child(7) {
+    animation-duration: 6.5s;
+    animation-delay: 3s;
+}
+
+.particulas span:nth-child(8) {
+    animation-duration: 5s;
+    animation-delay: 1.5s;
+}
+
+.particulas span:nth-child(9) {
+    animation-duration: 8.5s;
+    animation-delay: 3s;
+}
+
+.particulas span:nth-child(10) {
+    animation-duration: 5.5s;
+    animation-delay: 2s;
+}
+
+.particulas span:nth-child(11) {
+    animation-duration: 7s;
+    animation-delay: .5s;
+}
+
+.particulas span:nth-child(12) {
+    animation-duration: 5s;
+    animation-delay: 3s;
+}
+
+.particulas span:nth-child(13) {
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+.particulas span:nth-child(14) {
+    animation-duration: 5.5s;
+    animation-delay: 2.5s;
+}
+
+.particulas span:nth-child(15) {
+    animation-duration: 7s;
+    animation-delay: 4s;
+}
 
 .particulas span:nth-child(23) {
     animation-duration: 8.5s;
@@ -244,7 +462,7 @@ body {
 
 
 /* =========================================
-   BARRA DE ROLAGEM
+   📜 BARRA DE ROLAGEM
    ========================================= */
 
 ::-webkit-scrollbar {
@@ -267,7 +485,7 @@ body {
 
 
 /* =========================================
-   TÍTULO
+   💗 TÍTULO
    ========================================= */
 
 @keyframes trocarCorEBrilho {
@@ -293,6 +511,7 @@ h1 {
     z-index: 1;
 
     font-family: 'Pacifico', cursive;
+
     font-size: 95px;
 
     text-align: center;
@@ -312,11 +531,12 @@ h1 {
 
 
 /* =========================================
-   SEÇÕES
+   🎵 SEÇÕES
    ========================================= */
 
 .secao-musica {
     position: relative;
+
     z-index: 1;
 
     margin-bottom: 40px;
@@ -340,7 +560,7 @@ h2 {
 
 
 /* =========================================
-   VÍDEOS
+   📺 VÍDEOS
    ========================================= */
 
 .videos {
@@ -359,6 +579,7 @@ h2 {
 
 iframe {
     width: 360px;
+
     height: 215px;
 
     border-radius: 12px;
@@ -391,7 +612,7 @@ iframe:hover {
 
 
 /* =========================================
-   CELULAR
+   📱 CELULAR
    ========================================= */
 
 @media (max-width: 600px) {
@@ -402,16 +623,19 @@ iframe:hover {
 
     h1 {
         font-size: 55px;
+
         padding: 10px 18px;
     }
 
     h2 {
         font-size: 40px;
+
         padding: 6px 0;
     }
 
     iframe {
         width: 280px;
+
         height: 180px;
     }
 }
