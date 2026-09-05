@@ -1,5 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600&family=Pacifico&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a102f !important;
+    color: #f4e8c1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+    text-align: left;
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
 /* =========================================
-   CÉU DE ESTRELAS ✨
+   ✨ ESTRELAS
    ========================================= */
 
 .particulas {
@@ -12,16 +31,12 @@
     z-index: 0;
 }
 
-
-/* =========================================
-   ESTRELAS NORMAIS
-   ========================================= */
-
 .particulas span {
     position: absolute;
     bottom: -50px;
-    width: 12px;
-    height: 12px;
+
+    width: 9px;
+    height: 9px;
 
     background: #eeeeee;
 
@@ -39,54 +54,94 @@
     filter:
         drop-shadow(0 0 4px #ffffff)
         drop-shadow(0 0 10px #ffffff)
-        drop-shadow(0 0 18px #eeeeee);
+        drop-shadow(0 0 20px #eeeeee)
+        drop-shadow(0 0 30px rgba(255,255,255,0.7));
 
     animation: flutuarEBrilhar 7s linear infinite;
 }
 
 
 /* =========================================
-   🌠 ESTRELAS CADENTES
+   🌟 TAMANHOS VARIADOS
    ========================================= */
 
-.estrela-cadente {
-    width: 18px !important;
-    height: 18px !important;
+.particulas span:nth-child(1) { left: 5%; width: 3px; height: 3px; }
+.particulas span:nth-child(2) { left: 12%; width: 13px; height: 13px; }
+.particulas span:nth-child(3) { left: 18%; width: 2px; height: 2px; }
+.particulas span:nth-child(4) { left: 25%; width: 7px; height: 7px; }
+.particulas span:nth-child(5) { left: 32%; width: 24px; height: 24px; }
+.particulas span:nth-child(6) { left: 39%; width: 3px; height: 3px; }
+.particulas span:nth-child(7) { left: 45%; width: 10px; height: 10px; }
+.particulas span:nth-child(8) { left: 51%; width: 2px; height: 2px; }
+.particulas span:nth-child(9) { left: 57%; width: 20px; height: 20px; }
+.particulas span:nth-child(10) { left: 63%; width: 4px; height: 4px; }
+.particulas span:nth-child(11) { left: 69%; width: 8px; height: 8px; }
+.particulas span:nth-child(12) { left: 75%; width: 3px; height: 3px; }
+.particulas span:nth-child(13) { left: 81%; width: 27px; height: 27px; }
+.particulas span:nth-child(14) { left: 87%; width: 2px; height: 2px; }
+.particulas span:nth-child(15) { left: 94%; width: 12px; height: 12px; }
 
-    /* A estrela fica na frente */
-    z-index: 2;
+.particulas span:nth-child(16) { left: 8%; width: 2px; height: 2px; }
+.particulas span:nth-child(17) { left: 15%; width: 6px; height: 6px; }
+.particulas span:nth-child(18) { left: 22%; width: 3px; height: 3px; }
+.particulas span:nth-child(19) { left: 29%; width: 14px; height: 14px; }
+.particulas span:nth-child(20) { left: 36%; width: 2px; height: 2px; }
+.particulas span:nth-child(21) { left: 43%; width: 5px; height: 5px; }
+.particulas span:nth-child(22) { left: 50%; width: 3px; height: 3px; }
+.particulas span:nth-child(23) { left: 60%; width: 18px; height: 18px; }
+.particulas span:nth-child(24) { left: 67%; width: 2px; height: 2px; }
+.particulas span:nth-child(25) { left: 73%; width: 6px; height: 6px; }
+.particulas span:nth-child(26) { left: 79%; width: 3px; height: 3px; }
+.particulas span:nth-child(27) { left: 84%; width: 2px; height: 2px; }
+.particulas span:nth-child(28) { left: 90%; width: 7px; height: 7px; }
+.particulas span:nth-child(29) { left: 97%; width: 3px; height: 3px; }
+.particulas span:nth-child(30) { left: 3%; width: 5px; height: 5px; }
 
-    /* Brilho da estrela */
+
+/* =========================================
+   🌠 RASTROS DAS ESTRELAS CADENTES
+   ========================================= */
+
+.particulas span:nth-child(5),
+.particulas span:nth-child(9),
+.particulas span:nth-child(13),
+.particulas span:nth-child(23) {
     filter:
-        drop-shadow(0 0 5px #ffffff)
-        drop-shadow(0 0 12px #ffffff)
-        drop-shadow(0 0 25px #ffffff);
+        drop-shadow(0 0 6px #ffffff)
+        drop-shadow(0 0 14px #ffffff)
+        drop-shadow(0 0 25px #eeeeee)
+        drop-shadow(0 0 40px rgba(255,255,255,0.8));
 }
 
 
 /*
-   A CAUDA da estrela.
-   Ela fica atrás da estrela e vai
-   desaparecendo conforme sobe.
+   Cauda da estrela.
+   A parte de cima é mais brilhante.
+   A parte de baixo desaparece.
 */
 
-.estrela-cadente::after {
+.particulas span:nth-child(5)::after,
+.particulas span:nth-child(9)::after,
+.particulas span:nth-child(13)::after,
+.particulas span:nth-child(23)::after {
+
     content: "";
 
     position: absolute;
 
-    width: 5px;
-    height: 100px;
+    width: 4px;
+    height: 110px;
 
     left: 50%;
-    top: 10px;
+    top: 65%;
 
     transform: translateX(-50%);
 
     background: linear-gradient(
         to bottom,
-        rgba(255,255,255,0.8),
-        rgba(230,230,230,0.45),
+        rgba(255,255,255,0.85),
+        rgba(255,255,255,0.55),
+        rgba(230,230,230,0.25),
         rgba(255,255,255,0)
     );
 
@@ -94,77 +149,77 @@
 
     filter:
         blur(2px)
-        drop-shadow(0 0 6px #ffffff);
+        drop-shadow(0 0 5px #ffffff);
 
     z-index: -1;
 }
 
 
 /* =========================================
-   POSIÇÃO DAS ESTRELAS CADENTES
+   ✨ PONTINHOS BEM PEQUENOS
    ========================================= */
 
-.estrela-cadente:nth-of-type(26) {
-    left: 15%;
-    animation-duration: 6.5s;
-    animation-delay: 1s;
+.particulas span:nth-child(1),
+.particulas span:nth-child(3),
+.particulas span:nth-child(6),
+.particulas span:nth-child(8),
+.particulas span:nth-child(10),
+.particulas span:nth-child(12),
+.particulas span:nth-child(14),
+.particulas span:nth-child(16),
+.particulas span:nth-child(18),
+.particulas span:nth-child(20),
+.particulas span:nth-child(22),
+.particulas span:nth-child(24),
+.particulas span:nth-child(26),
+.particulas span:nth-child(27),
+.particulas span:nth-child(29) {
+
+    clip-path: none;
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    filter:
+        drop-shadow(0 0 2px #ffffff)
+        drop-shadow(0 0 5px #ffffff);
 }
 
-.estrela-cadente:nth-of-type(27) {
-    left: 38%;
-    animation-duration: 7.5s;
-    animation-delay: 3s;
-}
 
-.estrela-cadente:nth-of-type(28) {
-    left: 58%;
-    animation-duration: 6.8s;
-    animation-delay: 0.5s;
-}
+/* =========================================
+   ⭐ POSIÇÕES E VELOCIDADES
+   ========================================= */
 
-.estrela-cadente:nth-of-type(29) {
-    left: 78%;
-    animation-duration: 8s;
-    animation-delay: 2s;
-}
+.particulas span:nth-child(1) { animation-duration: 6s; animation-delay: 0s; }
+.particulas span:nth-child(2) { animation-duration: 7s; animation-delay: 1s; }
+.particulas span:nth-child(3) { animation-duration: 5s; animation-delay: 2s; }
+.particulas span:nth-child(4) { animation-duration: 7.5s; animation-delay: .5s; }
+.particulas span:nth-child(5) { animation-duration: 8s; animation-delay: 2s; }
+.particulas span:nth-child(6) { animation-duration: 5.5s; animation-delay: 1s; }
+.particulas span:nth-child(7) { animation-duration: 6.5s; animation-delay: 3s; }
+.particulas span:nth-child(8) { animation-duration: 5s; animation-delay: 1.5s; }
+.particulas span:nth-child(9) { animation-duration: 8.5s; animation-delay: 3s; }
+.particulas span:nth-child(10) { animation-duration: 5.5s; animation-delay: 2s; }
+.particulas span:nth-child(11) { animation-duration: 7s; animation-delay: .5s; }
+.particulas span:nth-child(12) { animation-duration: 5s; animation-delay: 3s; }
+.particulas span:nth-child(13) { animation-duration: 9s; animation-delay: 1s; }
+.particulas span:nth-child(14) { animation-duration: 5.5s; animation-delay: 2.5s; }
+.particulas span:nth-child(15) { animation-duration: 7s; animation-delay: 4s; }
 
-.estrela-cadente:nth-of-type(30) {
-    left: 92%;
-    animation-duration: 7s;
+.particulas span:nth-child(23) {
+    animation-duration: 8.5s;
     animation-delay: 4s;
 }
 
 
 /* =========================================
-   ✨ MUITOS PONTINHOS
-   ========================================= */
-
-.pontinho {
-    width: 2px !important;
-    height: 2px !important;
-
-    background: #ffffff !important;
-
-    clip-path: none !important;
-
-    border-radius: 50%;
-
-    filter:
-        drop-shadow(0 0 2px #ffffff)
-        drop-shadow(0 0 5px #ffffff) !important;
-
-    animation-duration: 5s !important;
-}
-
-
-/* =========================================
-   ANIMAÇÃO
+   🌌 ANIMAÇÃO
    ========================================= */
 
 @keyframes flutuarEBrilhar {
 
     0% {
-        transform: translateY(0) scale(0.5) rotate(0deg);
+        transform: translateY(0) scale(.5) rotate(0deg);
         opacity: 0;
     }
 
@@ -173,17 +228,191 @@
     }
 
     50% {
-        opacity: 0.9;
         transform: translateY(-50vh) scale(1) rotate(180deg);
+        opacity: .9;
     }
 
     80% {
-        opacity: 0.7;
+        opacity: .7;
     }
 
     100% {
-        transform: translateY(-110vh) scale(0.5) rotate(360deg);
+        transform: translateY(-110vh) scale(.5) rotate(360deg);
         opacity: 0;
+    }
+}
+
+
+/* =========================================
+   BARRA DE ROLAGEM
+   ========================================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a102f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff007f;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-corner {
+    background: #1a102f;
+}
+
+
+/* =========================================
+   TÍTULO
+   ========================================= */
+
+@keyframes trocarCorEBrilho {
+
+    0% {
+        color: #ff75a0;
+        text-shadow: 0 0 10px #ff75a0, 0 0 20px #ff75a0;
+    }
+
+    50% {
+        color: #f4e8c1;
+        text-shadow: 0 0 10px #f4e8c1, 0 0 20px #f4e8c1;
+    }
+
+    100% {
+        color: #ff75a0;
+        text-shadow: 0 0 10px #ff75a0, 0 0 20px #ff75a0;
+    }
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+
+    font-family: 'Pacifico', cursive;
+    font-size: 95px;
+
+    text-align: center;
+
+    padding: 15px 30px;
+
+    border-bottom: 6px solid #ff75a0;
+
+    margin: 0 auto 30px auto;
+
+    width: fit-content;
+
+    letter-spacing: 3px;
+
+    animation: trocarCorEBrilho 3s infinite;
+}
+
+
+/* =========================================
+   SEÇÕES
+   ========================================= */
+
+.secao-musica {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 40px;
+
+    clear: both;
+}
+
+h2 {
+    font-size: 58px;
+
+    color: #ffb3c6;
+
+    padding: 8px 0;
+
+    display: block;
+
+    width: fit-content;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   VÍDEOS
+   ========================================= */
+
+.videos {
+    display: flex;
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    gap: 20px;
+
+    padding-bottom: 15px;
+
+    background-color: transparent;
+}
+
+iframe {
+    width: 360px;
+    height: 215px;
+
+    border-radius: 12px;
+
+    border: 2px solid #ff007f !important;
+
+    box-shadow:
+        0 0 10px #ff007f,
+        0 0 20px #ff007f,
+        0 0 30px #00f0ff;
+
+    flex-shrink: 0;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    outline: none;
+
+    background-color: #1a102f;
+}
+
+iframe:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 20px #ff007f,
+        0 0 40px #00f0ff;
+}
+
+
+/* =========================================
+   CELULAR
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 55px;
+        padding: 10px 18px;
+    }
+
+    h2 {
+        font-size: 40px;
+        padding: 6px 0;
+    }
+
+    iframe {
+        width: 280px;
+        height: 180px;
     }
 }
 
