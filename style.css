@@ -4,13 +4,20 @@
     box-sizing: border-box;
 }
 
-/* ⭐ CURSOR DE ESTRELA */
+/* =========================================
+   ⭐ CURSOR DE ESTRELA
+   ========================================= */
+
 html,
 body {
     cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M16 1 L19 12 L31 16 L19 20 L16 31 L13 20 L1 16 L13 12 Z' fill='white' stroke='%23ffffff' stroke-width='1'/></svg>") 16 16, auto;
 }
 
-/* 🌌 FUNDO */
+
+/* =========================================
+   🌌 FUNDO
+   ========================================= */
+
 body {
     background-color: #1a102f !important;
     color: #f4e8c1;
@@ -23,7 +30,11 @@ body {
     overflow-x: hidden;
 }
 
-/* ✨ ÁREA DAS ESTRELAS */
+
+/* =========================================
+   ✨ ÁREA DAS ESTRELAS
+   ========================================= */
+
 .particulas {
     position: fixed;
     inset: 0;
@@ -34,7 +45,11 @@ body {
     overflow: hidden;
 }
 
-/* ⭐ ESTRELAS */
+
+/* =========================================
+   ⭐ ESTRELAS
+   ========================================= */
+
 .particulas span {
     position: absolute;
     bottom: -50px;
@@ -55,18 +70,22 @@ body {
     filter:
         drop-shadow(0 0 4px #ffffff)
         drop-shadow(0 0 10px #ffffff)
-        drop-shadow(0 0 20px #dcdcdc);
+        drop-shadow(0 0 20px #e5e5e5);
 
     animation: subirEstrela linear infinite;
 }
 
-/* 🌟 POSIÇÃO E TAMANHO DAS ESTRELAS */
+
+/* =========================================
+   🌟 ESTRELAS ESPALHADAS
+   ========================================= */
 
 .particulas span:nth-child(1) {
     left: 3%;
     width: 3px;
     height: 3px;
     animation-duration: 6s;
+    animation-delay: 0s;
 }
 
 .particulas span:nth-child(2) {
@@ -93,12 +112,22 @@ body {
     animation-delay: 1s;
 }
 
+
+/* ⭐ ESTRELA GRANDE + RASTRO */
+
 .particulas span:nth-child(5) {
     left: 30%;
     width: 25px;
     height: 25px;
     animation-duration: 9s;
     animation-delay: 3s;
+
+    filter:
+        drop-shadow(0 0 4px #ffffff)
+        drop-shadow(0 0 10px #ffffff)
+        drop-shadow(0 0 20px #ffffff)
+        drop-shadow(0 0 35px #ffffff)
+        drop-shadow(0 0 50px rgba(255,255,255,0.7));
 }
 
 .particulas span:nth-child(6) {
@@ -125,12 +154,22 @@ body {
     animation-delay: 3s;
 }
 
+
+/* ⭐ ESTRELA GRANDE + RASTRO */
+
 .particulas span:nth-child(9) {
     left: 58%;
     width: 21px;
     height: 21px;
     animation-duration: 10s;
     animation-delay: 1s;
+
+    filter:
+        drop-shadow(0 0 4px #ffffff)
+        drop-shadow(0 0 10px #ffffff)
+        drop-shadow(0 0 20px #ffffff)
+        drop-shadow(0 0 35px #ffffff)
+        drop-shadow(0 0 50px rgba(255,255,255,0.7));
 }
 
 .particulas span:nth-child(10) {
@@ -157,12 +196,22 @@ body {
     animation-delay: 1s;
 }
 
+
+/* ⭐ ESTRELA GRANDE + RASTRO */
+
 .particulas span:nth-child(13) {
     left: 82%;
     width: 28px;
     height: 28px;
     animation-duration: 10s;
     animation-delay: 3s;
+
+    filter:
+        drop-shadow(0 0 4px #ffffff)
+        drop-shadow(0 0 10px #ffffff)
+        drop-shadow(0 0 20px #ffffff)
+        drop-shadow(0 0 35px #ffffff)
+        drop-shadow(0 0 50px rgba(255,255,255,0.7));
 }
 
 .particulas span:nth-child(14) {
@@ -205,12 +254,21 @@ body {
     animation-delay: 4s;
 }
 
+
+/* ⭐ ESTRELA GRANDE + RASTRO */
+
 .particulas span:nth-child(19) {
     left: 27%;
     width: 15px;
     height: 15px;
     animation-duration: 9s;
     animation-delay: 1s;
+
+    filter:
+        drop-shadow(0 0 4px #ffffff)
+        drop-shadow(0 0 10px #ffffff)
+        drop-shadow(0 0 20px #ffffff)
+        drop-shadow(0 0 35px #ffffff);
 }
 
 .particulas span:nth-child(20) {
@@ -237,12 +295,21 @@ body {
     animation-delay: 1s;
 }
 
+
+/* ⭐ ESTRELA GRANDE + RASTRO */
+
 .particulas span:nth-child(23) {
     left: 55%;
     width: 18px;
     height: 18px;
     animation-duration: 9s;
     animation-delay: 4s;
+
+    filter:
+        drop-shadow(0 0 4px #ffffff)
+        drop-shadow(0 0 10px #ffffff)
+        drop-shadow(0 0 20px #ffffff)
+        drop-shadow(0 0 35px #ffffff);
 }
 
 .particulas span:nth-child(24) {
@@ -302,7 +369,9 @@ body {
 }
 
 
-/* 🌠 RASTROS DAS ESTRELAS GRANDES */
+/* =========================================
+   🌠 RASTROS BRANCOS
+   ========================================= */
 
 .particulas span:nth-child(5)::after,
 .particulas span:nth-child(9)::after,
@@ -314,27 +383,31 @@ body {
 
     position: absolute;
 
-    width: 3px;
-    height: 130px;
+    width: 5px;
+    height: 180px;
 
     left: 50%;
-    top: 70px;
+    top: 75%;
 
     transform: translateX(-50%);
 
     background: linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0.95),
-        rgba(255, 255, 255, 0.7),
-        rgba(255, 255, 255, 0.35),
-        rgba(255, 255, 255, 0)
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,0.9) 15%,
+        rgba(255,255,255,0.65) 35%,
+        rgba(255,255,255,0.35) 55%,
+        rgba(255,255,255,0.12) 75%,
+        rgba(255,255,255,0) 100%
     );
 
     border-radius: 50%;
 
     box-shadow:
         0 0 5px #ffffff,
-        0 0 10px rgba(255,255,255,0.7);
+        0 0 10px #ffffff,
+        0 0 20px rgba(255,255,255,0.9),
+        0 0 30px rgba(255,255,255,0.5);
 
     filter: blur(1px);
 
@@ -342,7 +415,9 @@ body {
 }
 
 
-/* ✨ PONTINHOS */
+/* =========================================
+   ✨ ESTRELAS PEQUENINAS
+   ========================================= */
 
 .particulas span:nth-child(1),
 .particulas span:nth-child(3),
@@ -361,17 +436,20 @@ body {
 .particulas span:nth-child(29) {
 
     clip-path: none;
+
     border-radius: 50%;
 
     background: #ffffff;
 
     filter:
         drop-shadow(0 0 2px #ffffff)
-        drop-shadow(0 0 6px #ffffff);
+        drop-shadow(0 0 5px #ffffff);
 }
 
 
-/* 🌌 MOVIMENTO */
+/* =========================================
+   🌌 MOVIMENTO DAS ESTRELAS
+   ========================================= */
 
 @keyframes subirEstrela {
 
@@ -385,8 +463,8 @@ body {
     }
 
     50% {
-        opacity: 0.9;
         transform: translateY(-50vh) rotate(180deg) scale(1);
+        opacity: 0.95;
     }
 
     80% {
@@ -400,7 +478,9 @@ body {
 }
 
 
-/* 📜 BARRA DE ROLAGEM */
+/* =========================================
+   📜 BARRA DE ROLAGEM
+   ========================================= */
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -421,7 +501,9 @@ body {
 }
 
 
-/* 💗 TÍTULO */
+/* =========================================
+   💗 TÍTULO
+   ========================================= */
 
 @keyframes trocarCorEBrilho {
 
@@ -471,7 +553,9 @@ h1 {
 }
 
 
-/* 🎵 SEÇÕES */
+/* =========================================
+   🎵 SEÇÕES
+   ========================================= */
 
 .secao-musica {
     position: relative;
@@ -497,7 +581,9 @@ h2 {
 }
 
 
-/* 📺 VÍDEOS */
+/* =========================================
+   📺 VÍDEOS
+   ========================================= */
 
 .videos {
     display: flex;
@@ -515,6 +601,7 @@ h2 {
 
 iframe {
     width: 360px;
+
     height: 215px;
 
     border-radius: 12px;
@@ -546,7 +633,9 @@ iframe:hover {
 }
 
 
-/* 📱 CELULAR */
+/* =========================================
+   📱 CELULAR
+   ========================================= */
 
 @media (max-width: 600px) {
 
@@ -569,6 +658,7 @@ iframe:hover {
         height: 180px;
     }
 }
+
 
 
 
