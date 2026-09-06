@@ -79,13 +79,13 @@
             <h2>✨ Rap / Hip Hop ✨</h2>
             <div class="videos">
                 <div class="card-video" data-nome="futil fútil chris mc l7nnon l7">
-                    <iframe src="https://www.youtube.com/embed/7c3SWrQIE0A" title="Chris MC ft. L7NNON - Fútil" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/7c3SWrQIE0A" title="Fútil" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="sofa breja e netflix sofá">
                     <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Sofa, Breja e Netflix" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="poesia acustica 6 poesia acústica 6">
-                    <iframe src="https://www.youtube.com/embed/jK2k1P56Cno" title="Poesia Acústica #6" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/jK2k1P56Cno" title="Poesia Acústica 6" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="te encontrar na lapa">
                     <iframe src="https://www.youtube.com/embed/439kVuNoNrA" title="Te Encontrar na Lapa" allowfullscreen></iframe>
@@ -113,10 +113,10 @@
                     <iframe src="https://www.youtube.com/embed/e5Ct8ZW_rcs" title="Suíte 14" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="intencao intenção marilia mendonca marília mendonça">
-                    <iframe src="https://www.youtube.com/embed/ex-cr18tKDE" title="Intenção - Marília Mendonça" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/ex-cr18tKDE" title="Intenção" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="vinganca vingança luan santana">
-                    <iframe src="https://www.youtube.com/embed/1qKz_QohN7g" title="Vingança - Luan Santana" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/1qKz_QohN7g" title="Vingança" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="seu astral jorge e mateus">
                     <iframe src="https://www.youtube.com/embed/SETK2maosQY" title="Seu Astral" allowfullscreen></iframe>
@@ -132,16 +132,16 @@
                     <iframe src="https://www.youtube.com/embed/Nk7S7D0CQOY" title="Vai Embrazando" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="fuleragem mc wm">
-                    <iframe src="https://www.youtube.com/embed/WaOicuaHdzo" title="Fuleragem - MC WM" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/WaOicuaHdzo" title="Fuleragem" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="hit contagiante felipe original">
-                    <iframe src="https://www.youtube.com/embed/sdcoyDUfbG0" title="Hit Contagiante - Felipe Original" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/sdcoyDUfbG0" title="Hit Contagiante" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="eterna sacanagem mc kevinho jottape mc zaac">
                     <iframe src="https://www.youtube.com/embed/vhTrtN7e2bs" title="Eterna Sacanagem" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="trilogia 150 pandora pedro sampaio mc zaac">
-                    <iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150 / Pandora" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150 Pandora" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="ate o ceu até o céu mc cabelinho anitta">
                     <iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Até o Céu" allowfullscreen></iframe>
@@ -164,7 +164,7 @@
         </div>
     </footer>
 
-    <!-- 🔍 SCRIPT DE BUSCA AVANÇADO E SINCRONIZADO -->
+    <!-- 🔍 SCRIPT DE BUSCA REVISADO -->
     <script>
         function limparTexto(texto) {
             if (!texto) return "";
@@ -191,10 +191,9 @@
 
             for (let card of cards) {
                 const dataNome = limparTexto(card.getAttribute('data-nome'));
-                const iframeTitle = limparTexto(card.querySelector('iframe')?.title);
-                const textoCompleto = `${dataNome} ${iframeTitle}`;
-
-                const atendeBusca = palavrasBusca.every(palavra => textoCompleto.includes(palavra));
+                
+                // Compara as palavras exclusivamente com o atributo data-nome do card
+                const atendeBusca = palavrasBusca.every(palavra => dataNome.includes(palavra));
 
                 if (atendeBusca) {
                     encontrado = true;
