@@ -78,17 +78,17 @@
         <section id="rap" class="secao-musica">
             <h2>✨ Rap / Hip Hop ✨</h2>
             <div class="videos">
-                <div class="card-video" data-nome="futil chris mc l7nnon">
+                <div class="card-video" data-nome="futil fútil chris mc l7nnon l7">
                     <iframe src="https://www.youtube.com/embed/7c3SWrQIE0A" title="Fútil" allowfullscreen></iframe>
                 </div>
-                <div class="card-video" data-nome="sofa breja e netflix">
-                    <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Sofa Breja e Netflix" allowfullscreen></iframe>
+                <div class="card-video" data-nome="sofa breja e netflix sofá">
+                    <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Sofa, Breja e Netflix" allowfullscreen></iframe>
                 </div>
-                <div class="card-video" data-nome="poesia acustica 6">
+                <div class="card-video" data-nome="poesia acustica 6 poesia acústica 6">
                     <iframe src="https://www.youtube.com/embed/jK2k1P56Cno" title="Poesia Acústica 6" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="te encontrar na lapa">
-                    <iframe src="https://www.youtube.com/embed/3-M7y_x5Eno" title="Te Encontrar na Lapa" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/439kVuNoNrA" title="Te Encontrar na Lapa" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="pensando em mim">
                     <iframe src="https://www.youtube.com/embed/uK6UB4yVXMU" title="Pensando em Mim" allowfullscreen></iframe>
@@ -109,13 +109,13 @@
                 <div class="card-video" data-nome="coladinho em mim colodinha em mim gustavo mioto anitta">
                     <iframe src="https://www.youtube.com/embed/gmvFLIuVAbA" title="Coladinho Em Mim" allowfullscreen></iframe>
                 </div>
-                <div class="card-video" data-nome="suite 14 suite 14 henrique e diego mc guime">
+                <div class="card-video" data-nome="suite 14 suíte 14 henrique e diego mc guime guimê">
                     <iframe src="https://www.youtube.com/embed/e5Ct8ZW_rcs" title="Suíte 14" allowfullscreen></iframe>
                 </div>
-                <div class="card-video" data-nome="intencao intencao marilia mendonca">
+                <div class="card-video" data-nome="intencao intenção marilia mendonca marília mendonça">
                     <iframe src="https://www.youtube.com/embed/ex-cr18tKDE" title="Intenção" allowfullscreen></iframe>
                 </div>
-                <div class="card-video" data-nome="vinganca vinganca luan santana">
+                <div class="card-video" data-nome="vinganca vingança luan santana">
                     <iframe src="https://www.youtube.com/embed/1qKz_QohN7g" title="Vingança" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="seu astral jorge e mateus">
@@ -143,7 +143,7 @@
                 <div class="card-video" data-nome="trilogia 150 pandora pedro sampaio mc zaac">
                     <iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150 Pandora" allowfullscreen></iframe>
                 </div>
-                <div class="card-video" data-nome="ate o ceu ate o ceu mc cabelinho anitta">
+                <div class="card-video" data-nome="ate o ceu até o céu mc cabelinho anitta">
                     <iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Até o Céu" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="tudo aconteceu dj duppa">
@@ -164,7 +164,7 @@
         </div>
     </footer>
 
-    <!-- 🔍 SCRIPT DE BUSCA BLINDADO -->
+    <!-- 🔍 SCRIPT DE BUSCA REVISADO -->
     <script>
         function limparTexto(texto) {
             if (!texto) return "";
@@ -191,7 +191,8 @@
 
             for (let card of cards) {
                 const dataNome = limparTexto(card.getAttribute('data-nome'));
-
+                
+                // Compara as palavras exclusivamente com o atributo data-nome do card
                 const atendeBusca = palavrasBusca.every(palavra => dataNome.includes(palavra));
 
                 if (atendeBusca) {
@@ -209,14 +210,14 @@
                         });
 
                         card.classList.add('destaque-busca');
-                    }, 300);
+                    }, 250);
 
                     break;
                 }
             }
 
             if (!encontrado) {
-                alert('Música não encontrada! Tente pesquisar apenas por uma palavra.');
+                alert('Música não encontrada! Tente pesquisar por uma palavra mais simples.');
             }
         }
 
