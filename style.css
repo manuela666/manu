@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@600&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Dancing+Script:wght@400;500;600;700&family=Fredoka:wght@600&family=Pacifico&display=swap');
 
 * {
     box-sizing: border-box;
@@ -22,54 +22,46 @@ body {
     background-color: #12070d;
 
     background-image:
-        radial-gradient(
-            ellipse at 15% 10%,
+        radial-gradient(ellipse at 15% 10%,
             rgba(99, 35, 55, 0.75) 0%,
             rgba(50, 14, 28, 0.45) 25%,
-            transparent 55%
-        ),
-        radial-gradient(
-            ellipse at 85% 20%,
+            transparent 55%),
+
+        radial-gradient(ellipse at 85% 20%,
             rgba(78, 23, 45, 0.7) 0%,
-            transparent 50%
-        ),
-        radial-gradient(
-            ellipse at 30% 55%,
+            transparent 50%),
+
+        radial-gradient(ellipse at 30% 55%,
             rgba(90, 28, 52, 0.6) 0%,
-            transparent 55%
-        ),
-        radial-gradient(
-            ellipse at 80% 70%,
+            transparent 55%),
+
+        radial-gradient(ellipse at 80% 70%,
             rgba(72, 20, 42, 0.8) 0%,
-            transparent 60%
-        ),
-        radial-gradient(
-            ellipse at 50% 100%,
+            transparent 60%),
+
+        radial-gradient(ellipse at 50% 100%,
             rgba(65, 18, 38, 0.7) 0%,
-            transparent 55%
-        ),
-        repeating-linear-gradient(
-            125deg,
+            transparent 55%),
+
+        repeating-linear-gradient(125deg,
             transparent 0px,
             transparent 80px,
             rgba(255, 170, 190, 0.025) 85px,
             rgba(40, 8, 22, 0.35) 105px,
-            transparent 150px
-        ),
-        linear-gradient(
-            135deg,
+            transparent 150px),
+
+        linear-gradient(135deg,
             #16070d 0%,
             #2b0d1b 25%,
             #12060b 50%,
             #3a1023 75%,
-            #100509 100%
-        );
+            #100509 100%);
 
     background-attachment: fixed;
     background-size: cover;
-    color: #f4e8c1;
 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+    color: #f4e8c1;
+    font-family: 'Trebuchet MS', sans-serif;
 
     padding: 20px;
     margin: 0;
@@ -88,6 +80,7 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
+
     pointer-events: none;
     z-index: 0;
 
@@ -107,14 +100,16 @@ body::before {
 
 
 /* =========================================
-   ✨ ÁREA DAS ESTRELAS
+   ✨ PARTÍCULAS
 ========================================= */
 
 .particulas {
     position: fixed;
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     pointer-events: none;
     z-index: 1;
     overflow: hidden;
@@ -128,6 +123,7 @@ body::before {
 .particulas span {
     position: absolute;
     bottom: -50px;
+
     background: #fff9f5;
 
     clip-path: polygon(
@@ -154,110 +150,63 @@ body::before {
 ========================================= */
 
 .particulas span:nth-child(1) {
-    left: 3%;
-    width: 3px;
-    height: 3px;
-    animation-duration: 6s;
+    left: 3%; width: 3px; height: 3px; animation-duration: 6s;
 }
 
 .particulas span:nth-child(2) {
-    left: 9%;
-    width: 7px;
-    height: 7px;
-    animation-duration: 8s;
-    animation-delay: 1s;
+    left: 9%; width: 7px; height: 7px; animation-duration: 8s; animation-delay: 1s;
 }
 
 .particulas span:nth-child(3) {
-    left: 16%;
-    width: 2px;
-    height: 2px;
-    animation-duration: 5s;
+    left: 16%; width: 2px; height: 2px; animation-duration: 5s;
 }
 
 .particulas span:nth-child(4) {
-    left: 23%;
-    width: 10px;
-    height: 10px;
-    animation-duration: 7s;
-    animation-delay: 2s;
+    left: 23%; width: 10px; height: 10px; animation-duration: 7s; animation-delay: 2s;
 }
 
 .particulas span:nth-child(5) {
-    left: 30%;
-    width: 16px;
-    height: 16px;
-    animation-duration: 10s;
+    left: 30%; width: 16px; height: 16px; animation-duration: 10s;
 }
 
 .particulas span:nth-child(6) {
-    left: 37%;
-    width: 3px;
-    height: 3px;
-    animation-duration: 6s;
+    left: 37%; width: 3px; height: 3px; animation-duration: 6s;
 }
 
 .particulas span:nth-child(7) {
-    left: 44%;
-    width: 6px;
-    height: 6px;
-    animation-duration: 8s;
+    left: 44%; width: 6px; height: 6px; animation-duration: 8s;
 }
 
 .particulas span:nth-child(8) {
-    left: 51%;
-    width: 2px;
-    height: 2px;
-    animation-duration: 5s;
+    left: 51%; width: 2px; height: 2px; animation-duration: 5s;
 }
 
 .particulas span:nth-child(9) {
-    left: 58%;
-    width: 15px;
-    height: 15px;
-    animation-duration: 10s;
+    left: 58%; width: 15px; height: 15px; animation-duration: 10s;
 }
 
 .particulas span:nth-child(10) {
-    left: 64%;
-    width: 4px;
-    height: 4px;
-    animation-duration: 7s;
+    left: 64%; width: 4px; height: 4px; animation-duration: 7s;
 }
 
 .particulas span:nth-child(11) {
-    left: 70%;
-    width: 8px;
-    height: 8px;
-    animation-duration: 9s;
+    left: 70%; width: 8px; height: 8px; animation-duration: 9s;
 }
 
 .particulas span:nth-child(12) {
-    left: 76%;
-    width: 2px;
-    height: 2px;
-    animation-duration: 6s;
+    left: 76%; width: 2px; height: 2px; animation-duration: 6s;
 }
 
 .particulas span:nth-child(13) {
-    left: 82%;
-    width: 18px;
-    height: 18px;
-    animation-duration: 11s;
+    left: 82%; width: 18px; height: 18px; animation-duration: 11s;
 }
 
 .particulas span:nth-child(14) {
-    left: 88%;
-    width: 3px;
-    height: 3px;
-    animation-duration: 7s;
+    left: 88%; width: 3px; height: 3px; animation-duration: 7s;
 }
 
 .particulas span:nth-child(15) {
-    left: 95%;
-    width: 9px;
-    height: 9px;
-    animation-duration: 9s;
+    left: 95%; width: 9px; height: 9px; animation-duration: 9s;
 }
 
 
@@ -305,7 +254,7 @@ body::before {
 
 
 /* =========================================
-   💗 TÍTULO COM FONTE MANUSCRITA
+   💗 TÍTULO "MÚSICA"
 ========================================= */
 
 @keyframes trocarCorEBrilho {
@@ -331,8 +280,8 @@ h1 {
     position: relative;
     z-index: 2;
 
-    /* ✨ Fonte manuscrita */
-    font-family: 'Caveat', cursive;
+    /* ✨ NOVA FONTE */
+    font-family: 'Dancing Script', cursive;
     font-weight: 700;
 
     font-size: 110px;
@@ -386,6 +335,7 @@ h2 {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
+
     gap: 20px;
     padding: 20px 10px;
 }
@@ -416,7 +366,7 @@ iframe {
 }
 
 
-/* 🍷✨ LED FORTE QUANDO PASSAR O MOUSE */
+/* 🍷✨ QUANDO PASSAR O MOUSE */
 
 iframe:hover {
     transform: scale(1.07);
