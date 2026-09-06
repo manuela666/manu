@@ -280,7 +280,6 @@ h1 {
     position: relative;
     z-index: 2;
 
-    /* ✨ NOVA FONTE */
     font-family: 'Dancing Script', cursive;
     font-weight: 700;
 
@@ -315,6 +314,8 @@ h1 {
 h2 {
     font-size: 58px;
     color: #f2c6d0;
+
+    font-family: 'Fredoka', sans-serif;
 
     padding: 8px 0;
 
