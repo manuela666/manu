@@ -10,6 +10,7 @@
 
 <body>
 
+    <!-- 🌌 PARTICULAS E NOTAS MUSICAIS DE FUNDO -->
     <div class="particulas">
         <span></span><span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span><span></span>
@@ -20,9 +21,11 @@
         <div class="nota-musical">🎶</div>
     </div>
 
+    <!-- 📌 MENU SUPERIOR -->
     <header class="menu-superior">
         <div class="logo">✨ Lily Music</div>
         
+        <!-- LINKS DE NAVEGAÇÃO CENTRALIZADOS -->
         <nav class="nav-central">
             <ul>
                 <li><a href="#inicio">Início</a></li>
@@ -33,14 +36,17 @@
             </ul>
         </nav>
 
+        <!-- BARRA DE PESQUISA -->
         <div class="caixa-pesquisa">
             <input type="text" id="campo-busca" placeholder="Buscar música..." onkeypress="verificarEnter(event)">
             <button onclick="buscarMusica()">🔍</button>
         </div>
     </header>
 
+    <!-- 🎵 CABEÇALHO / ÁREA PRINCIPAL COM BANNER DESTAQUE -->
     <main id="inicio" class="conteudo-principal">
 
+        <!-- BANNER DESTAQUE MÚSICA -->
         <div class="banner-destaque">
             
             <div class="fundo-decorativo-banner">
@@ -68,6 +74,7 @@
 
         </div>
 
+        <!-- 🎤 SEÇÃO RAP / HIP HOP -->
         <section id="rap" class="secao-musica">
             <h2>✨ Rap / Hip Hop ✨</h2>
             <div class="videos">
@@ -92,6 +99,7 @@
             </div>
         </section>
 
+        <!-- 🤠 SEÇÃO SERTANEJO -->
         <section id="sertanejo" class="secao-musica">
             <h2>✨ Sertanejo ✨</h2>
             <div class="videos">
@@ -113,15 +121,10 @@
                 <div class="card-video" data-nome="seu astral jorge e mateus">
                     <iframe src="https://www.youtube.com/embed/SETK2maosQY" title="Seu Astral" allowfullscreen></iframe>
                 </div>
-                <div class="card-video" data-nome="ate o ceu até o céu mc cabelinho anitta">
-                    <iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Até o Céu" allowfullscreen></iframe>
-                </div>
-                <div class="card-video" data-nome="tudo aconteceu dj duppa">
-                    <iframe src="https://www.youtube.com/embed/V0MECgmHCOo" title="Tudo Aconteceu" allowfullscreen></iframe>
-                </div>
             </div>
         </section>
 
+        <!-- 🔊 SEÇÃO FUNK -->
         <section id="funk" class="secao-musica">
             <h2>✨ Funk ✨</h2>
             <div class="videos">
@@ -140,11 +143,18 @@
                 <div class="card-video" data-nome="trilogia 150 pandora pedro sampaio mc zaac">
                     <iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150 / Pandora" allowfullscreen></iframe>
                 </div>
+                <div class="card-video" data-nome="ate o ceu até o céu mc cabelinho anitta">
+                    <iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Até o Céu" allowfullscreen></iframe>
+                </div>
+                <div class="card-video" data-nome="tudo aconteceu dj duppa">
+                    <iframe src="https://www.youtube.com/embed/V0MECgmHCOo" title="Tudo Aconteceu" allowfullscreen></iframe>
+                </div>
             </div>
         </section>
 
     </main>
 
+    <!-- 🌸 RODAPÉ E SEÇÃO SOBRE -->
     <footer id="sobre">
         <div class="conteudo-rodape">
             <h3>✨ Música ✨</h3>
@@ -154,6 +164,7 @@
         </div>
     </footer>
 
+    <!-- 🔍 SCRIPT DE BUSCA AVANÇADO E SINCRONIZADO -->
     <script>
         function limparTexto(texto) {
             if (!texto) return "";
@@ -188,10 +199,8 @@
                 if (atendeBusca) {
                     encontrado = true;
 
-                    // 1. Rola a página verticalmente até a seção da música
                     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-                    // 2. Aguarda e rola horizontalmente exatamente para o card correto
                     setTimeout(() => {
                         const container = card.parentElement;
                         const deslocamentoEsquerda = card.offsetLeft - (container.clientWidth / 2) + (card.clientWidth / 2);
