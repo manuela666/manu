@@ -1,13 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Dancing+Script:wght@400;500;600;700&family=Fredoka:wght@600&family=Fredericka+the+Great&family=Pacifico&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
 /* =========================================
-   📺 VÍDEOS E CONTAINER DE EXPLOSÃO
+   ⭐ CURSOR
+========================================= */
+
+html,
+body {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M16 1 L19 12 L31 16 L19 20 L16 31 L13 20 L1 16 L13 12 Z' fill='white'/></svg>") 16 16, auto;
+}
+
+
+/* =========================================
+   🌌 FUNDO ESTILO MÁRMORE / SEDA
+========================================= */
+
+body {
+    background-color: #12070d;
+
+    background-image:
+        radial-gradient(ellipse at 15% 10%,
+            rgba(99, 35, 55, 0.75) 0%,
+            rgba(50, 14, 28, 0.45) 25%,
+            transparent 55%),
+
+        radial-gradient(ellipse at 85% 20%,
+            rgba(78, 23, 45, 0.7) 0%,
+            transparent 50%),
+
+        radial-gradient(ellipse at 30% 55%,
+            rgba(90, 28, 52, 0.6) 0%,
+            transparent 55%),
+
+        radial-gradient(ellipse at 80% 70%,
+            rgba(72, 20, 42, 0.8) 0%,
+            transparent 60%),
+
+        radial-gradient(ellipse at 50% 100%,
+            rgba(65, 18, 38, 0.7) 0%,
+            transparent 55%),
+
+        repeating-linear-gradient(125deg,
+            transparent 0px,
+            transparent 80px,
+            rgba(255, 170, 190, 0.025) 85px,
+            rgba(40, 8, 22, 0.35) 105px,
+            transparent 150px),
+
+        linear-gradient(135deg,
+            #16070d 0%,
+            #2b0d1b 25%,
+            #12060b 50%,
+            #3a1023 75%,
+            #100509 100%);
+
+    background-attachment: fixed;
+    background-size: cover;
+
+    color: #f4e8c1;
+    font-family: 'Trebuchet MS', sans-serif;
+
+    padding: 20px;
+    margin: 0;
+    min-height: 100vh;
+
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   ✨ CAMADA EXTRA DE ONDAS
+========================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 0;
+
+    background:
+        repeating-radial-gradient(
+            ellipse at 30% 50%,
+            transparent 0px,
+            transparent 80px,
+            rgba(120, 45, 70, 0.08) 85px,
+            rgba(0, 0, 0, 0.18) 110px,
+            transparent 160px
+        );
+
+    opacity: 0.7;
+    transform: rotate(-12deg) scale(1.3);
+}
+
+
+/* =========================================
+   ✨ PARTÍCULAS DE FUNDO
+========================================= */
+
+.particulas {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.particulas span {
+    position: absolute;
+    bottom: -50px;
+
+    background: #fff9f5;
+
+    clip-path: polygon(
+        50% 0%, 58% 40%, 100% 50%, 58% 60%,
+        50% 100%, 42% 60%, 0% 50%, 42% 40%
+    );
+
+    filter:
+        drop-shadow(0 0 3px white)
+        drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+
+    animation: subirEstrela linear infinite;
+}
+
+.particulas span:nth-child(1) { left: 3%; width: 3px; height: 3px; animation-duration: 6s; }
+.particulas span:nth-child(2) { left: 9%; width: 7px; height: 7px; animation-duration: 8s; animation-delay: 1s; }
+.particulas span:nth-child(3) { left: 16%; width: 2px; height: 2px; animation-duration: 5s; }
+.particulas span:nth-child(4) { left: 23%; width: 10px; height: 10px; animation-duration: 7s; animation-delay: 2s; }
+.particulas span:nth-child(5) { left: 30%; width: 16px; height: 16px; animation-duration: 10s; }
+.particulas span:nth-child(6) { left: 37%; width: 3px; height: 3px; animation-duration: 6s; }
+.particulas span:nth-child(7) { left: 44%; width: 6px; height: 6px; animation-duration: 8s; }
+.particulas span:nth-child(8) { left: 51%; width: 2px; height: 2px; animation-duration: 5s; }
+.particulas span:nth-child(9) { left: 58%; width: 15px; height: 15px; animation-duration: 10s; }
+.particulas span:nth-child(10) { left: 64%; width: 4px; height: 4px; animation-duration: 7s; }
+.particulas span:nth-child(11) { left: 70%; width: 8px; height: 8px; animation-duration: 9s; }
+.particulas span:nth-child(12) { left: 76%; width: 2px; height: 2px; animation-duration: 6s; }
+.particulas span:nth-child(13) { left: 82%; width: 18px; height: 18px; animation-duration: 11s; }
+.particulas span:nth-child(14) { left: 88%; width: 3px; height: 3px; animation-duration: 7s; }
+.particulas span:nth-child(15) { left: 95%; width: 9px; height: 9px; animation-duration: 9s; }
+
+@keyframes subirEstrela {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   📜 BARRA DE ROLAGEM
+========================================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #12070d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #713047;
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   💗 TÍTULO "MÚSICA"
+========================================= */
+
+@keyframes trocarCorEBrilho {
+    0%, 100% {
+        color: #f3cbd4;
+        text-shadow:
+            0 0 10px rgba(255, 180, 200, 0.6),
+            0 0 25px rgba(140, 50, 80, 0.5);
+    }
+    50% {
+        color: #ffffff;
+        text-shadow:
+            0 0 15px white,
+            0 0 30px rgba(180, 80, 110, 0.7);
+    }
+}
+
+h1 {
+    position: relative;
+    z-index: 2;
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 110px;
+    text-align: center;
+    padding: 10px 35px;
+    border-bottom: 3px solid rgba(255, 190, 210, 0.6);
+    margin: 0 auto 40px auto;
+    width: fit-content;
+    letter-spacing: 2px;
+    animation: trocarCorEBrilho 3s infinite;
+}
+
+
+/* =========================================
+   🎵 SEÇÕES
+========================================= */
+
+.secao-musica {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 45px;
+}
+
+h2 {
+    font-size: 58px;
+    color: #f2c6d0;
+    font-family: 'Fredericka the Great', cursive;
+    padding: 8px 0;
+    width: fit-content;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px rgba(255, 210, 220, 0.5);
+}
+
+
+/* =========================================
+   🍷 VÍDEOS COM LED VINHO SUAVE
 ========================================= */
 
 .videos {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    gap: 30px;
-    padding: 40px 20px;
+    gap: 20px;
+    padding: 20px 10px;
 }
 
 .video-container {
@@ -16,64 +259,87 @@
     overflow: visible;
 }
 
+/* LED VINHO ORIGINAL VOLTOU */
 iframe {
     width: 360px;
     height: 215px;
     border-radius: 20px;
     border: 2px solid #6e1833 !important;
     position: relative;
-    z-index: 2; /* Fica na frente das estrelas */
+    z-index: 2;
+
+    /* Sombras do LED vinho originais e sem exagero */
     box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.7),
-        0 0 15px rgba(110, 24, 51, 0.5);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        0 0 6px #3b0a1a,
+        0 0 12px #5c1028,
+        0 0 22px rgba(110, 24, 51, 0.8),
+        0 0 35px rgba(75, 10, 30, 0.6);
+
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 iframe:hover {
     transform: scale(1.05);
-    border-color: #ff69b4 !important;
+    border-color: #c94f73 !important;
+
     box-shadow:
-        0 0 20px #ff69b4,
-        0 0 40px #c94f73;
+        0 0 8px #8f1f42,
+        0 0 18px #a82d55,
+        0 0 35px #7a1838,
+        0 0 50px rgba(160, 35, 75, 0.7);
 }
 
 
 /* =========================================
-   💥 EXPLOSÃO DE ESTRELINHAS ATRÁS DO VÍDEO
+   ✨ ESTRELINHAS NO CLIQUE DO VÍDEO
 ========================================= */
 
-.estrela-explosao {
+.estrela-clique {
     position: absolute;
-    z-index: 1; /* Fica atrás do iframe */
+    z-index: 3;
     pointer-events: none;
     background: #fff;
-    
-    /* Formato de Estrela de 4 pontas */
+
     clip-path: polygon(
         50% 0%, 60% 40%, 100% 50%, 60% 60%, 
         50% 100%, 40% 60%, 0% 50%, 40% 40%
     );
 
-    box-shadow: 
-        0 0 10px #ff69b4,
-        0 0 20px #ffffff;
-
-    animation: explodirEstrela 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+    box-shadow: 0 0 6px #ffb6c1, 0 0 12px #ffffff;
+    animation: espalharEstrelas 0.8s ease-out forwards;
 }
 
-@keyframes explodirEstrela {
+@keyframes espalharEstrelas {
     0% {
-        transform: translate(-50%, -50%) scale(0.2) rotate(0deg);
-        opacity: 1;
-        filter: drop-shadow(0 0 8px #ff69b4);
-    }
-    50% {
+        transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
         opacity: 1;
     }
     100% {
-        /* As variáveis --tx e --ty vêm do JavaScript para espalhar em 360° */
-        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.5) rotate(180deg);
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.2) rotate(180deg);
         opacity: 0;
-        filter: drop-shadow(0 0 15px #ffffff);
+    }
+}
+
+
+/* =========================================
+   📱 CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 65px;
+    }
+
+    h2 {
+        font-size: 38px;
+    }
+
+    iframe {
+        width: 280px;
+        height: 180px;
     }
 }
