@@ -1,6 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fredericka+the+Great&family=Poppins:wght@300;400;600&display=swap');
+
+/* =========================================
+   🌐 CONFIGURAÇÕES GERAIS E ROLAGEM SUAVE
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   🌌 FUNDO ESCURO EM TONS VINHO E SEDA
+========================================= */
+
+body {
+    background-color: #12070d;
+    background-image:
+        radial-gradient(ellipse at 15% 10%, rgba(99, 35, 55, 0.7) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 20%, rgba(78, 23, 45, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 90%, rgba(65, 18, 38, 0.7) 0%, transparent 60%),
+        linear-gradient(135deg, #16070d 0%, #2b0d1b 40%, #12060b 70%, #3a1023 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    color: #f4e8c1;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Ondas sonoras bem discretas no fundo */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: repeating-radial-gradient(
+        ellipse at 50% 30%,
+        transparent 0px,
+        transparent 90px,
+        rgba(255, 170, 190, 0.03) 95px,
+        transparent 150px
+    );
+}
+
+/* =========================================
+   📌 MENU SUPERIOR MODERNO
+========================================= */
+
+.menu-superior {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(18, 7, 13, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 180, 200, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.menu-superior .logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 28px;
+    color: #f3cbd4;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+.menu-superior nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.menu-superior nav a {
+    color: #e0cad2;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.menu-superior nav a:hover {
+    color: #ffb6c1;
+    text-shadow: 0 0 8px #ff69b4;
+}
+
 /* =========================================
    🌸 BANNER PRINCIPAL DESTAQUE (VINHO/ROSA)
 ========================================= */
+
+.conteudo-principal {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
 
 .banner-destaque {
     position: relative;
@@ -10,14 +112,12 @@
     text-align: center;
     border-radius: 30px;
     
-    /* Gradiente e Brilhos nas bordas */
     background: radial-gradient(circle at center, rgba(80, 20, 45, 0.6) 0%, rgba(35, 8, 20, 0.4) 70%, transparent 100%);
     border: 1px solid rgba(255, 182, 193, 0.25);
     box-shadow: 
         0 0 30px rgba(110, 24, 51, 0.4),
         inset 0 0 25px rgba(255, 105, 180, 0.15);
     
-    /* Linhas decorativas de ondas sonoras no fundo do banner via SVG */
     background-image: 
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M0,50 Q250,0 500,50 T1000,50' fill='none' stroke='rgba(255,182,193,0.05)' stroke-width='2'/%3E%3C/svg%3E"),
         radial-gradient(circle at center, rgba(80, 20, 45, 0.6) 0%, rgba(35, 8, 20, 0.4) 70%, transparent 100%);
@@ -44,7 +144,6 @@
 .direita-top { top: 15px; right: 40px; transform: rotate(20deg); font-size: 65px; }
 .direita-bottom { bottom: 5px; right: 30px; transform: rotate(-10deg); font-size: 90px; }
 
-
 /* ✍️ TÍTULO ESTILO ASSINATURA */
 .titulo-assinatura {
     position: relative;
@@ -54,18 +153,15 @@
     font-weight: 700;
     margin: 0;
     padding: 0;
-    border: none; /* Remove a borda antiga caso exista */
+    border: none;
 
-    /* Cor com gradiente de rosa claro para branco */
     background: linear-gradient(180deg, #ffffff 20%, #f3cbd4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* Sombra e Glow Rosa Luminoso */
     filter: drop-shadow(0 0 12px rgba(255, 182, 193, 0.8)) 
             drop-shadow(0 0 25px rgba(201, 79, 115, 0.6));
 }
-
 
 /* ✨ ELEMENTOS DECORATIVOS FLUTUANTES AO REDOR */
 .brilhos-titulo {
@@ -93,7 +189,6 @@
     100% { transform: translateY(-8px) rotate(12deg); opacity: 0.9; }
 }
 
-
 /* ➖ LINHA DECORATIVA COM ESTRELA CENTRAL */
 .divisor-banner {
     position: relative;
@@ -118,16 +213,177 @@
     text-shadow: 0 0 8px #ff69b4;
 }
 
-/* Adjusts Responsivos para Telas Pequenas */
+/* =========================================
+   🎵 SEÇÕES E TÍTULOS DE CATEGORIAS
+========================================= */
+
+.secao-musica {
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 50px;
+    color: #f2c6d0;
+    font-family: 'Fredericka the Great', cursive;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    text-shadow: 0 0 10px rgba(255, 180, 200, 0.4);
+}
+
+/* =========================================
+   📺 CARDS DOS VÍDEOS
+========================================= */
+
+.videos {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 25px;
+    padding: 20px 15px;
+}
+
+.card-video {
+    flex-shrink: 0;
+    border-radius: 20px;
+    padding: 3px;
+    background: linear-gradient(135deg, #6e1833, #c94f73);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+iframe {
+    width: 360px;
+    height: 215px;
+    border-radius: 18px;
+    border: none;
+    display: block;
+}
+
+.card-video:hover {
+    transform: translateY(-8px) scale(1.03);
+    background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+    box-shadow: 
+        0 12px 25px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 105, 180, 0.6);
+}
+
+/* =========================================
+   ✨ PARTICULAS E NOTAS FLUTUANTES
+========================================= */
+
+.particulas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.nota-musical {
+    position: absolute;
+    color: rgba(255, 182, 193, 0.4);
+    font-size: 24px;
+    animation: flutuarNotas 12s infinite linear;
+}
+
+.nota-musical:nth-child(1) { left: 10%; animation-duration: 8s; }
+.nota-musical:nth-child(2) { left: 30%; animation-duration: 11s; animation-delay: 2s; }
+.nota-musical:nth-child(3) { left: 50%; animation-duration: 9s; animation-delay: 1s; }
+.nota-musical:nth-child(4) { left: 70%; animation-duration: 13s; }
+.nota-musical:nth-child(5) { left: 90%; animation-duration: 10s; animation-delay: 3s; }
+
+@keyframes flutuarNotas {
+    0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+/* =========================================
+   📜 BARRA DE ROLAGEM
+========================================= */
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #12070d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6e1833;
+    border-radius: 10px;
+}
+
+/* =========================================
+   🌸 RODAPÉ ELEGANTE
+========================================= */
+
+footer {
+    position: relative;
+    z-index: 2;
+    background: rgba(18, 7, 13, 0.95);
+    border-top: 1px solid rgba(255, 180, 200, 0.2);
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.conteudo-rodape h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    color: #f3cbd4;
+    margin-bottom: 5px;
+}
+
+.conteudo-rodape p {
+    color: #d1b8c2;
+    font-size: 14px;
+}
+
+.linha-decorativa {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff69b4, transparent);
+    margin: 15px auto;
+}
+
+.direitos {
+    font-size: 12px;
+    color: #8c737e;
+}
+
+/* =========================================
+   📱 RESPONSIVIDADE (CELULARES)
+========================================= */
+
 @media (max-width: 768px) {
+    .menu-superior {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
     .banner-destaque {
         margin: 15px auto 30px auto;
         padding: 40px 10px 25px 10px;
     }
+
     .titulo-assinatura {
         font-size: 70px;
     }
+
     .icone-fundo {
         font-size: 45px;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    iframe {
+        width: 280px;
+        height: 170px;
     }
 }

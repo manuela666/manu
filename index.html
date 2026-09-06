@@ -1,78 +1,171 @@
-<!-- 🎵 CABEÇALHO / ÁREA PRINCIPAL COM BANNER DESTAQUE -->
-<main id="inicio" class="conteudo-principal">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <!-- BANNER DESTAQUE MÚSICA -->
-    <div class="banner-destaque">
-        
-        <!-- Elementos decorativos grandes e transparentes no fundo -->
-        <div class="fundo-decorativo-banner">
-            <span class="icone-fundo esquerda-top">🎧</span>
-            <span class="icone-fundo esquerda-bottom">🎶</span>
-            <span class="icone-fundo direita-top">🎵</span>
-            <span class="icone-fundo direita-bottom">💿</span>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lily - Músicas</title>
+</head>
 
-        <!-- Elementos menores ao redor do título -->
-        <div class="brilhos-titulo">
-            <span class="elemento-float pos-1">✨</span>
-            <span class="elemento-float pos-2">🎵</span>
-            <span class="elemento-float pos-3">🌟</span>
-            <span class="elemento-float pos-4">🎶</span>
-            <span class="elemento-float pos-5">✨</span>
-        </div>
+<body>
 
-        <!-- Título Assinatura -->
-        <h1 class="titulo-assinatura">Música</h1>
-
-        <!-- Linha Decorativa com Estrela Central -->
-        <div class="divisor-banner">
-            <div class="linha-lado"></div>
-            <span class="estrela-central">✦</span>
-            <div class="linha-lado"></div>
-        </div>
-
+    <!-- 🌌 PARTICULAS E NOTAS MUSICAIS DE FUNDO -->
+    <div class="particulas">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <div class="nota-musical">🎵</div>
+        <div class="nota-musical">🎶</div>
+        <div class="nota-musical">✨</div>
+        <div class="nota-musical">🎵</div>
+        <div class="nota-musical">🎶</div>
     </div>
 
-    <!-- 🎤 SEÇÃO RAP / HIP HOP (MANTIDA IGUAL) -->
-    <section id="rap" class="secao-musica">
-        <h2>✨ Rap / Hip Hop ✨</h2>
-        <div class="videos">
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/7c3SWrQIE0A" title="Chris MC ft. L7NNON - Fútil" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Sofa, Breja e Netflix" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/jK2k1P56Cno" title="Poesia Acústica #6" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/439kVuNoNrA" title="Rap Hip Hop" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/uK6UB4yVXMU" title="Rap Hip Hop" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/qcbrCmIt7ww" title="Rap Hip Hop" allowfullscreen></iframe></div>
-        </div>
-    </section>
+    <!-- 📌 MENU SUPERIOR -->
+    <header class="menu-superior">
+        <div class="logo">✨ Lily Music</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#rap">Rap / Hip Hop</a></li>
+                <li><a href="#sertanejo">Sertanejo</a></li>
+                <li><a href="#funk">Funk</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- 🤠 SEÇÃO SERTANEJO (MANTIDA IGUAL) -->
-    <section id="sertanejo" class="secao-musica">
-        <h2>✨ Sertanejo ✨</h2>
-        <div class="videos">
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/iyI9RMkEzbQ" title="Ao Vivo E A Cores" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/gmvFLIuVAbA" title="Coladinho Em Mim" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/e5Ct8ZW_rcs" title="Suíte 14" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/ex-cr18tKDE" title="Intenção" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/1qKz_QohN7g" title="Vingança" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/SETK2maosQY" title="Seu Astral" allowfullscreen></iframe></div>
-        </div>
-    </section>
+    <!-- 🎵 CABEÇALHO / ÁREA PRINCIPAL COM BANNER DESTAQUE -->
+    <main id="inicio" class="conteudo-principal">
 
-    <!-- 🔊 SEÇÃO FUNK (MANTIDA IGUAL) -->
-    <section id="funk" class="secao-musica">
-        <h2>✨ Funk ✨</h2>
-        <div class="videos">
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/Nk7S7D0CQOY" title="Vai Embrazando" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/WaOicuaHdzo" title="Fuleragem - MC WM Lyrics" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/sdcoyDUfbG0" title="Felipe Original - Hit Contagiante - Letra" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Funk" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/V0MECgmHCOo" title="Funk" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/vhTrtN7e2bs" title="Funk" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/wU1U7Jgq_uo" title="Funk" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150" allowfullscreen></iframe></div>
-            <div class="card-video"><iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Funk" allowfullscreen></iframe></div>
-        </div>
-    </section>
+        <!-- BANNER DESTAQUE MÚSICA -->
+        <div class="banner-destaque">
+            
+            <!-- Elementos decorativos grandes e transparentes no fundo -->
+            <div class="fundo-decorativo-banner">
+                <span class="icone-fundo esquerda-top">🎧</span>
+                <span class="icone-fundo esquerda-bottom">🎶</span>
+                <span class="icone-fundo direita-top">🎵</span>
+                <span class="icone-fundo direita-bottom">💿</span>
+            </div>
 
-</main>
+            <!-- Elementos menores ao redor do título -->
+            <div class="brilhos-titulo">
+                <span class="elemento-float pos-1">✨</span>
+                <span class="elemento-float pos-2">🎵</span>
+                <span class="elemento-float pos-3">🌟</span>
+                <span class="elemento-float pos-4">🎶</span>
+                <span class="elemento-float pos-5">✨</span>
+            </div>
+
+            <!-- Título Assinatura -->
+            <h1 class="titulo-assinatura">Música</h1>
+
+            <!-- Linha Decorativa com Estrela Central -->
+            <div class="divisor-banner">
+                <div class="linha-lado"></div>
+                <span class="estrela-central">✦</span>
+                <div class="linha-lado"></div>
+            </div>
+
+        </div>
+
+        <!-- 🎤 SEÇÃO RAP / HIP HOP -->
+        <section id="rap" class="secao-musica">
+            <h2>✨ Rap / Hip Hop ✨</h2>
+            <div class="videos">
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/7c3SWrQIE0A" title="Chris MC ft. L7NNON - Fútil" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Sofa, Breja e Netflix" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/jK2k1P56Cno" title="Poesia Acústica #6" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/439kVuNoNrA" title="Rap Hip Hop" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/uK6UB4yVXMU" title="Rap Hip Hop" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/qcbrCmIt7ww" title="Rap Hip Hop" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🤠 SEÇÃO SERTANEJO -->
+        <section id="sertanejo" class="secao-musica">
+            <h2>✨ Sertanejo ✨</h2>
+            <div class="videos">
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/iyI9RMkEzbQ" title="Ao Vivo E A Cores" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/gmvFLIuVAbA" title="Coladinho Em Mim" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/e5Ct8ZW_rcs" title="Suíte 14" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/ex-cr18tKDE" title="Intenção" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/1qKz_QohN7g" title="Vingança" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/SETK2maosQY" title="Seu Astral" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🔊 SEÇÃO FUNK -->
+        <section id="funk" class="secao-musica">
+            <h2>✨ Funk ✨</h2>
+            <div class="videos">
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/Nk7S7D0CQOY" title="Vai Embrazando" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/WaOicuaHdzo" title="Fuleragem - MC WM Lyrics" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/sdcoyDUfbG0" title="Felipe Original - Hit Contagiante - Letra" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Funk" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/V0MECgmHCOo" title="Funk" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/vhTrtN7e2bs" title="Funk" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/wU1U7Jgq_uo" title="Funk" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Funk" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 🌸 RODAPÉ E SEÇÃO SOBRE -->
+    <footer id="sobre">
+        <div class="conteudo-rodape">
+            <h3>✨ Música ✨</h3>
+            <p>Encontre seus estilos favoritos e aproveite o som!</p>
+            <div class="linha-decorativa"></div>
+            <p class="direitos">© 2026 - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
