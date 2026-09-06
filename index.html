@@ -82,13 +82,13 @@
                     <iframe src="https://www.youtube.com/embed/7c3SWrQIE0A" title="Fútil" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="sofa breja e netflix">
-                    <iframe src="https://www.youtube.com/embed/2X3yOAnS444" title="Sofa, Breja e Netflix" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Sofa Breja e Netflix" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="poesia acustica 6">
                     <iframe src="https://www.youtube.com/embed/jK2k1P56Cno" title="Poesia Acústica 6" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="te encontrar na lapa">
-                    <iframe src="https://www.youtube.com/embed/2L73-jI3_e0" title="Te Encontrar na Lapa" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/3-M7y_x5Eno" title="Te Encontrar na Lapa" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="pensando em mim">
                     <iframe src="https://www.youtube.com/embed/uK6UB4yVXMU" title="Pensando em Mim" allowfullscreen></iframe>
@@ -144,10 +144,10 @@
                     <iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150 Pandora" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="ate o ceu ate o ceu mc cabelinho anitta">
-                    <iframe src="https://www.youtube.com/embed/3K2I5v0l2e4" title="Até o Céu" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Até o Céu" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="tudo aconteceu dj duppa">
-                    <iframe src="https://www.youtube.com/embed/C28fGq26BfM" title="Tudo Aconteceu" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/V0MECgmHCOo" title="Tudo Aconteceu" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -185,13 +185,11 @@
             const cards = document.querySelectorAll('.card-video');
             let encontrado = false;
 
-            // Remove destaque de pesquisas anteriores
             cards.forEach(card => card.classList.remove('destaque-busca'));
 
             const palavrasBusca = termoLimpo.split(/\s+/);
 
             for (let card of cards) {
-                // Lê APENAS o tributo data-nome cadastrado
                 const dataNome = limparTexto(card.getAttribute('data-nome'));
 
                 const atendeBusca = palavrasBusca.every(palavra => dataNome.includes(palavra));
@@ -199,10 +197,8 @@
                 if (atendeBusca) {
                     encontrado = true;
 
-                    // Rola a página verticalmente
                     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-                    // Rola o container interno na horizontal
                     setTimeout(() => {
                         const container = card.parentElement;
                         const deslocamentoEsquerda = card.offsetLeft - (container.clientWidth / 2) + (card.clientWidth / 2);
