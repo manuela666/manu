@@ -1,294 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fredericka+the+Great&family=Poppins:wght@300;400;600&display=swap');
-
 /* =========================================
-   🌐 CONFIGURAÇÕES GERAIS E ROLAGEM SUAVE
+   🌸 BANNER PRINCIPAL DESTAQUE (VINHO/ROSA)
 ========================================= */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+.banner-destaque {
+    position: relative;
+    max-width: 1100px;
+    margin: 30px auto 60px auto;
+    padding: 60px 20px 40px 20px;
+    text-align: center;
+    border-radius: 30px;
+    
+    /* Gradiente e Brilhos nas bordas */
+    background: radial-gradient(circle at center, rgba(80, 20, 45, 0.6) 0%, rgba(35, 8, 20, 0.4) 70%, transparent 100%);
+    border: 1px solid rgba(255, 182, 193, 0.25);
+    box-shadow: 
+        0 0 30px rgba(110, 24, 51, 0.4),
+        inset 0 0 25px rgba(255, 105, 180, 0.15);
+    
+    /* Linhas decorativas de ondas sonoras no fundo do banner via SVG */
+    background-image: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M0,50 Q250,0 500,50 T1000,50' fill='none' stroke='rgba(255,182,193,0.05)' stroke-width='2'/%3E%3C/svg%3E"),
+        radial-gradient(circle at center, rgba(80, 20, 45, 0.6) 0%, rgba(35, 8, 20, 0.4) 70%, transparent 100%);
+    overflow: hidden;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-/* =========================================
-   🌌 FUNDO ESCURO EM TONS VINHO E SEDA
-========================================= */
-
-body {
-    background-color: #12070d;
-    background-image:
-        radial-gradient(ellipse at 15% 10%, rgba(99, 35, 55, 0.7) 0%, transparent 50%),
-        radial-gradient(ellipse at 85% 20%, rgba(78, 23, 45, 0.6) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 90%, rgba(65, 18, 38, 0.7) 0%, transparent 60%),
-        linear-gradient(135deg, #16070d 0%, #2b0d1b 40%, #12060b 70%, #3a1023 100%);
-    background-attachment: fixed;
-    background-size: cover;
-    color: #f4e8c1;
-    font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* Ondas sonoras bem discretas no fundo */
-body::before {
-    content: "";
-    position: fixed;
+/* 🎧 DESENHOS GRANDES E TRANSPARENTES NAS LATERAIS */
+.fundo-decorativo-banner {
+    position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    background: repeating-radial-gradient(
-        ellipse at 50% 30%,
-        transparent 0px,
-        transparent 90px,
-        rgba(255, 170, 190, 0.03) 95px,
-        transparent 150px
-    );
 }
 
-/* =========================================
-   📌 MENU SUPERIOR MODERNO
-========================================= */
-
-.menu-superior {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    background: rgba(18, 7, 13, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 180, 200, 0.2);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+.icone-fundo {
+    position: absolute;
+    font-size: 80px;
+    opacity: 0.08;
+    filter: drop-shadow(0 0 10px #ff69b4);
 }
 
-.menu-superior .logo {
-    font-family: 'Dancing Script', cursive;
-    font-size: 28px;
-    color: #f3cbd4;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
-}
+.esquerda-top { top: 10px; left: 30px; transform: rotate(-15deg); }
+.esquerda-bottom { bottom: 10px; left: 60px; transform: rotate(10deg); font-size: 60px; }
+.direita-top { top: 15px; right: 40px; transform: rotate(20deg); font-size: 65px; }
+.direita-bottom { bottom: 5px; right: 30px; transform: rotate(-10deg); font-size: 90px; }
 
-.menu-superior nav ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-}
 
-.menu-superior nav a {
-    color: #e0cad2;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.menu-superior nav a:hover {
-    color: #ffb6c1;
-    text-shadow: 0 0 8px #ff69b4;
-}
-
-/* =========================================
-   💗 TÍTULO PRINCIPAL "MÚSICA"
-========================================= */
-
-.conteudo-principal {
+/* ✍️ TÍTULO ESTILO ASSINATURA */
+.titulo-assinatura {
     position: relative;
     z-index: 2;
-    padding: 20px;
-}
-
-@keyframes brilhoTitulo {
-    0%, 100% {
-        color: #f3cbd4;
-        text-shadow: 0 0 15px rgba(255, 180, 200, 0.6), 0 0 30px rgba(140, 50, 80, 0.5);
-    }
-    50% {
-        color: #ffffff;
-        text-shadow: 0 0 20px #ffffff, 0 0 35px rgba(255, 105, 180, 0.8);
-    }
-}
-
-h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 100px;
-    text-align: center;
-    margin: 30px auto 40px auto;
-    width: fit-content;
-    border-bottom: 2px solid rgba(255, 190, 210, 0.4);
-    padding-bottom: 5px;
-    animation: brilhoTitulo 3.5s infinite alternate;
+    font-size: 110px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    border: none; /* Remove a borda antiga caso exista */
+
+    /* Cor com gradiente de rosa claro para branco */
+    background: linear-gradient(180deg, #ffffff 20%, #f3cbd4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Sombra e Glow Rosa Luminoso */
+    filter: drop-shadow(0 0 12px rgba(255, 182, 193, 0.8)) 
+            drop-shadow(0 0 25px rgba(201, 79, 115, 0.6));
 }
 
-/* =========================================
-   🎵 SEÇÕES E TÍTULOS DE CATEGORIAS
-========================================= */
 
-.secao-musica {
-    margin-bottom: 50px;
-}
-
-h2 {
-    font-size: 50px;
-    color: #f2c6d0;
-    font-family: 'Fredericka the Great', cursive;
-    margin-bottom: 20px;
-    margin-left: 15px;
-    text-shadow: 0 0 10px rgba(255, 180, 200, 0.4);
-}
-
-/* =========================================
-   📺 CARDS DOS VÍDEOS (APENAS CSS)
-========================================= */
-
-.videos {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 25px;
-    padding: 20px 15px;
-}
-
-.card-video {
-    flex-shrink: 0;
-    border-radius: 20px;
-    padding: 3px;
-    background: linear-gradient(135deg, #6e1833, #c94f73);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-iframe {
-    width: 360px;
-    height: 215px;
-    border-radius: 18px;
-    border: none;
-    display: block;
-}
-
-/* Efeito ao passar o mouse (Hover) */
-.card-video:hover {
-    transform: translateY(-8px) scale(1.03);
-    background: linear-gradient(135deg, #ff69b4, #ffb6c1);
-    box-shadow: 
-        0 12px 25px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(255, 105, 180, 0.6);
-}
-
-/* =========================================
-   ✨ PARTICULAS E NOTAS FLUTUANTES
-========================================= */
-
-.particulas {
-    position: fixed;
+/* ✨ ELEMENTOS DECORATIVOS FLUTUANTES AO REDOR */
+.brilhos-titulo {
+    position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 1;
 }
 
-.nota-musical {
+.elemento-float {
     position: absolute;
-    color: rgba(255, 182, 193, 0.4);
-    font-size: 24px;
-    animation: flutuarNotas 12s infinite linear;
+    color: rgba(255, 192, 203, 0.6);
+    filter: drop-shadow(0 0 5px #ff69b4);
+    animation: flutuarSuave 4s ease-in-out infinite alternate;
 }
 
-.nota-musical:nth-child(1) { left: 10%; animation-duration: 8s; }
-.nota-musical:nth-child(2) { left: 30%; animation-duration: 11s; animation-delay: 2s; }
-.nota-musical:nth-child(3) { left: 50%; animation-duration: 9s; animation-delay: 1s; }
-.nota-musical:nth-child(4) { left: 70%; animation-duration: 13s; }
-.nota-musical:nth-child(5) { left: 90%; animation-duration: 10s; animation-delay: 3s; }
+.pos-1 { top: 25%; left: 22%; font-size: 20px; animation-delay: 0s; }
+.pos-2 { top: 18%; right: 25%; font-size: 24px; animation-delay: 1s; }
+.pos-3 { bottom: 35%; left: 28%; font-size: 18px; animation-delay: 1.5s; }
+.pos-4 { bottom: 40%; right: 22%; font-size: 22px; animation-delay: 0.5s; }
+.pos-5 { top: 45%; right: 18%; font-size: 16px; animation-delay: 2s; }
 
-@keyframes flutuarNotas {
-    0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
-    20% { opacity: 0.8; }
-    80% { opacity: 0.8; }
-    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+@keyframes flutuarSuave {
+    0% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
+    100% { transform: translateY(-8px) rotate(12deg); opacity: 0.9; }
 }
 
-/* =========================================
-   📜 BARRA DE ROLAGEM
-========================================= */
 
-::-webkit-scrollbar {
-    height: 8px;
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #12070d;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #6e1833;
-    border-radius: 10px;
-}
-
-/* =========================================
-   🌸 RODAPÉ E ELEGANTE
-========================================= */
-
-footer {
+/* ➖ LINHA DECORATIVA COM ESTRELA CENTRAL */
+.divisor-banner {
     position: relative;
     z-index: 2;
-    background: rgba(18, 7, 13, 0.95);
-    border-top: 1px solid rgba(255, 180, 200, 0.2);
-    padding: 30px 20px;
-    text-align: center;
-    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    max-width: 450px;
+    margin: 10px auto 0 auto;
 }
 
-.conteudo-rodape h3 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 36px;
+.linha-lado {
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.7), transparent);
+}
+
+.estrela-central {
     color: #f3cbd4;
-    margin-bottom: 5px;
+    font-size: 18px;
+    text-shadow: 0 0 8px #ff69b4;
 }
 
-.conteudo-rodape p {
-    color: #d1b8c2;
-    font-size: 14px;
-}
-
-.linha-decorativa {
-    width: 100px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ff69b4, transparent);
-    margin: 15px auto;
-}
-
-.direitos {
-    font-size: 12px;
-    color: #8c737e;
-}
-
-/* =========================================
-   📱 RESPONSIVIDADE (CELULARES)
-========================================= */
-
+/* Adjusts Responsivos para Telas Pequenas */
 @media (max-width: 768px) {
-    .menu-superior {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px;
+    .banner-destaque {
+        margin: 15px auto 30px auto;
+        padding: 40px 10px 25px 10px;
     }
-
-    h1 {
-        font-size: 65px;
+    .titulo-assinatura {
+        font-size: 70px;
     }
-
-    h2 {
-        font-size: 35px;
-    }
-
-    iframe {
-        width: 280px;
-        height: 170px;
+    .icone-fundo {
+        font-size: 45px;
     }
 }
