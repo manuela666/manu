@@ -5,100 +5,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Lily</title>
+    <title>Lily - Músicas</title>
 </head>
 
 <body>
 
-<div class="particulas">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-</div>
-
-<h1>Música</h1>
-
-<div class="secao-musica">
-    <h2>✨ Rap / Hip Hop ✨</h2>
-    <div class="videos">
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/7c3SWrQIE0A" title="Chris MC ft. L7NNON - Fútil" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Sofa, Breja e Netflix" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/jK2k1P56Cno" title="Poesia Acústica #6" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/439kVuNoNrA" title="Rap Hip Hop" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/uK6UB4yVXMU" title="Rap Hip Hop" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/qcbrCmIt7ww" title="Rap Hip Hop" allowfullscreen></iframe></div>
+    <!-- 🌌 PARTICULAS E NOTAS MUSICAIS DE FUNDO -->
+    <div class="particulas">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <div class="nota-musical">🎵</div>
+        <div class="nota-musical">🎶</div>
+        <div class="nota-musical">✨</div>
+        <div class="nota-musical">🎵</div>
+        <div class="nota-musical">🎶</div>
     </div>
-</div>
 
-<div class="secao-musica">
-    <h2>✨ Sertanejo ✨</h2>
-    <div class="videos">
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/iyI9RMkEzbQ" title="Ao Vivo E A Cores" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/gmvFLIuVAbA" title="Coladinho Em Mim" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/e5Ct8ZW_rcs" title="Suíte 14" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/ex-cr18tKDE" title="Intenção" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/1qKz_QohN7g" title="Vingança" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/SETK2maosQY" title="Seu Astral" allowfullscreen></iframe></div>
-    </div>
-</div>
+    <!-- 📌 MENU SUPERIOR -->
+    <header class="menu-superior">
+        <div class="logo">✨ Lily Music</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#rap">Rap / Hip Hop</a></li>
+                <li><a href="#sertanejo">Sertanejo</a></li>
+                <li><a href="#funk">Funk</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="secao-musica">
-    <h2>✨ Funk ✨</h2>
-    <div class="videos">
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/Nk7S7D0CQOY" title="Vai Embrazando" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/WaOicuaHdzo" title="Fuleragem - MC WM Lyrics" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/sdcoyDUfbG0" title="Felipe Original - Hit Contagiante - Letra" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Funk" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/V0MECgmHCOo" title="Funk" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/vhTrtN7e2bs" title="Funk" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/wU1U7Jgq_uo" title="Funk" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150" allowfullscreen></iframe></div>
-        <div class="video-container"><iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Funk" allowfullscreen></iframe></div>
-    </div>
-</div>
+    <!-- 🎵 CABEÇALHO / ÁREA PRINCIPAL -->
+    <main id="inicio" class="conteudo-principal">
 
-<script>
-    document.querySelectorAll('.video-container').forEach(container => {
-        container.addEventListener('click', (e) => {
-            const rect = container.getBoundingClientRect();
-            // Pega a posição exata do clique dentro do vídeo
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            soltarEstrelas(container, x, y);
-        });
-    });
+        <h1>Música</h1>
 
-    function soltarEstrelas(container, posX, posY) {
-        for (let i = 0; i < 15; i++) {
-            const estrela = document.createElement('div');
-            estrela.className = 'estrela-clique';
-            
-            estrela.style.left = `${posX}px`;
-            estrela.style.top = `${posY}px`;
+        <!-- 🎤 SEÇÃO RAP / HIP HOP -->
+        <section id="rap" class="secao-musica">
+            <h2>✨ Rap / Hip Hop ✨</h2>
+            <div class="videos">
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/7c3SWrQIE0A" title="Chris MC ft. L7NNON - Fútil" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Sofa, Breja e Netflix" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/jK2k1P56Cno" title="Poesia Acústica #6" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/439kVuNoNrA" title="Rap Hip Hop" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/uK6UB4yVXMU" title="Rap Hip Hop" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/qcbrCmIt7ww" title="Rap Hip Hop" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
 
-            const angulo = Math.random() * Math.PI * 2;
-            const distancia = 50 + Math.random() * 80; 
-            const tx = Math.cos(angulo) * distancia;
-            const ty = Math.sin(angulo) * distancia;
+        <!-- 🤠 SEÇÃO SERTANEJO -->
+        <section id="sertanejo" class="secao-musica">
+            <h2>✨ Sertanejo ✨</h2>
+            <div class="videos">
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/iyI9RMkEzbQ" title="Ao Vivo E A Cores" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/gmvFLIuVAbA" title="Coladinho Em Mim" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/e5Ct8ZW_rcs" title="Suíte 14" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/ex-cr18tKDE" title="Intenção" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/1qKz_QohN7g" title="Vingança" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/SETK2maosQY" title="Seu Astral" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
 
-            estrela.style.setProperty('--tx', `${tx}px`);
-            estrela.style.setProperty('--ty', `${ty}px`);
+        <!-- 🔊 SEÇÃO FUNK -->
+        <section id="funk" class="secao-musica">
+            <h2>✨ Funk ✨</h2>
+            <div class="videos">
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/Nk7S7D0CQOY" title="Vai Embrazando" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/WaOicuaHdzo" title="Fuleragem - MC WM Lyrics" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/sdcoyDUfbG0" title="Felipe Original - Hit Contagiante - Letra" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Funk" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/V0MECgmHCOo" title="Funk" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/vhTrtN7e2bs" title="Funk" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/wU1U7Jgq_uo" title="Funk" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150" allowfullscreen></iframe>
+                </div>
+                <div class="card-video">
+                    <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Funk" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
 
-            const tamanho = 6 + Math.random() * 8;
-            estrela.style.width = `${tamanho}px`;
-            estrela.style.height = `${tamanho}px`;
+    </main>
 
-            container.appendChild(estrela);
-
-            setTimeout(() => {
-                estrela.remove();
-            }, 800);
-        }
-    }
-</script>
+    <!-- 🌸 RODAPÉ E SEÇÃO SOBRE -->
+    <footer id="sobre">
+        <div class="conteudo-rodape">
+            <h3>✨ Música ✨</h3>
+            <p>Encontre seus estilos favoritos e aproveite o som!</p>
+            <div class="linha-decorativa"></div>
+            <p class="direitos">© 2026 - Todos os direitos reservados</p>
+        </div>
+    </footer>
 
 </body>
+
 </html>
