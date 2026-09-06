@@ -28,31 +28,26 @@ body {
             rgba(50, 14, 28, 0.45) 25%,
             transparent 55%
         ),
-
         radial-gradient(
             ellipse at 85% 20%,
             rgba(78, 23, 45, 0.7) 0%,
             transparent 50%
         ),
-
         radial-gradient(
             ellipse at 30% 55%,
             rgba(90, 28, 52, 0.6) 0%,
             transparent 55%
         ),
-
         radial-gradient(
             ellipse at 80% 70%,
             rgba(72, 20, 42, 0.8) 0%,
             transparent 60%
         ),
-
         radial-gradient(
             ellipse at 50% 100%,
             rgba(65, 18, 38, 0.7) 0%,
             transparent 55%
         ),
-
         repeating-linear-gradient(
             125deg,
             transparent 0px,
@@ -61,7 +56,6 @@ body {
             rgba(40, 8, 22, 0.35) 105px,
             transparent 150px
         ),
-
         linear-gradient(
             135deg,
             #16070d 0%,
@@ -73,13 +67,12 @@ body {
 
     background-attachment: fixed;
     background-size: cover;
-
     color: #f4e8c1;
+
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
 
     padding: 20px;
     margin: 0;
-
     min-height: 100vh;
 
     position: relative;
@@ -93,10 +86,8 @@ body {
 
 body::before {
     content: "";
-
     position: fixed;
     inset: 0;
-
     pointer-events: none;
     z-index: 0;
 
@@ -111,7 +102,6 @@ body::before {
         );
 
     opacity: 0.7;
-
     transform: rotate(-12deg) scale(1.3);
 }
 
@@ -123,14 +113,10 @@ body::before {
 .particulas {
     position: fixed;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     pointer-events: none;
-
     z-index: 1;
-
     overflow: hidden;
 }
 
@@ -141,9 +127,7 @@ body::before {
 
 .particulas span {
     position: absolute;
-
     bottom: -50px;
-
     background: #fff9f5;
 
     clip-path: polygon(
@@ -282,7 +266,6 @@ body::before {
 ========================================= */
 
 @keyframes subirEstrela {
-
     0% {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
@@ -322,11 +305,10 @@ body::before {
 
 
 /* =========================================
-   💗 TÍTULO
+   💗 TÍTULO COM FONTE MANUSCRITA
 ========================================= */
 
 @keyframes trocarCorEBrilho {
-
     0%, 100% {
         color: #f3cbd4;
 
@@ -349,12 +331,15 @@ h1 {
     position: relative;
     z-index: 2;
 
-    font-family: 'Pacifico', cursive;
-    font-size: 95px;
+    /* ✨ Fonte manuscrita */
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+
+    font-size: 110px;
 
     text-align: center;
 
-    padding: 15px 30px;
+    padding: 10px 35px;
 
     border-bottom: 3px solid rgba(255, 190, 210, 0.6);
 
@@ -362,7 +347,7 @@ h1 {
 
     width: fit-content;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 
     animation: trocarCorEBrilho 3s infinite;
 }
@@ -375,13 +360,11 @@ h1 {
 .secao-musica {
     position: relative;
     z-index: 2;
-
     margin-bottom: 45px;
 }
 
 h2 {
     font-size: 58px;
-
     color: #f2c6d0;
 
     padding: 8px 0;
@@ -403,9 +386,7 @@ h2 {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-
     gap: 20px;
-
     padding: 20px 10px;
 }
 
@@ -462,7 +443,7 @@ iframe:hover {
     }
 
     h1 {
-        font-size: 55px;
+        font-size: 65px;
     }
 
     h2 {
