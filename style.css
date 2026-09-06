@@ -396,14 +396,12 @@ h2 {
 
 
 /* =========================================
-   📺 VÍDEOS COM LED VERMELHO
+   📺 VÍDEOS COM LED VINHO
 ========================================= */
 
 .videos {
     display: flex;
-
     flex-wrap: nowrap;
-
     overflow-x: auto;
 
     gap: 20px;
@@ -412,7 +410,7 @@ h2 {
 }
 
 
-/* 🔴 LED NORMAL */
+/* 🍷 LED VINHO NORMAL */
 
 iframe {
     width: 360px;
@@ -420,13 +418,13 @@ iframe {
 
     border-radius: 12px;
 
-    border: 2px solid #8b0000 !important;
+    border: 2px solid #6e1833 !important;
 
     box-shadow:
-        0 0 8px #5c0000,
-        0 0 15px #8b0000,
-        0 0 25px rgba(139, 0, 0, 0.8),
-        0 0 40px rgba(100, 0, 0, 0.5);
+        0 0 6px #3b0a1a,
+        0 0 12px #5c1028,
+        0 0 22px rgba(110, 24, 51, 0.8),
+        0 0 35px rgba(75, 10, 30, 0.6);
 
     flex-shrink: 0;
 
@@ -434,24 +432,22 @@ iframe {
         transform 0.35s ease,
         box-shadow 0.35s ease,
         border-color 0.35s ease;
-
-    position: relative;
 }
 
 
-/* 🔥 LED FORTE QUANDO PASSAR O MOUSE */
+/* 🍷✨ LED FORTE QUANDO PASSAR O MOUSE */
 
 iframe:hover {
     transform: scale(1.07);
 
-    border-color: #ff1a1a !important;
+    border-color: #c94f73 !important;
 
     box-shadow:
-        0 0 10px #ff0000,
-        0 0 20px #ff0000,
-        0 0 40px #d40000,
-        0 0 70px rgba(255, 0, 0, 0.9),
-        0 0 100px rgba(180, 0, 0, 0.7);
+        0 0 8px #8f1f42,
+        0 0 18px #a82d55,
+        0 0 35px #7a1838,
+        0 0 60px rgba(160, 35, 75, 0.85),
+        0 0 90px rgba(110, 20, 50, 0.7);
 }
 
 
@@ -477,4 +473,4 @@ iframe:hover {
         width: 280px;
         height: 180px;
     }
-}v
+}
