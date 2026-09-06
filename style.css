@@ -33,22 +33,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Ondas sonoras bem discretas no fundo */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background: repeating-radial-gradient(
-        ellipse at 50% 30%,
-        transparent 0px,
-        transparent 90px,
-        rgba(255, 170, 190, 0.03) 95px,
-        transparent 150px
-    );
-}
-
 /* =========================================
    📌 MENU SUPERIOR MODERNO
 ========================================= */
@@ -95,75 +79,77 @@ body::before {
 }
 
 /* =========================================
-   🌸 BANNER PRINCIPAL DESTAQUE (VINHO/ROSA)
+   🌸 HERO BANNER ABERTO (SEM CAIXA / LARGURA TOTAL)
 ========================================= */
 
 .conteudo-principal {
     position: relative;
     z-index: 2;
-    padding: 20px;
 }
 
-.banner-destaque {
+.banner-hero-aberto {
     position: relative;
-    max-width: 1100px;
-    margin: 30px auto 60px auto;
-    padding: 60px 20px 40px 20px;
+    width: 100%;
+    padding: 80px 20px 60px 20px;
     text-align: center;
-    border-radius: 30px;
-    
-    background: radial-gradient(circle at center, rgba(80, 20, 45, 0.6) 0%, rgba(35, 8, 20, 0.4) 70%, transparent 100%);
-    border: 1px solid rgba(255, 182, 193, 0.25);
-    box-shadow: 
-        0 0 30px rgba(110, 24, 51, 0.4),
-        inset 0 0 25px rgba(255, 105, 180, 0.15);
-    
+
+    /* Sem caixa, sem bordas, sem container visível */
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    /* Gradiente suave e ondas sonoras sutis no fundo aberto da seção */
     background-image: 
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M0,50 Q250,0 500,50 T1000,50' fill='none' stroke='rgba(255,182,193,0.05)' stroke-width='2'/%3E%3C/svg%3E"),
-        radial-gradient(circle at center, rgba(80, 20, 45, 0.6) 0%, rgba(35, 8, 20, 0.4) 70%, transparent 100%);
+        radial-gradient(ellipse at center, rgba(130, 25, 60, 0.35) 0%, rgba(18, 7, 13, 0) 75%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M0,60 Q300,10 600,60 T1200,60' fill='none' stroke='rgba(255,182,193,0.06)' stroke-width='2'/%3E%3Cpath d='M0,80 Q400,20 800,80 T1600,80' fill='none' stroke='rgba(255,105,180,0.04)' stroke-width='1.5'/%3E%3C/svg%3E");
+    
+    background-size: cover;
     overflow: hidden;
 }
 
-/* 🎧 DESENHOS GRANDES E TRANSPARENTES NAS LATERAIS */
-.fundo-decorativo-banner {
+/* 🎧 DESENHOS GRANDES E TRANSPARENTES INTEGRADOS AO FUNDO */
+.fundo-decorativo-absoluto {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 0;
 }
 
-.icone-fundo {
+.desenho-fundo {
     position: absolute;
-    font-size: 80px;
     opacity: 0.08;
-    filter: drop-shadow(0 0 10px #ff69b4);
+    filter: drop-shadow(0 0 15px #ff69b4);
 }
 
-.esquerda-top { top: 10px; left: 30px; transform: rotate(-15deg); }
-.esquerda-bottom { bottom: 10px; left: 60px; transform: rotate(10deg); font-size: 60px; }
-.direita-top { top: 15px; right: 40px; transform: rotate(20deg); font-size: 65px; }
-.direita-bottom { bottom: 5px; right: 30px; transform: rotate(-10deg); font-size: 90px; }
+.esquerda-top { top: 15%; left: 5%; font-size: 110px; transform: rotate(-15deg); }
+.esquerda-bottom { bottom: 10%; left: 8%; font-size: 80px; transform: rotate(12deg); }
+.direita-top { top: 10%; right: 6%; font-size: 95px; transform: rotate(20deg); }
+.direita-bottom { bottom: 15%; right: 5%; font-size: 120px; transform: rotate(-12deg); }
 
-/* ✍️ TÍTULO ESTILO ASSINATURA */
+
+/* ✍️ TÍTULO ASSINATURA CENTRALIZADO E SOLTO */
 .titulo-assinatura {
     position: relative;
     z-index: 2;
     font-family: 'Dancing Script', cursive;
-    font-size: 110px;
+    font-size: 130px;
     font-weight: 700;
     margin: 0;
     padding: 0;
     border: none;
 
-    background: linear-gradient(180deg, #ffffff 20%, #f3cbd4 100%);
+    /* Cor rosa claro com transição suave */
+    background: linear-gradient(180deg, #ffffff 15%, #f7c5d1 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    filter: drop-shadow(0 0 12px rgba(255, 182, 193, 0.8)) 
-            drop-shadow(0 0 25px rgba(201, 79, 115, 0.6));
+    /* Glow iluminado no fundo */
+    filter: drop-shadow(0 0 15px rgba(255, 182, 193, 0.85)) 
+            drop-shadow(0 0 35px rgba(201, 79, 115, 0.65));
 }
 
-/* ✨ ELEMENTOS DECORATIVOS FLUTUANTES AO REDOR */
+
+/* ✨ BRILHOS E NOTAS FLUTUANDO AO REDOR */
 .brilhos-titulo {
     position: absolute;
     inset: 0;
@@ -173,23 +159,24 @@ body::before {
 
 .elemento-float {
     position: absolute;
-    color: rgba(255, 192, 203, 0.6);
-    filter: drop-shadow(0 0 5px #ff69b4);
+    color: rgba(255, 192, 203, 0.65);
+    filter: drop-shadow(0 0 6px #ff69b4);
     animation: flutuarSuave 4s ease-in-out infinite alternate;
 }
 
-.pos-1 { top: 25%; left: 22%; font-size: 20px; animation-delay: 0s; }
-.pos-2 { top: 18%; right: 25%; font-size: 24px; animation-delay: 1s; }
-.pos-3 { bottom: 35%; left: 28%; font-size: 18px; animation-delay: 1.5s; }
-.pos-4 { bottom: 40%; right: 22%; font-size: 22px; animation-delay: 0.5s; }
-.pos-5 { top: 45%; right: 18%; font-size: 16px; animation-delay: 2s; }
+.pos-1 { top: 20%; left: 30%; font-size: 24px; animation-delay: 0s; }
+.pos-2 { top: 15%; right: 32%; font-size: 28px; animation-delay: 1s; }
+.pos-3 { bottom: 35%; left: 33%; font-size: 20px; animation-delay: 1.5s; }
+.pos-4 { bottom: 40%; right: 30%; font-size: 26px; animation-delay: 0.5s; }
+.pos-5 { top: 40%; right: 24%; font-size: 18px; animation-delay: 2s; }
 
 @keyframes flutuarSuave {
     0% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
-    100% { transform: translateY(-8px) rotate(12deg); opacity: 0.9; }
+    100% { transform: translateY(-10px) rotate(15deg); opacity: 0.95; }
 }
 
-/* ➖ LINHA DECORATIVA COM ESTRELA CENTRAL */
+
+/* ➖ LINHA DECORATIVA ABAIXO DO TÍTULO */
 .divisor-banner {
     position: relative;
     z-index: 2;
@@ -197,20 +184,20 @@ body::before {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    max-width: 450px;
-    margin: 10px auto 0 auto;
+    max-width: 500px;
+    margin: 15px auto 0 auto;
 }
 
 .linha-lado {
     flex: 1;
     height: 1.5px;
-    background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.7), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.8), transparent);
 }
 
 .estrela-central {
     color: #f3cbd4;
-    font-size: 18px;
-    text-shadow: 0 0 8px #ff69b4;
+    font-size: 20px;
+    text-shadow: 0 0 10px #ff69b4;
 }
 
 /* =========================================
@@ -219,6 +206,7 @@ body::before {
 
 .secao-musica {
     margin-bottom: 50px;
+    padding: 0 20px;
 }
 
 h2 {
@@ -365,17 +353,16 @@ footer {
         padding: 15px;
     }
 
-    .banner-destaque {
-        margin: 15px auto 30px auto;
-        padding: 40px 10px 25px 10px;
+    .banner-hero-aberto {
+        padding: 50px 10px 40px 10px;
     }
 
     .titulo-assinatura {
-        font-size: 70px;
+        font-size: 75px;
     }
 
-    .icone-fundo {
-        font-size: 45px;
+    .desenho-fundo {
+        font-size: 50px !important;
     }
 
     h2 {
