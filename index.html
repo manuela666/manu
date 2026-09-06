@@ -135,4 +135,99 @@
                     <iframe src="https://www.youtube.com/embed/V0MECgmHCOo" title="Funk" allowfullscreen></iframe>
                 </div>
                 <div class="card-video" data-nome="funk 3">
-                    <iframe src="
+                    <iframe src="https://www.youtube.com/embed/vhTrtN7e2bs" title="Funk" allowfullscreen></iframe>
+                </div>
+                <div class="card-video" data-nome="funk 4">
+                    <iframe src="https://www.youtube.com/embed/wU1U7Jgq_uo" title="Funk" allowfullscreen></iframe>
+                </div>
+                <div class="card-video" data-nome="trilogia 150">
+                    <iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150" allowfullscreen></iframe>
+                </div>
+                <div class="card-video" data-nome="funk 5">
+                    <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Funk" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="sobre">
+        <div class="conteudo-rodape">
+            <h3>✨ Música ✨</h3>
+            <p>Encontre seus estilos favoritos e aproveite o som!</p>
+            <div class="linha-decorativa"></div>
+            <p class="direitos">© 2026 - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        function limparTexto(texto) {
+            if (!texto) return "";
+            return texto
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-z0-9\s]/g, "")
+                .trim();
+        }
+
+        function buscarMusica() {
+            const campo = document.getElementById('campo-busca');
+            const termoLimpo = limparTexto(campo.value);
+
+            if (!termoLimpo) return;
+
+            const cards = document.querySelectorAll('.card-video');
+            let encontrado = false;
+
+            // Limpa destaques anteriores
+            cards.forEach(card => card.classList.remove('destaque-busca'));
+
+            const palavrasBusca = termoLimpo.split(/\s+/);
+
+            for (let card of cards) {
+                const dataNome = limparTexto(card.getAttribute('data-nome'));
+                const iframeTitle = limparTexto(card.querySelector('iframe')?.title);
+                const textoCompleto = `${dataNome} ${iframeTitle}`;
+
+                const corresponde = palavrasBusca.every(palavra => textoCompleto.includes(palavra));
+
+                if (corresponde) {
+                    encontrado = true;
+
+                    // 1. Rola a página verticalmente
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // 2. Aguarda a rolagem vertical finalizar para rolar horizontalmente até o card
+                    setTimeout(() => {
+                        const container = card.parentElement;
+                        const deslocamentoEsquerda = card.offsetLeft - (container.clientWidth / 2) + (card.clientWidth / 2);
+
+                        container.scrollTo({
+                            left: deslocamentoEsquerda,
+                            behavior: 'smooth'
+                        });
+
+                        // 3. Aplica o brilho de destaque
+                        card.classList.add('destaque-busca');
+                    }, 300);
+
+                    break;
+                }
+            }
+
+            if (!encontrado) {
+                alert('Música não encontrada! Tente usar apenas o nome da música ou do cantor.');
+            }
+        }
+
+        function verificarEnter(event) {
+            if (event.key === 'Enter') {
+                buscarMusica();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
