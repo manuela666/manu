@@ -15,18 +15,15 @@ body {
 
 
 /* =========================================
-   🌌 FUNDO NOVO - VIBE VINHO / PINTEREST
+   🌌 FUNDO COM IMAGEM
    ========================================= */
 
 body {
-    background:
-        radial-gradient(circle at 20% 15%, rgba(103, 47, 65, 0.7), transparent 30%),
-        radial-gradient(circle at 80% 25%, rgba(75, 30, 50, 0.8), transparent 35%),
-        radial-gradient(circle at 30% 70%, rgba(85, 35, 55, 0.7), transparent 35%),
-        radial-gradient(circle at 75% 80%, rgba(60, 20, 40, 0.8), transparent 40%),
-        linear-gradient(135deg, #210812, #3b1023, #16050c);
-
+    background-image: url("fundo.jpg");
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
 
     color: #f4e8c1;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
@@ -61,7 +58,6 @@ body {
 .particulas span {
     position: absolute;
     bottom: -50px;
-
     background: #ffffff;
 
     clip-path: polygon(
@@ -120,22 +116,12 @@ body {
     animation-delay: 1s;
 }
 
-
-/* ⭐ ESTRELA GRANDE + RASTRO */
-
 .particulas span:nth-child(5) {
     left: 30%;
     width: 25px;
     height: 25px;
     animation-duration: 9s;
     animation-delay: 3s;
-
-    filter:
-        drop-shadow(0 0 4px #ffffff)
-        drop-shadow(0 0 10px #ffffff)
-        drop-shadow(0 0 20px #ffffff)
-        drop-shadow(0 0 35px #ffffff)
-        drop-shadow(0 0 50px rgba(255,255,255,0.7));
 }
 
 .particulas span:nth-child(6) {
@@ -162,22 +148,12 @@ body {
     animation-delay: 3s;
 }
 
-
-/* ⭐ ESTRELA GRANDE + RASTRO */
-
 .particulas span:nth-child(9) {
     left: 58%;
     width: 21px;
     height: 21px;
     animation-duration: 10s;
     animation-delay: 1s;
-
-    filter:
-        drop-shadow(0 0 4px #ffffff)
-        drop-shadow(0 0 10px #ffffff)
-        drop-shadow(0 0 20px #ffffff)
-        drop-shadow(0 0 35px #ffffff)
-        drop-shadow(0 0 50px rgba(255,255,255,0.7));
 }
 
 .particulas span:nth-child(10) {
@@ -204,22 +180,12 @@ body {
     animation-delay: 1s;
 }
 
-
-/* ⭐ ESTRELA GRANDE + RASTRO */
-
 .particulas span:nth-child(13) {
     left: 82%;
     width: 28px;
     height: 28px;
     animation-duration: 10s;
     animation-delay: 3s;
-
-    filter:
-        drop-shadow(0 0 4px #ffffff)
-        drop-shadow(0 0 10px #ffffff)
-        drop-shadow(0 0 20px #ffffff)
-        drop-shadow(0 0 35px #ffffff)
-        drop-shadow(0 0 50px rgba(255,255,255,0.7));
 }
 
 .particulas span:nth-child(14) {
@@ -262,21 +228,12 @@ body {
     animation-delay: 4s;
 }
 
-
-/* ⭐ ESTRELA GRANDE + RASTRO */
-
 .particulas span:nth-child(19) {
     left: 27%;
     width: 15px;
     height: 15px;
     animation-duration: 9s;
     animation-delay: 1s;
-
-    filter:
-        drop-shadow(0 0 4px #ffffff)
-        drop-shadow(0 0 10px #ffffff)
-        drop-shadow(0 0 20px #ffffff)
-        drop-shadow(0 0 35px #ffffff);
 }
 
 .particulas span:nth-child(20) {
@@ -303,21 +260,12 @@ body {
     animation-delay: 1s;
 }
 
-
-/* ⭐ ESTRELA GRANDE + RASTRO */
-
 .particulas span:nth-child(23) {
     left: 55%;
     width: 18px;
     height: 18px;
     animation-duration: 9s;
     animation-delay: 4s;
-
-    filter:
-        drop-shadow(0 0 4px #ffffff)
-        drop-shadow(0 0 10px #ffffff)
-        drop-shadow(0 0 20px #ffffff)
-        drop-shadow(0 0 35px #ffffff);
 }
 
 .particulas span:nth-child(24) {
@@ -378,7 +326,7 @@ body {
 
 
 /* =========================================
-   🌠 RASTROS BRANCOS
+   🌠 RASTROS DAS ESTRELAS GRANDES
    ========================================= */
 
 .particulas span:nth-child(5)::after,
@@ -400,29 +348,18 @@ body {
 
     background: linear-gradient(
         to bottom,
-        rgba(255,255,255,1) 0%,
-        rgba(255,255,255,0.9) 15%,
-        rgba(255,255,255,0.65) 35%,
-        rgba(255,255,255,0.35) 55%,
-        rgba(255,255,255,0.12) 75%,
-        rgba(255,255,255,0) 100%
+        rgba(255,255,255,1),
+        rgba(255,255,255,0)
     );
 
     border-radius: 50%;
-
-    box-shadow:
-        0 0 5px #ffffff,
-        0 0 10px #ffffff,
-        0 0 20px rgba(255,255,255,0.9),
-        0 0 30px rgba(255,255,255,0.5);
-
     filter: blur(1px);
     z-index: -1;
 }
 
 
 /* =========================================
-   ✨ ESTRELAS PEQUENINAS
+   ✨ ESTRELAS PEQUENAS REDONDAS
    ========================================= */
 
 .particulas span:nth-child(1),
@@ -443,16 +380,11 @@ body {
 
     clip-path: none;
     border-radius: 50%;
-    background: #ffffff;
-
-    filter:
-        drop-shadow(0 0 2px #ffffff)
-        drop-shadow(0 0 5px #ffffff);
 }
 
 
 /* =========================================
-   🌌 MOVIMENTO DAS ESTRELAS
+   🌌 ANIMAÇÃO DAS ESTRELAS
    ========================================= */
 
 @keyframes subirEstrela {
@@ -488,48 +420,43 @@ body {
 
 ::-webkit-scrollbar {
     width: 10px;
-    height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #210812;
+    background: #1c0a12;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #a84b6c;
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-corner {
-    background: #210812;
+    background: #9b5065;
+    border-radius: 10px;
 }
 
 
 /* =========================================
-   💗 TÍTULO
+   💗 TÍTULO PRINCIPAL
    ========================================= */
 
 @keyframes trocarCorEBrilho {
 
     0% {
-        color: #e9a0b5;
+        color: #f2c6d0;
         text-shadow:
-            0 0 10px #b85c78,
-            0 0 20px #b85c78;
+            0 0 10px #b96b80,
+            0 0 25px #8d4058;
     }
 
     50% {
-        color: #f4e8c1;
+        color: #ffffff;
         text-shadow:
-            0 0 10px #f4e8c1,
-            0 0 20px #f4e8c1;
+            0 0 15px #ffffff,
+            0 0 30px #b96b80;
     }
 
     100% {
-        color: #e9a0b5;
+        color: #f2c6d0;
         text-shadow:
-            0 0 10px #b85c78,
-            0 0 20px #b85c78;
+            0 0 10px #b96b80,
+            0 0 25px #8d4058;
     }
 }
 
@@ -539,12 +466,11 @@ h1 {
 
     font-family: 'Pacifico', cursive;
     font-size: 95px;
-
     text-align: center;
 
     padding: 15px 30px;
 
-    border-bottom: 6px solid #a84b6c;
+    border-bottom: 4px solid rgba(242, 198, 208, 0.7);
 
     margin: 0 auto 30px auto;
 
@@ -563,26 +489,20 @@ h1 {
 .secao-musica {
     position: relative;
     z-index: 1;
-
     margin-bottom: 40px;
-
-    clear: both;
 }
 
 h2 {
     font-size: 58px;
-
-    color: #e9a0b5;
+    color: #f2c6d0;
 
     padding: 8px 0;
-
-    display: block;
 
     width: fit-content;
 
     margin-bottom: 20px;
 
-    text-shadow: 0 0 10px rgba(233, 160, 181, 0.3);
+    text-shadow: 0 0 12px rgba(255, 210, 220, 0.5);
 }
 
 
@@ -592,7 +512,6 @@ h2 {
 
 .videos {
     display: flex;
-
     flex-wrap: nowrap;
 
     overflow-x: auto;
@@ -600,22 +519,19 @@ h2 {
     gap: 20px;
 
     padding-bottom: 15px;
-
-    background-color: transparent;
 }
 
 iframe {
     width: 360px;
-
     height: 215px;
 
     border-radius: 12px;
 
-    border: 2px solid #a84b6c !important;
+    border: 2px solid rgba(230, 160, 180, 0.8) !important;
 
     box-shadow:
-        0 0 10px rgba(168, 75, 108, 0.7),
-        0 0 20px rgba(100, 40, 60, 0.5);
+        0 0 10px rgba(180, 80, 110, 0.5),
+        0 0 25px rgba(70, 20, 40, 0.6);
 
     flex-shrink: 0;
 
@@ -623,17 +539,15 @@ iframe {
         transform 0.3s ease,
         box-shadow 0.3s ease;
 
-    outline: none;
-
-    background-color: #210812;
+    background-color: #1c0a12;
 }
 
 iframe:hover {
     transform: scale(1.03);
 
     box-shadow:
-        0 0 20px #b85c78,
-        0 0 40px rgba(120, 50, 80, 0.7);
+        0 0 20px rgba(240, 180, 200, 0.8),
+        0 0 40px rgba(150, 60, 90, 0.7);
 }
 
 
