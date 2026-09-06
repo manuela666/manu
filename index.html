@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Lily - Músicas</title>
+    <title>Músicas</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 
     <!-- 📌 MENU SUPERIOR -->
     <header class="menu-superior">
-        <div class="logo">Lily</div>
+        <div class="logo">Músicas</div>
         <nav class="nav-central">
             <ul>
                 <li><a href="#inicio">Início</a></li>
@@ -58,7 +58,7 @@
                 <span class="elemento-float pos-5">✦</span>
             </div>
 
-            <h1 class="titulo-assinatura">Lily</h1>
+            <h1 class="titulo-assinatura">Músicas</h1>
 
             <div class="divisor-banner">
                 <span class="linha-lado"></span>
@@ -126,7 +126,7 @@
     <!-- 🌸 RODAPÉ ELEGANTE -->
     <footer>
         <div class="conteudo-rodape">
-            <h3>Lily</h3>
+            <h3>Músicas</h3>
             <p>Sua coleção de músicas favoritas em um só lugar.</p>
             <div class="linha-decorativa"></div>
             <p class="direitos">© Todos os direitos reservados.</p>
@@ -148,7 +148,6 @@
         const totalEstrelas = 50;
         const estrelas = [];
 
-        // Criando as 50 estrelas com atributos aleatórios
         for (let i = 0; i < totalEstrelas; i++) {
             estrelas.push({
                 x: Math.random() * canvas.width,
@@ -161,13 +160,11 @@
             });
         }
 
-        // Desenha a estrela prateada radiante (com efeito de cruz de 4 pontas)
         function desenharEstrelaPrata(x, y, tamanho, opacidade) {
             ctx.save();
             ctx.translate(x, y);
             ctx.globalAlpha = opacidade;
 
-            // Centro brilhante prateado
             const gradiente = ctx.createRadialGradient(0, 0, 0, 0, 0, tamanho * 2);
             gradiente.addColorStop(0, '#FFFFFF');
             gradiente.addColorStop(0.5, '#C0C0C0');
@@ -178,7 +175,6 @@
             ctx.arc(0, 0, tamanho, 0, Math.PI * 2);
             ctx.fill();
 
-            // Brilho vertical e horizontal em cruz
             ctx.fillStyle = '#FFFFFF';
             ctx.beginPath();
             ctx.moveTo(0, -tamanho * 2.5);
@@ -203,7 +199,6 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             estrelas.forEach(e => {
-                // Movimento contínuo
                 e.x += e.velocidadeX;
                 e.y += e.velocidadeY;
 
@@ -212,7 +207,6 @@
                 if (e.y < 0) e.y = canvas.height;
                 if (e.y > canvas.height) e.y = 0;
 
-                // Efeito de piscar (variação de brilho)
                 e.brilho += e.velocidadeBrilho;
                 if (e.brilho > 1 || e.brilho < 0.1) {
                     e.velocidadeBrilho = -e.velocidadeBrilho;
@@ -226,7 +220,6 @@
 
         animarEstrelas();
 
-        // Função simples para teste da busca
         function buscarMusica() {
             const termo = document.getElementById('campo-busca').value.toLowerCase();
             const cards = document.querySelectorAll('.card-video');
