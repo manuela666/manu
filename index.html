@@ -5,34 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Músicas</title>
+    <title>Lily - Músicas</title>
 </head>
 
 <body>
 
-    <!-- 🌟 CANVAS DAS ESTRELAS PRATEADAS -->
     <canvas id="canvas-estrelas"></canvas>
 
-    <!-- 📌 MENU SUPERIOR -->
-    <header class="menu-superior">
-        <div class="logo">Músicas</div>
-        <nav class="nav-central">
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#pop">Pop</a></li>
-                <li><a href="#internacionais">Internacionais</a></li>
-                <li><a href="#nacionais">Nacionais</a></li>
-                <li><a href="#favoritas">Favoritas</a></li>
-            </ul>
-        </nav>
-        <div class="caixa-pesquisa">
-            <input type="text" id="campo-busca" placeholder="Buscar música...">
-            <button onclick="buscarMusica()">🔍</button>
-        </div>
-    </header>
-
-    <!-- 🌌 PARTICULAS E NOTAS MUSICAIS DE FUNDO -->
     <div class="particulas">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
         <div class="nota-musical">🎵</div>
         <div class="nota-musical">🎶</div>
         <div class="nota-musical">✨</div>
@@ -40,100 +22,6 @@
         <div class="nota-musical">🎶</div>
     </div>
 
-    <!-- 🌸 BANNER PRINCIPAL DESTAQUE -->
-    <main class="conteudo-principal" id="inicio">
-        <section class="banner-destaque">
-            <div class="fundo-decorativo-banner">
-                <span class="icone-fundo esquerda-top">🎵</span>
-                <span class="icone-fundo esquerda-bottom">🎶</span>
-                <span class="icone-fundo direita-top">✨</span>
-                <span class="icone-fundo direita-bottom">🎧</span>
-            </div>
-
-            <div class="brilhos-titulo">
-                <span class="elemento-float pos-1">✦</span>
-                <span class="elemento-float pos-2">✧</span>
-                <span class="elemento-float pos-3">✦</span>
-                <span class="elemento-float pos-4">✧</span>
-                <span class="elemento-float pos-5">✦</span>
-            </div>
-
-            <h1 class="titulo-assinatura">Músicas</h1>
-
-            <div class="divisor-banner">
-                <span class="linha-lado"></span>
-                <span class="estrela-central">★</span>
-                <span class="linha-lado"></span>
-            </div>
-        </section>
-
-        <!-- 🎵 SEÇÃO POP -->
-        <section class="secao-musica" id="pop">
-            <h2>Pop</h2>
-            <div class="videos">
-                <div class="card-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Pop 1" allowfullscreen></iframe>
-                </div>
-                <div class="card-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Pop 2" allowfullscreen></iframe>
-                </div>
-                <div class="card-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Pop 3" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- 🎵 SEÇÃO INTERNACIONAIS -->
-        <section class="secao-musica" id="internacionais">
-            <h2>Internacionais</h2>
-            <div class="videos">
-                <div class="card-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Internacional 1" allowfullscreen></iframe>
-                </div>
-                <div class="card-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Internacional 2" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- 🎵 SEÇÃO NACIONAIS -->
-        <section class="secao-musica" id="nacionais">
-            <h2>Nacionais</h2>
-            <div class="videos">
-                <div class="card-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Nacional 1" allowfullscreen></iframe>
-                </div>
-                <div class="card-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Nacional 2" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- 🎵 SEÇÃO FAVORITAS -->
-        <section class="secao-musica" id="favoritas">
-            <h2>Favoritas</h2>
-            <div class="videos">
-                <div class="card-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Favorita 1" allowfullscreen></iframe>
-                </div>
-                <div class="card-video">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Favorita 2" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 🌸 RODAPÉ ELEGANTE -->
-    <footer>
-        <div class="conteudo-rodape">
-            <h3>Músicas</h3>
-            <p>Sua coleção de músicas favoritas em um só lugar.</p>
-            <div class="linha-decorativa"></div>
-            <p class="direitos">© Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- 🌟 SCRIPT DAS 50 ESTRELAS PRATEADAS PISCANTES -->
     <script>
         const canvas = document.getElementById('canvas-estrelas');
         const ctx = canvas.getContext('2d');
@@ -148,29 +36,34 @@
         const totalEstrelas = 50;
         const estrelas = [];
 
+        // Inicializa as 50 estrelas com tamanhos e posições aleatórias
         for (let i = 0; i < totalEstrelas; i++) {
             estrelas.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                tamanho: Math.random() * 2.5 + 1,
+                tamanho: Math.random() * 3 + 1, // Variação de tamanho
                 brilho: Math.random(),
                 velocidadeBrilho: Math.random() * 0.02 + 0.005,
-                velocidadeX: (Math.random() - 0.5) * 0.3,
-                velocidadeY: (Math.random() - 0.5) * 0.3
+                velocidadeX: (Math.random() - 0.5) * 0.4, // Movimento suave horizontal
+                velocidadeY: (Math.random() - 0.5) * 0.4  // Movimento suave vertical
             });
         }
 
+        // Desenha uma estrela em formato de brilho radiante (4 pontas)
         function desenharEstrelaPrata(x, y, tamanho, opacidade) {
             ctx.save();
             ctx.translate(x, y);
             ctx.globalAlpha = opacidade;
 
+            // Gradiente prateado com centro branco radiante
             const gradiente = ctx.createRadialGradient(0, 0, 0, 0, 0, tamanho * 2);
             gradiente.addColorStop(0, '#FFFFFF');
-            gradiente.addColorStop(0.5, '#C0C0C0');
+            gradiente.addColorStop(0.4, '#C0C0C0');
             gradiente.addColorStop(1, 'rgba(192, 192, 192, 0)');
 
             ctx.fillStyle = gradiente;
+
+            // Desenho do brilho em cruz
             ctx.beginPath();
             ctx.arc(0, 0, tamanho, 0, Math.PI * 2);
             ctx.fill();
@@ -178,17 +71,17 @@
             ctx.fillStyle = '#FFFFFF';
             ctx.beginPath();
             ctx.moveTo(0, -tamanho * 2.5);
-            ctx.lineTo(tamanho * 0.2, 0);
+            ctx.lineTo(tamanho * 0.3, 0);
             ctx.lineTo(0, tamanho * 2.5);
-            ctx.lineTo(-tamanho * 0.2, 0);
+            ctx.lineTo(-tamanho * 0.3, 0);
             ctx.closePath();
             ctx.fill();
 
             ctx.beginPath();
             ctx.moveTo(-tamanho * 2.5, 0);
-            ctx.lineTo(0, tamanho * 0.2);
+            ctx.lineTo(0, tamanho * 0.3);
             ctx.lineTo(tamanho * 2.5, 0);
-            ctx.lineTo(0, -tamanho * 0.2);
+            ctx.lineTo(0, -tamanho * 0.3);
             ctx.closePath();
             ctx.fill();
 
@@ -199,14 +92,17 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             estrelas.forEach(e => {
+                // Atualiza posição (movimento contínuo)
                 e.x += e.velocidadeX;
                 e.y += e.velocidadeY;
 
+                // Reposiciona se sair da tela
                 if (e.x < 0) e.x = canvas.width;
                 if (e.x > canvas.width) e.x = 0;
                 if (e.y < 0) e.y = canvas.height;
                 if (e.y > canvas.height) e.y = 0;
 
+                // Atualiza o efeito de piscar (brilho)
                 e.brilho += e.velocidadeBrilho;
                 if (e.brilho > 1 || e.brilho < 0.1) {
                     e.velocidadeBrilho = -e.velocidadeBrilho;
@@ -219,21 +115,8 @@
         }
 
         animarEstrelas();
-
-        function buscarMusica() {
-            const termo = document.getElementById('campo-busca').value.toLowerCase();
-            const cards = document.querySelectorAll('.card-video');
-            cards.forEach(card => {
-                const iframe = card.querySelector('iframe');
-                const titulo = iframe.getAttribute('title').toLowerCase();
-                if (termo && titulo.includes(termo)) {
-                    card.classList.add('destaque-busca');
-                } else {
-                    card.classList.remove('destaque-busca');
-                }
-            });
-        }
     </script>
+
 </body>
 
 </html>
