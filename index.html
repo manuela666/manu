@@ -24,7 +24,9 @@
     <!-- 📌 MENU SUPERIOR -->
     <header class="menu-superior">
         <div class="logo">✨ Lily Music</div>
-        <nav>
+        
+        <!-- LINKS DE NAVEGAÇÃO CENTRALIZADOS -->
+        <nav class="nav-central">
             <ul>
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#rap">Rap / Hip Hop</a></li>
@@ -33,6 +35,12 @@
                 <li><a href="#sobre">Sobre</a></li>
             </ul>
         </nav>
+
+        <!-- BARRA DE PESQUISA -->
+        <div class="caixa-pesquisa">
+            <input type="text" id="campo-busca" placeholder="Buscar música..." onkeypress="verificarEnter(event)">
+            <button onclick="buscarMusica()">🔍</button>
+        </div>
     </header>
 
     <!-- 🎵 CABEÇALHO / ÁREA PRINCIPAL COM BANNER DESTAQUE -->
@@ -41,7 +49,6 @@
         <!-- BANNER DESTAQUE MÚSICA -->
         <div class="banner-destaque">
             
-            <!-- Elementos decorativos grandes e transparentes no fundo -->
             <div class="fundo-decorativo-banner">
                 <span class="icone-fundo esquerda-top">🎧</span>
                 <span class="icone-fundo esquerda-bottom">🎶</span>
@@ -49,7 +56,6 @@
                 <span class="icone-fundo direita-bottom">💿</span>
             </div>
 
-            <!-- Elementos menores ao redor do título -->
             <div class="brilhos-titulo">
                 <span class="elemento-float pos-1">✨</span>
                 <span class="elemento-float pos-2">🎵</span>
@@ -58,10 +64,8 @@
                 <span class="elemento-float pos-5">✨</span>
             </div>
 
-            <!-- Título Assinatura -->
             <h1 class="titulo-assinatura">Música</h1>
 
-            <!-- Linha Decorativa com Estrela Central -->
             <div class="divisor-banner">
                 <div class="linha-lado"></div>
                 <span class="estrela-central">✦</span>
@@ -74,22 +78,22 @@
         <section id="rap" class="secao-musica">
             <h2>✨ Rap / Hip Hop ✨</h2>
             <div class="videos">
-                <div class="card-video">
+                <div class="card-video" data-nome="Fútil Chris MC L7NNON">
                     <iframe src="https://www.youtube.com/embed/7c3SWrQIE0A" title="Chris MC ft. L7NNON - Fútil" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Sofa Breja e Netflix">
                     <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Sofa, Breja e Netflix" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Poesia Acústica 6">
                     <iframe src="https://www.youtube.com/embed/jK2k1P56Cno" title="Poesia Acústica #6" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Rap Hip Hop">
                     <iframe src="https://www.youtube.com/embed/439kVuNoNrA" title="Rap Hip Hop" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Rap Hip Hop">
                     <iframe src="https://www.youtube.com/embed/uK6UB4yVXMU" title="Rap Hip Hop" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Rap Hip Hop">
                     <iframe src="https://www.youtube.com/embed/qcbrCmIt7ww" title="Rap Hip Hop" allowfullscreen></iframe>
                 </div>
             </div>
@@ -99,22 +103,22 @@
         <section id="sertanejo" class="secao-musica">
             <h2>✨ Sertanejo ✨</h2>
             <div class="videos">
-                <div class="card-video">
+                <div class="card-video" data-nome="Ao Vivo E A Cores Matheus e Kauan Anitta">
                     <iframe src="https://www.youtube.com/embed/iyI9RMkEzbQ" title="Ao Vivo E A Cores" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Coladinho Em Mim Gustavo Mioto Anitta">
                     <iframe src="https://www.youtube.com/embed/gmvFLIuVAbA" title="Coladinho Em Mim" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Suíte 14 Henrique e Diego MC Guimê">
                     <iframe src="https://www.youtube.com/embed/e5Ct8ZW_rcs" title="Suíte 14" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Intenção Marília Mendonça">
                     <iframe src="https://www.youtube.com/embed/ex-cr18tKDE" title="Intenção" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Vingança Luan Santana">
                     <iframe src="https://www.youtube.com/embed/1qKz_QohN7g" title="Vingança" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Seu Astral Jorge e Mateus">
                     <iframe src="https://www.youtube.com/embed/SETK2maosQY" title="Seu Astral" allowfullscreen></iframe>
                 </div>
             </div>
@@ -124,31 +128,31 @@
         <section id="funk" class="secao-musica">
             <h2>✨ Funk ✨</h2>
             <div class="videos">
-                <div class="card-video">
+                <div class="card-video" data-nome="Vai Embrazando MC Zaac">
                     <iframe src="https://www.youtube.com/embed/Nk7S7D0CQOY" title="Vai Embrazando" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Fuleragem MC WM">
                     <iframe src="https://www.youtube.com/embed/WaOicuaHdzo" title="Fuleragem - MC WM Lyrics" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Hit Contagiante Felipe Original">
                     <iframe src="https://www.youtube.com/embed/sdcoyDUfbG0" title="Felipe Original - Hit Contagiante - Letra" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Funk">
                     <iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Funk" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Funk">
                     <iframe src="https://www.youtube.com/embed/V0MECgmHCOo" title="Funk" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Funk">
                     <iframe src="https://www.youtube.com/embed/vhTrtN7e2bs" title="Funk" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Funk">
                     <iframe src="https://www.youtube.com/embed/wU1U7Jgq_uo" title="Funk" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Trilogia 150">
                     <iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Trilogia 150" allowfullscreen></iframe>
                 </div>
-                <div class="card-video">
+                <div class="card-video" data-nome="Funk">
                     <iframe src="https://www.youtube.com/embed/ncLaAaENRWY" title="Funk" allowfullscreen></iframe>
                 </div>
             </div>
@@ -165,6 +169,44 @@
             <p class="direitos">© 2026 - Todos os direitos reservados</p>
         </div>
     </footer>
+
+    <!-- 🔍 SCRIPT DE BUSCA E NAVEGAÇÃO -->
+    <script>
+        function buscarMusica() {
+            const termo = document.getElementById('campo-busca').value.toLowerCase().trim();
+            if (!termo) return;
+
+            const cards = document.querySelectorAll('.card-video');
+            let encontrado = false;
+
+            // Remove destaques anteriores
+            cards.forEach(card => card.classList.remove('destaque-busca'));
+
+            for (let card of cards) {
+                const nomeMusica = (card.getAttribute('data-nome') || '').toLowerCase();
+                const iframeTitle = (card.querySelector('iframe')?.title || '').toLowerCase();
+
+                if (nomeMusica.includes(termo) || iframeTitle.includes(termo)) {
+                    // Rola até a música
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Adiciona o brilho
+                    card.classList.add('destaque-busca');
+                    encontrado = true;
+                    break;
+                }
+            }
+
+            if (!encontrado) {
+                alert('Música não encontrada! Tente buscar por outro termo.');
+            }
+        }
+
+        function verificarEnter(event) {
+            if (event.key === 'Enter') {
+                buscarMusica();
+            }
+        }
+    </script>
 
 </body>
 
