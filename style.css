@@ -149,65 +149,21 @@ body::before {
    🌟 POSIÇÕES DAS ESTRELAS
 ========================================= */
 
-.particulas span:nth-child(1) {
-    left: 3%; width: 3px; height: 3px; animation-duration: 6s;
-}
-
-.particulas span:nth-child(2) {
-    left: 9%; width: 7px; height: 7px; animation-duration: 8s; animation-delay: 1s;
-}
-
-.particulas span:nth-child(3) {
-    left: 16%; width: 2px; height: 2px; animation-duration: 5s;
-}
-
-.particulas span:nth-child(4) {
-    left: 23%; width: 10px; height: 10px; animation-duration: 7s; animation-delay: 2s;
-}
-
-.particulas span:nth-child(5) {
-    left: 30%; width: 16px; height: 16px; animation-duration: 10s;
-}
-
-.particulas span:nth-child(6) {
-    left: 37%; width: 3px; height: 3px; animation-duration: 6s;
-}
-
-.particulas span:nth-child(7) {
-    left: 44%; width: 6px; height: 6px; animation-duration: 8s;
-}
-
-.particulas span:nth-child(8) {
-    left: 51%; width: 2px; height: 2px; animation-duration: 5s;
-}
-
-.particulas span:nth-child(9) {
-    left: 58%; width: 15px; height: 15px; animation-duration: 10s;
-}
-
-.particulas span:nth-child(10) {
-    left: 64%; width: 4px; height: 4px; animation-duration: 7s;
-}
-
-.particulas span:nth-child(11) {
-    left: 70%; width: 8px; height: 8px; animation-duration: 9s;
-}
-
-.particulas span:nth-child(12) {
-    left: 76%; width: 2px; height: 2px; animation-duration: 6s;
-}
-
-.particulas span:nth-child(13) {
-    left: 82%; width: 18px; height: 18px; animation-duration: 11s;
-}
-
-.particulas span:nth-child(14) {
-    left: 88%; width: 3px; height: 3px; animation-duration: 7s;
-}
-
-.particulas span:nth-child(15) {
-    left: 95%; width: 9px; height: 9px; animation-duration: 9s;
-}
+.particulas span:nth-child(1) { left: 3%; width: 3px; height: 3px; animation-duration: 6s; }
+.particulas span:nth-child(2) { left: 9%; width: 7px; height: 7px; animation-duration: 8s; animation-delay: 1s; }
+.particulas span:nth-child(3) { left: 16%; width: 2px; height: 2px; animation-duration: 5s; }
+.particulas span:nth-child(4) { left: 23%; width: 10px; height: 10px; animation-duration: 7s; animation-delay: 2s; }
+.particulas span:nth-child(5) { left: 30%; width: 16px; height: 16px; animation-duration: 10s; }
+.particulas span:nth-child(6) { left: 37%; width: 3px; height: 3px; animation-duration: 6s; }
+.particulas span:nth-child(7) { left: 44%; width: 6px; height: 6px; animation-duration: 8s; }
+.particulas span:nth-child(8) { left: 51%; width: 2px; height: 2px; animation-duration: 5s; }
+.particulas span:nth-child(9) { left: 58%; width: 15px; height: 15px; animation-duration: 10s; }
+.particulas span:nth-child(10) { left: 64%; width: 4px; height: 4px; animation-duration: 7s; }
+.particulas span:nth-child(11) { left: 70%; width: 8px; height: 8px; animation-duration: 9s; }
+.particulas span:nth-child(12) { left: 76%; width: 2px; height: 2px; animation-duration: 6s; }
+.particulas span:nth-child(13) { left: 82%; width: 18px; height: 18px; animation-duration: 11s; }
+.particulas span:nth-child(14) { left: 88%; width: 3px; height: 3px; animation-duration: 7s; }
+.particulas span:nth-child(15) { left: 95%; width: 9px; height: 9px; animation-duration: 9s; }
 
 
 /* =========================================
@@ -219,15 +175,12 @@ body::before {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
     }
-
     15% {
         opacity: 1;
     }
-
     80% {
         opacity: 0.7;
     }
-
     100% {
         transform: translateY(-115vh) rotate(360deg);
         opacity: 0;
@@ -260,43 +213,30 @@ body::before {
 @keyframes trocarCorEBrilho {
     0%, 100% {
         color: #f3cbd4;
-
         text-shadow:
             0 0 10px rgba(255, 180, 200, 0.6),
             0 0 25px rgba(140, 50, 80, 0.5);
     }
-
     50% {
         color: #ffffff;
-
         text-shadow:
             0 0 15px white,
             0 0 30px rgba(180, 80, 110, 0.7);
     }
 }
 
-
 h1 {
     position: relative;
     z-index: 2;
-
     font-family: 'Dancing Script', cursive;
     font-weight: 700;
-
     font-size: 110px;
-
     text-align: center;
-
     padding: 10px 35px;
-
     border-bottom: 3px solid rgba(255, 190, 210, 0.6);
-
     margin: 0 auto 40px auto;
-
     width: fit-content;
-
     letter-spacing: 2px;
-
     animation: trocarCorEBrilho 3s infinite;
 }
 
@@ -314,73 +254,48 @@ h1 {
 h2 {
     font-size: 58px;
     color: #f2c6d0;
-
-    /* ✨ FONTE 'Fredericka the Great' ADICIONADA AQUI */
     font-family: 'Fredericka the Great', cursive;
-
     padding: 8px 0;
-
     width: fit-content;
-
     margin-bottom: 20px;
-
-    text-shadow:
-        0 0 8px rgba(255, 210, 220, 0.5);
+    text-shadow: 0 0 8px rgba(255, 210, 220, 0.5);
 }
 
 
 /* =========================================
-   📺 VÍDEOS COM LED VINHO
+   📺 VÍDEOS COM BORDAS ARREDONDADAS, SOMBRA E EXPLOSÃO DE BRILHO
 ========================================= */
 
 .videos {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-
-    gap: 20px;
-    padding: 20px 10px;
+    gap: 25px;
+    padding: 30px 15px;
 }
-
-
-/* 🍷 LED VINHO NORMAL */
 
 iframe {
     width: 360px;
     height: 215px;
-
-    border-radius: 12px;
-
+    border-radius: 20px;
     border: 2px solid #6e1833 !important;
-
-    box-shadow:
-        0 0 6px #3b0a1a,
-        0 0 12px #5c1028,
-        0 0 22px rgba(110, 24, 51, 0.8),
-        0 0 35px rgba(75, 10, 30, 0.6);
-
     flex-shrink: 0;
-
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.7),
+        0 0 15px rgba(110, 24, 51, 0.5);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-
-/* 🍷✨ QUANDO PASSAR O MOUSE */
-
 iframe:hover {
-    transform: scale(1.07);
-
-    border-color: #c94f73 !important;
-
+    transform: scale(1.08) translateY(-5px);
+    border-color: #ff69b4 !important;
     box-shadow:
-        0 0 8px #8f1f42,
-        0 0 18px #a82d55,
-        0 0 35px #7a1838,
-        0 0 60px rgba(160, 35, 75, 0.85),
-        0 0 90px rgba(110, 20, 50, 0.7);
+        0 0 15px #ff69b4,
+        0 0 30px #c94f73,
+        0 0 60px #8f1f42,
+        0 0 90px rgba(255, 105, 180, 0.8),
+        0 15px 30px rgba(0, 0, 0, 0.8);
+    filter: brightness(1.15) drop-shadow(0 0 20px rgba(255, 182, 193, 0.9));
 }
 
 
@@ -389,7 +304,6 @@ iframe:hover {
 ========================================= */
 
 @media (max-width: 600px) {
-
     body {
         padding: 12px;
     }
