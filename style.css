@@ -278,7 +278,7 @@ body::before {
 
 
 /* =========================================
-   🌌 ANIMAÇÃO
+   🌌 ANIMAÇÃO DAS ESTRELAS
 ========================================= */
 
 @keyframes subirEstrela {
@@ -350,7 +350,6 @@ h1 {
     z-index: 2;
 
     font-family: 'Pacifico', cursive;
-
     font-size: 95px;
 
     text-align: center;
@@ -397,7 +396,7 @@ h2 {
 
 
 /* =========================================
-   📺 VÍDEOS
+   📺 VÍDEOS COM LED VERMELHO
 ========================================= */
 
 .videos {
@@ -409,33 +408,50 @@ h2 {
 
     gap: 20px;
 
-    padding-bottom: 18px;
+    padding: 20px 10px;
 }
+
+
+/* 🔴 LED NORMAL */
 
 iframe {
     width: 360px;
-
     height: 215px;
 
     border-radius: 12px;
 
-    border: 2px solid rgba(190, 100, 130, 0.7) !important;
+    border: 2px solid #8b0000 !important;
 
     box-shadow:
-        0 0 12px rgba(100, 30, 55, 0.6),
-        0 0 25px rgba(30, 5, 15, 0.7);
+        0 0 8px #5c0000,
+        0 0 15px #8b0000,
+        0 0 25px rgba(139, 0, 0, 0.8),
+        0 0 40px rgba(100, 0, 0, 0.5);
 
     flex-shrink: 0;
 
-    transition: 0.3s ease;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+
+    position: relative;
 }
 
+
+/* 🔥 LED FORTE QUANDO PASSAR O MOUSE */
+
 iframe:hover {
-    transform: scale(1.04);
+    transform: scale(1.07);
+
+    border-color: #ff1a1a !important;
 
     box-shadow:
-        0 0 20px rgba(240, 180, 200, 0.7),
-        0 0 45px rgba(120, 40, 70, 0.8);
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 40px #d40000,
+        0 0 70px rgba(255, 0, 0, 0.9),
+        0 0 100px rgba(180, 0, 0, 0.7);
 }
 
 
@@ -461,4 +477,4 @@ iframe:hover {
         width: 280px;
         height: 180px;
     }
-}
+}v
