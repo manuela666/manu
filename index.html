@@ -20,6 +20,9 @@
         <div class="nota-musical">🎶</div>
     </div>
 
+    <!-- Container das 50 estrelas prateadas -->
+    <div id="container-estrelas"></div>
+
     <header class="menu-superior">
         <div class="logo">✨ Lily Music</div>
 
@@ -207,6 +210,37 @@
     </footer>
 
     <script>
+        // Função para gerar as 50 estrelinhas prateadas no fundo
+        function gerarEstrelasPrata() {
+            const container = document.getElementById('container-estrelas');
+            const totalEstrelas = 50;
+
+            for (let i = 0; i < totalEstrelas; i++) {
+                const estrela = document.createElement('div');
+                estrela.classList.add('estrela-prata');
+
+                // Posições e tamanhos aleatórios
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const tamanho = Math.random() * 4 + 2; // Tamanho entre 2px e 6px
+                const duracaoPiscar = Math.random() * 3 + 1.5; // Duração do brilho
+                const duracaoMovimento = Math.random() * 8 + 6; // Duração do movimento
+                const atraso = Math.random() * 5;
+
+                estrela.style.left = `${posX}%`;
+                estrela.style.top = `${posY}%`;
+                estrela.style.width = `${tamanho}px`;
+                estrela.style.height = `${tamanho}px`;
+                estrela.style.animationDuration = `${duracaoPiscar}s, ${duracaoMovimento}s`;
+                estrela.style.animationDelay = `${atraso}s, ${atraso}s`;
+
+                container.appendChild(estrela);
+            }
+        }
+
+        // Inicializa as estrelas ao carregar a página
+        window.addEventListener('DOMContentLoaded', gerarEstrelasPrata);
+
         function limparTexto(texto) {
             if (!texto) return "";
 
