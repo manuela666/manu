@@ -8,104 +8,147 @@
     <title>Lily - Músicas</title>
 
     <style>
-        /* ESTILOS ESPECÍFICOS DO BANNER ATUALIZADO */
+        /* ESTILOS DE ELEMENTOS ARTÍSTICOS E SVG (Sem Emojis) */
+        .svg-icon {
+            display: inline-block;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+
+        /* BANNER */
         .banner-destaque {
             position: relative;
             overflow: hidden;
-            perspective: 800px;
-            padding: 40px 20px;
+            perspective: 1000px;
+            padding: 60px 20px 50px 20px;
             text-align: center;
         }
 
-        /* Ondas suaves em perspectiva posicionadas ao fundo */
+        /* PAUTAS MUSICAIS CONTINUAS (5 LINHAS REAIS EM PERSPECTIVA) */
         .ondas-perspectiva-fundo {
+            position: absolute;
+            top: 0;
+            left: -5%;
+            width: 110%;
+            height: 100%;
+            z-index: 1; /* Atrás dos discos */
+            transform: rotateX(20deg) rotateZ(-1deg) scale(1.05);
+            transform-origin: bottom center;
+            pointer-events: none;
+            opacity: 0.85;
+        }
+
+        .pauta-linha-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        /* DISCOS */
+        .disco {
+            position: absolute;
+            z-index: 2; /* À frente das ondas de fundo */
+        }
+
+        /* NOTAS ROSA / VINHO TRANSPARENTES EM VETOR ESPALHADAS */
+        .notas-rosa-espalhadas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1; /* Fica atrás dos discos */
-            transform: rotateX(25deg) scale(1.1);
-            transform-origin: bottom center;
-            pointer-events: none;
-        }
-
-        .onda-svg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            filter: drop-shadow(0 0 6px rgba(219, 112, 147, 0.2));
-        }
-
-        /* Coroa e Título */
-        .container-titulo-coroa {
-            position: relative;
-            z-index: 5;
-            display: inline-block;
-        }
-
-        .coroa-brilhante {
-            font-size: 2.2rem;
-            margin-bottom: -10px;
-            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
-            animation: flutuarCoroa 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes flutuarCoroa {
-            from { transform: translateY(0) scale(1); }
-            to { transform: translateY(-6px) scale(1.08); }
-        }
-
-        /* Discos ajustados para camada frontal em relação às ondas */
-        .disco {
-            position: absolute;
-            z-index: 2;
-        }
-
-        /* Notas Rosa / Vinho Transparentes Espalhadas */
-        .notas-rosa-espalhadas .nota-vinho {
-            position: absolute;
             z-index: 3;
-            color: #8b004f;
-            opacity: 0.35;
-            filter: drop-shadow(0 0 5px rgba(219, 112, 147, 0.4));
-            font-size: 1.4rem;
             pointer-events: none;
+        }
+
+        .nota-vetor {
+            position: absolute;
+            fill: #8b004f;
+            opacity: 0.32;
+            filter: drop-shadow(0 0 6px rgba(219, 112, 147, 0.4));
             animation: flutuarNotas 4s ease-in-out infinite alternate;
         }
 
         @keyframes flutuarNotas {
             from { transform: translateY(0px) rotate(0deg); }
-            to { transform: translateY(-8px) rotate(10deg); }
+            to { transform: translateY(-8px) rotate(8deg); }
         }
 
-        .pos-n1 { top: 20%; left: 15%; animation-delay: 0s; }
-        .pos-n2 { top: 65%; left: 22%; font-size: 1.8rem; opacity: 0.25; animation-delay: 1s; }
-        .pos-n3 { top: 28%; right: 18%; animation-delay: 0.5s; }
-        .pos-n4 { top: 70%; right: 25%; font-size: 1.6rem; opacity: 0.3; animation-delay: 1.5s; }
-        .pos-n5 { top: 15%; left: 48%; font-size: 1.1rem; animation-delay: 0.8s; }
-        .pos-n6 { top: 75%; left: 52%; font-size: 1.2rem; animation-delay: 1.2s; }
+        .pos-n1 { top: 18%; left: 14%; width: 22px; animation-delay: 0s; }
+        .pos-n2 { top: 62%; left: 20%; width: 28px; opacity: 0.22; animation-delay: 1s; }
+        .pos-n3 { top: 25%; right: 16%; width: 26px; animation-delay: 0.5s; }
+        .pos-n4 { top: 68%; right: 22%; width: 24px; opacity: 0.28; animation-delay: 1.5s; }
+        .pos-n5 { top: 12%; left: 48%; width: 18px; animation-delay: 0.8s; }
+        .pos-n6 { top: 72%; left: 52%; width: 20px; animation-delay: 1.2s; }
+
+        /* COROA CALIGRÁFICA E TÍTULO */
+        .container-titulo-coroa {
+            position: relative;
+            z-index: 5;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .coroa-caligrafica-svg {
+            width: 55px;
+            height: 35px;
+            fill: none;
+            stroke: #ffd700;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
+            margin-bottom: -5px;
+            animation: flutuarCoroa 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes flutuarCoroa {
+            from { transform: translateY(0) scale(1); }
+            to { transform: translateY(-5px) scale(1.05); }
+        }
+
+        /* BRILHOS EM SVG */
+        .brilho-svg {
+            position: absolute;
+            fill: #fff8dc;
+            opacity: 0.7;
+            filter: drop-shadow(0 0 4px #fff8dc);
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .pos-b1 { top: 20%; left: 32%; width: 14px; }
+        .pos-b2 { top: 15%; right: 30%; width: 18px; }
+        .pos-b3 { top: 75%; left: 38%; width: 12px; }
     </style>
 </head>
 
 <body>
 
+    <!-- PARTICULAS COM NOTAS VETORIAIS -->
     <div class="particulas">
         <span></span><span></span><span></span><span></span><span></span>
         <span></span><span></span><span></span><span></span><span></span>
 
-        <div class="nota-musical">🎵</div>
-        <div class="nota-musical">🎶</div>
-        <div class="nota-musical">✨</div>
-        <div class="nota-musical">🎵</div>
-        <div class="nota-musical">🎶</div>
+        <div class="nota-musical">
+            <svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16"><path fill="#db7093" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
+        <div class="nota-musical">
+            <svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16"><path fill="#db7093" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+        </div>
     </div>
 
     <div id="container-estrelas"></div>
 
     <header class="menu-superior">
 
-        <div class="logo">✨ Lily Music</div>
+        <div class="logo">
+            <svg class="svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="#ffd700"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
+            Lily Music
+        </div>
 
         <nav class="nav-central">
             <ul>
@@ -140,7 +183,12 @@
                 placeholder="Buscar música..."
                 onkeypress="verificarEnter(event)"
             >
-            <button onclick="buscarMusica()">🔍</button>
+            <button onclick="buscarMusica()">
+                <!-- ÍCONE DE LUPA VETORIAL -->
+                <svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="#fff">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+            </button>
         </div>
 
     </header>
@@ -148,18 +196,25 @@
 
     <main id="inicio" class="conteudo-principal">
 
-        <!-- BANNER COM ONDAS SUAVES, NOTAS ROSA/VINHO, COROA E "MÚSICAS" -->
+        <!-- BANNER REVISADO -->
         <div class="banner-destaque">
 
-            <!-- 2 ONDAS GRANDES E SUAVES EM PERSPECTIVA (Fundo / Atrás dos discos) -->
+            <!-- PAUTAS MUSICAIS COMPLETAS (5 LINHAS CONTINUAS SUAVES EM PERSPECTIVA) -->
             <div class="ondas-perspectiva-fundo">
-                <svg viewBox="0 0 1200 400" preserveAspectRatio="none" class="onda-svg onda-1">
-                    <path d="M 0,200 C 300,100 600,300 1200,150 L 1200,400 L 0,400 Z" fill="none" stroke="rgba(255, 182, 193, 0.25)" stroke-width="2.5" />
-                    <path d="M 0,220 C 350,120 650,320 1200,170" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
-                </svg>
-                <svg viewBox="0 0 1200 400" preserveAspectRatio="none" class="onda-svg onda-2">
-                    <path d="M 0,280 C 400,150 800,350 1200,200 L 1200,400 L 0,400 Z" fill="none" stroke="rgba(199, 21, 133, 0.2)" stroke-width="2" />
-                    <path d="M 0,300 C 450,170 850,370 1200,220" fill="none" stroke="rgba(255, 192, 203, 0.15)" stroke-width="1.5" />
+                <svg viewBox="0 0 1200 350" preserveAspectRatio="none" class="pauta-linha-svg">
+                    <!-- PRIMEIRA PAUTA (5 LINHAS) -->
+                    <path d="M 0,80 Q 300,30 600,90 T 1200,60" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
+                    <path d="M 0,95 Q 300,45 600,105 T 1200,75" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
+                    <path d="M 0,110 Q 300,60 600,120 T 1200,90" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
+                    <path d="M 0,125 Q 300,75 600,135 T 1200,105" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
+                    <path d="M 0,140 Q 300,90 600,150 T 1200,120" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
+
+                    <!-- SEGUNDA PAUTA SUAVE DE FUNDO (5 LINHAS) -->
+                    <path d="M 0,180 Q 350,240 700,170 T 1200,210" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
+                    <path d="M 0,195 Q 350,255 700,185 T 1200,225" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
+                    <path d="M 0,210 Q 350,270 700,200 T 1200,240" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
+                    <path d="M 0,225 Q 350,285 700,215 T 1200,255" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
+                    <path d="M 0,240 Q 350,300 700,230 T 1200,270" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
                 </svg>
             </div>
 
@@ -174,32 +229,40 @@
                 <div class="centro-disco"></div>
             </div>
 
-            <!-- NOTAS ROSA / VINHO TRANSPARENTES -->
+            <!-- NOTAS MUSICAIS VETORIAIS ROSA/VINHO TRANSPARENTES -->
             <div class="notas-rosa-espalhadas">
-                <span class="nota-vinho pos-n1">🎵</span>
-                <span class="nota-vinho pos-n2">🎶</span>
-                <span class="nota-vinho pos-n3">🎼</span>
-                <span class="nota-vinho pos-n4">🎵</span>
-                <span class="nota-vinho pos-n5">🎶</span>
-                <span class="nota-vinho pos-n6">🎵</span>
+                <!-- Nota Clave de Sol / Colcheia em SVG -->
+                <svg class="nota-vetor pos-n1" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <svg class="nota-vetor pos-n2" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <svg class="nota-vetor pos-n3" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <svg class="nota-vetor pos-n4" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <svg class="nota-vetor pos-n5" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <svg class="nota-vetor pos-n6" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
             </div>
 
-            <!-- BRILHOS DELICADOS -->
-            <div class="brilhos-titulo">
-                <span class="elemento-float pos-1">✨</span>
-                <span class="elemento-float pos-2">🌟</span>
-                <span class="elemento-float pos-3">✨</span>
-            </div>
+            <!-- BRILHOS EM VETOR -->
+            <svg class="brilho-svg pos-b1" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
+            <svg class="brilho-svg pos-b2" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
+            <svg class="brilho-svg pos-b3" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
 
-            <!-- COROA BRILHANTE E TÍTULO "MÚSICAS" -->
+            <!-- COROA CALIGRÁFICA EM DESENHO DE VETOR E TÍTULO "MÚSICAS" -->
             <div class="container-titulo-coroa">
-                <div class="coroa-brilhante">👑</div>
+                <svg class="coroa-caligrafica-svg" viewBox="0 0 100 60">
+                    <path d="M 10,45 C 20,42 35,48 50,45 C 65,42 80,48 90,45 C 85,25 75,30 68,18 C 60,32 50,12 50,12 C 50,12 40,32 32,18 C 25,30 15,25 10,45 Z" />
+                    <circle cx="50" cy="8" r="3" fill="#ffd700" />
+                    <circle cx="21" cy="14" r="2.5" fill="#ffd700" />
+                    <circle cx="79" cy="14" r="2.5" fill="#ffd700" />
+                    <path d="M 15,49 C 35,52 65,52 85,49" stroke="#ffd700" stroke-width="1.2" />
+                </svg>
+
                 <h1 class="titulo-assinatura">Músicas</h1>
             </div>
 
             <div class="divisor-banner">
                 <div class="linha-lado"></div>
-                <span class="estrela-central">✦</span>
+                <span class="estrela-central">
+                    <svg class="svg-icon" viewBox="0 0 24 24" width="12" height="12" fill="#e0e0e0"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
+                </span>
                 <div class="linha-lado"></div>
             </div>
 
@@ -209,7 +272,7 @@
         <!-- RAP / HIP HOP -->
         <section id="rap" class="secao-musica">
 
-            <h2 id="titulo-rap">✨ Rap / Hip Hop ✨</h2>
+            <h2 id="titulo-rap">Rap / Hip Hop</h2>
 
             <div class="videos">
 
@@ -321,7 +384,7 @@
         <!-- SERTANEJO -->
         <section id="sertanejo" class="secao-musica">
 
-            <h2 id="titulo-sertanejo">✨ Sertanejo ✨</h2>
+            <h2 id="titulo-sertanejo">Sertanejo</h2>
 
             <div class="videos">
 
@@ -439,7 +502,7 @@
         <!-- FUNK -->
         <section id="funk" class="secao-musica">
 
-            <h2 id="titulo-funk">✨ Funk ✨</h2>
+            <h2 id="titulo-funk">Funk</h2>
 
             <div class="videos">
 
@@ -593,7 +656,7 @@
 
         <div class="conteudo-rodape">
 
-            <h3>✨ Músicas ✨</h3>
+            <h3>Músicas</h3>
 
             <p>
                 Encontre seus estilos favoritos e aproveite o som!
@@ -602,7 +665,7 @@
             <div class="linha-decorativa"></div>
 
             <p class="criadora">
-                Site feito por Manuela Miranda 🔥
+                Site feito por Manuela Miranda
             </p>
 
             <p class="direitos">
