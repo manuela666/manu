@@ -335,7 +335,6 @@
     <script>
         const players = {};
 
-        // Para e reseta todos os outros vídeos, reexibindo a capa rosa estilizada
         function pausarEResetarOutrosVideos(idAtual) {
             Object.keys(players).forEach(id => {
                 if (id !== idAtual && players[id]) {
@@ -350,7 +349,6 @@
             });
         }
 
-        // Inicia o vídeo selecionado
         function iniciarVideo(elementoOverlay, videoId) {
             elementoOverlay.style.display = 'none';
 
@@ -379,7 +377,6 @@
             }
         }
 
-        // Gerador de 50 estrelas prateadas
         function gerarEstrelasPrata() {
             const container = document.getElementById('container-estrelas');
             const totalEstrelas = 50;

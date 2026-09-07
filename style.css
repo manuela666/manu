@@ -1,751 +1,458 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fredericka+the+Great&family=Poppins:wght@300;400;600&display=swap');
-
-/* =========================================
-   🌐 CONFIGURAÇÕES GERAIS E ROLAGEM SUAVE
-========================================= */
-
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-/* =========================================
-   🌌 FUNDO ESCURO EM TONS VINHO E SEDA
-========================================= */
-
 body {
-    background-color: #12070d;
-    background-image:
-        radial-gradient(ellipse at 15% 10%, rgba(99, 35, 55, 0.7) 0%, transparent 50%),
-        radial-gradient(ellipse at 85% 20%, rgba(78, 23, 45, 0.6) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 90%, rgba(65, 18, 38, 0.7) 0%, transparent 60%),
-        linear-gradient(135deg, #16070d 0%, #2b0d1b 40%, #12060b 70%, #3a1023 100%);
-    background-attachment: fixed;
-    background-size: cover;
-    color: #f4e8c1;
-    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0d021a 0%, #1a0826 50%, #0d021a 100%);
+    color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
+    position: relative;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background: repeating-radial-gradient(
-        ellipse at 50% 30%,
-        transparent 0px,
-        transparent 90px,
-        rgba(255, 170, 190, 0.03) 95px,
-        transparent 150px
-    );
-}
-
-/* =========================================
-   ✨ ESTRELAS PRATEADAS FLUTUANTES E PISCANTES
-========================================= */
-
+/* ESTRELAS E ANIMAÇÕES */
 #container-estrelas {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
     z-index: 1;
-    overflow: hidden;
 }
 
 .estrela-prata {
     position: absolute;
-    background: #ffffff;
+    background-color: #ffffff;
     border-radius: 50%;
-    box-shadow:
-        0 0 6px #ffffff,
-        0 0 12px #e6f0ff,
-        0 0 18px rgba(220, 235, 255, 0.8);
-    animation:
-        piscarBrilho 1s infinite alternate ease-in-out,
-        movimentoFlutuante 5s infinite linear;
+    box-shadow: 0 0 6px #ffffff, 0 0 10px #c0c0c0;
+    animation: piscarEstrela linear infinite alternate, flutuarEstrela linear infinite alternate;
 }
 
-@keyframes piscarBrilho {
-    0% {
-        opacity: 0.15;
-        transform: scale(0.5);
-        box-shadow: 0 0 2px #ffffff;
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1.5);
-        box-shadow:
-            0 0 10px #ffffff,
-            0 0 20px #d8e6ff,
-            0 0 30px rgba(255, 255, 255, 0.9);
-    }
+@keyframes piscarEstrela {
+    0% { opacity: 0.2; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.3); }
 }
 
-@keyframes movimentoFlutuante {
-    0% {
-        transform: translateY(0px) translateX(0px);
-    }
-    50% {
-        transform: translateY(-25px) translateX(15px);
-    }
-    100% {
-        transform: translateY(0px) translateX(0px);
-    }
+@keyframes flutuarEstrela {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-15px); }
 }
-
-/* =========================================
-   📌 MENU SUPERIOR COM NAVEGAÇÃO CENTRALIZADA
-========================================= */
-
-.menu-superior {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 40px;
-    background: rgba(18, 7, 13, 0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 180, 200, 0.2);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-}
-
-.menu-superior .logo {
-    font-family: 'Dancing Script', cursive;
-    font-size: 28px;
-    color: #f3cbd4;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
-    white-space: nowrap;
-}
-
-/* CENTRALIZAÇÃO DOS LINKS DO MENU */
-
-.nav-central {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.nav-central ul {
-    display: flex;
-    list-style: none;
-    gap: 12px;
-}
-
-/* EFEITO BOLA AO PASSAR O MOUSE */
-
-.nav-central a {
-    position: relative;
-    color: #e0cad2;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 8px 18px;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.nav-central a:hover,
-.nav-central a:focus,
-.nav-central a:active {
-    color: #ffffff;
-    background: linear-gradient(135deg, rgba(201, 79, 115, 0.8), rgba(110, 24, 51, 0.9));
-    box-shadow:
-        0 0 15px rgba(255, 105, 180, 0.6),
-        inset 0 0 8px rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-}
-
-/* 🔍 BARRA DE PESQUISA */
-
-.caixa-pesquisa {
-    display: flex;
-    align-items: center;
-    background: rgba(43, 13, 27, 0.7);
-    border: 1px solid rgba(255, 182, 193, 0.3);
-    border-radius: 25px;
-    padding: 4px 6px 4px 15px;
-    transition: all 0.3s ease;
-}
-
-.caixa-pesquisa:focus-within {
-    border-color: #ff69b4;
-    box-shadow: 0 0 12px rgba(255, 105, 180, 0.5);
-    background: rgba(55, 15, 35, 0.9);
-}
-
-.caixa-pesquisa input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #f4e8c1;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    width: 150px;
-    transition: width 0.3s ease;
-}
-
-.caixa-pesquisa input:focus {
-    width: 190px;
-}
-
-.caixa-pesquisa input::placeholder {
-    color: rgba(224, 202, 210, 0.5);
-}
-
-.caixa-pesquisa button {
-    background: linear-gradient(135deg, #c94f73, #6e1833);
-    border: none;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 12px;
-    transition: transform 0.2s ease, background 0.3s ease;
-}
-
-.caixa-pesquisa button:hover {
-    transform: scale(1.1);
-    background: linear-gradient(135deg, #ff69b4, #c94f73);
-}
-
-/* =========================================
-   🌸 BANNER PRINCIPAL DESTAQUE
-========================================= */
-
-.conteudo-principal {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-}
-
-.banner-destaque {
-    position: relative;
-    max-width: 1100px;
-    margin: 30px auto 60px auto;
-    padding: 60px 20px 40px 20px;
-    text-align: center;
-    border-radius: 30px;
-
-    background: radial-gradient(
-        circle at center,
-        rgba(80, 20, 45, 0.6) 0%,
-        rgba(35, 8, 20, 0.4) 70%,
-        transparent 100%
-    );
-
-    border: 1px solid rgba(255, 182, 193, 0.25);
-
-    box-shadow:
-        0 0 30px rgba(110, 24, 51, 0.4),
-        inset 0 0 25px rgba(255, 105, 180, 0.15);
-
-    background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M0,50 Q250,0 500,50 T1000,50' fill='none' stroke='rgba(255,182,193,0.05)' stroke-width='2'/%3E%3C/svg%3E"),
-        radial-gradient(
-            circle at center,
-            rgba(80, 20, 45, 0.6) 0%,
-            rgba(35, 8, 20, 0.4) 70%,
-            transparent 100%
-        );
-
-    overflow: hidden;
-}
-
-.fundo-decorativo-banner {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.icone-fundo {
-    position: absolute;
-    font-size: 80px;
-    opacity: 0.08;
-    filter: drop-shadow(0 0 10px #ff69b4);
-}
-
-.esquerda-top {
-    top: 10px;
-    left: 30px;
-    transform: rotate(-15deg);
-}
-
-.esquerda-bottom {
-    bottom: 10px;
-    left: 60px;
-    transform: rotate(10deg);
-    font-size: 60px;
-}
-
-.direita-top {
-    top: 15px;
-    right: 40px;
-    transform: rotate(20deg);
-    font-size: 65px;
-}
-
-.direita-bottom {
-    bottom: 5px;
-    right: 30px;
-    transform: rotate(-10deg);
-    font-size: 90px;
-}
-
-.titulo-assinatura {
-    position: relative;
-    z-index: 2;
-    font-family: 'Dancing Script', cursive;
-    font-size: 110px;
-    font-weight: 700;
-    margin: 0;
-    padding: 0;
-    border: none;
-
-    background: linear-gradient(180deg, #ffffff 20%, #f3cbd4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    filter:
-        drop-shadow(0 0 12px rgba(255, 182, 193, 0.8))
-        drop-shadow(0 0 25px rgba(201, 79, 115, 0.6));
-}
-
-.brilhos-titulo {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.elemento-float {
-    position: absolute;
-    color: rgba(255, 192, 203, 0.6);
-    filter: drop-shadow(0 0 5px #ff69b4);
-    animation: flutuarSuave 4s ease-in-out infinite alternate;
-}
-
-.pos-1 {
-    top: 25%;
-    left: 22%;
-    font-size: 20px;
-    animation-delay: 0s;
-}
-
-.pos-2 {
-    top: 18%;
-    right: 25%;
-    font-size: 24px;
-    animation-delay: 1s;
-}
-
-.pos-3 {
-    bottom: 35%;
-    left: 28%;
-    font-size: 18px;
-    animation-delay: 1.5s;
-}
-
-.pos-4 {
-    bottom: 40%;
-    right: 22%;
-    font-size: 22px;
-    animation-delay: 0.5s;
-}
-
-.pos-5 {
-    top: 45%;
-    right: 18%;
-    font-size: 16px;
-    animation-delay: 2s;
-}
-
-@keyframes flutuarSuave {
-    0% {
-        transform: translateY(0px) rotate(0deg);
-        opacity: 0.4;
-    }
-
-    100% {
-        transform: translateY(-8px) rotate(12deg);
-        opacity: 0.9;
-    }
-}
-
-.divisor-banner {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    max-width: 450px;
-    margin: 10px auto 0 auto;
-}
-
-.linha-lado {
-    flex: 1;
-    height: 1.5px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 182, 193, 0.7),
-        transparent
-    );
-}
-
-.estrela-central {
-    color: #f3cbd4;
-    font-size: 18px;
-    text-shadow: 0 0 8px #ff69b4;
-}
-
-/* =========================================
-   🎵 SEÇÕES E TÍTULOS
-========================================= */
-
-.secao-musica {
-    margin-bottom: 50px;
-}
-
-h2 {
-    font-size: 50px;
-    color: #f2c6d0;
-    font-family: 'Fredericka the Great', cursive;
-    margin-bottom: 20px;
-    margin-left: 15px;
-    text-shadow: 0 0 10px rgba(255, 180, 200, 0.4);
-}
-
-/* =========================================
-   📺 CARDS DOS VÍDEOS & PLAY CUSTOMIZADO
-========================================= */
-
-.videos {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 25px;
-    padding: 20px 15px;
-}
-
-.card-video {
-    flex-shrink: 0;
-    border-radius: 20px;
-    padding: 3px;
-    background: linear-gradient(135deg, #6e1833, #c94f73);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        background 0.35s ease;
-}
-
-.titulo-video {
-    padding: 8px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.wrapper-video {
-    position: relative;
-    width: 360px;
-    height: 215px;
-    border-radius: 18px;
-    overflow: hidden;
-}
-
-iframe {
-    width: 100%;
-    height: 100%;
-    border-radius: 18px;
-    border: none;
-    display: block;
-}
-
-/* Overlay da imagem do vídeo e botão de Play */
-
-.overlay-play {
-    position: absolute;
-    inset: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.3);
-    transition: background 0.3s ease;
-}
-
-.overlay-play img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.overlay-play::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle, rgba(18, 7, 13, 0.2) 0%, rgba(18, 7, 13, 0.7) 100%);
-}
-
-.botao-play-custom {
-    position: relative;
-    z-index: 2;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ff69b4, #8b1538);
-    border: 2px solid #ffffff;
-    box-shadow:
-        0 0 15px rgba(255, 105, 180, 0.8),
-        0 0 30px rgba(139, 21, 56, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.botao-play-custom::before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 0 10px 18px;
-    border-color: transparent transparent transparent #ffffff;
-    margin-left: 4px;
-    filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
-}
-
-.overlay-play:hover .botao-play-custom {
-    transform: scale(1.15);
-    background: linear-gradient(135deg, #ffffff, #ff69b4);
-    box-shadow:
-        0 0 25px #ff69b4,
-        0 0 45px rgba(255, 255, 255, 0.9);
-}
-
-.overlay-play:hover .botao-play-custom::before {
-    border-color: transparent transparent transparent #6e1833;
-}
-
-.card-video:hover {
-    transform: translateY(-8px) scale(1.03);
-    background: linear-gradient(135deg, #ff69b4, #ffb6c1);
-
-    box-shadow:
-        0 12px 25px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(255, 105, 180, 0.6);
-}
-
-/* ✨ DESTAQUE DA BUSCA */
-
-.card-video.destaque-busca {
-    transform: scale(1.08);
-    background: linear-gradient(135deg, #ff69b4, #ffffff);
-
-    box-shadow:
-        0 0 35px #ff69b4,
-        0 0 15px #ffffff;
-
-    animation: pulsarGlow 1.5s infinite alternate;
-}
-
-@keyframes pulsarGlow {
-    0% {
-        box-shadow: 0 0 20px #ff69b4;
-    }
-
-    100% {
-        box-shadow:
-            0 0 40px #ff69b4,
-            0 0 15px #ffffff;
-    }
-}
-
-/* =========================================
-   ✨ PARTICULAS E NOTAS FLUTUANTES
-========================================= */
 
 .particulas {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     pointer-events: none;
     z-index: 1;
 }
 
 .nota-musical {
     position: absolute;
-    color: rgba(255, 182, 193, 0.4);
-    font-size: 24px;
-    animation: flutuarNotas 12s infinite linear;
+    font-size: 1.5rem;
+    opacity: 0.3;
+    animation: flutuarNotas 8s infinite linear;
 }
 
-.nota-musical:nth-child(1) {
-    left: 10%;
-    animation-duration: 8s;
-}
-
-.nota-musical:nth-child(2) {
-    left: 30%;
-    animation-duration: 11s;
-    animation-delay: 2s;
-}
-
-.nota-musical:nth-child(3) {
-    left: 50%;
-    animation-duration: 9s;
-    animation-delay: 1s;
-}
-
-.nota-musical:nth-child(4) {
-    left: 70%;
-    animation-duration: 13s;
-}
-
-.nota-musical:nth-child(5) {
-    left: 90%;
-    animation-duration: 10s;
-    animation-delay: 3s;
-}
+.nota-musical:nth-child(1) { left: 10%; animation-delay: 0s; }
+.nota-musical:nth-child(2) { left: 30%; animation-delay: 2s; }
+.nota-musical:nth-child(3) { left: 50%; animation-delay: 4s; }
+.nota-musical:nth-child(4) { left: 70%; animation-delay: 1s; }
+.nota-musical:nth-child(5) { left: 90%; animation-delay: 3s; }
 
 @keyframes flutuarNotas {
-    0% {
-        transform: translateY(105vh) rotate(0deg);
-        opacity: 0;
-    }
-
-    20% {
-        opacity: 0.8;
-    }
-
-    80% {
-        opacity: 0.8;
-    }
-
-    100% {
-        transform: translateY(-10vh) rotate(360deg);
-        opacity: 0;
-    }
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    50% { opacity: 0.4; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
 }
 
-/* =========================================
-   📜 BARRA DE ROLAGEM
-========================================= */
+/* MENU SUPERIOR */
+.menu-superior {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(13, 2, 26, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 105, 180, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
 
-::-webkit-scrollbar {
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ff69b4;
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+.nav-central ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-central ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 6px 12px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.nav-central ul li a:hover {
+    color: #ffb6c1;
+    text-shadow: 0 0 8px rgba(255, 182, 193, 0.8);
+    transform: scale(1.05);
+}
+
+.caixa-pesquisa {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 105, 180, 0.4);
+    border-radius: 20px;
+    padding: 4px 10px;
+    transition: all 0.3s ease;
+}
+
+.caixa-pesquisa:focus-within {
+    border-color: #ff69b4;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+}
+
+.caixa-pesquisa input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 5px;
+    font-size: 0.9rem;
+    width: 140px;
+}
+
+.caixa-pesquisa input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.caixa-pesquisa button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* BANNER */
+.conteudo-principal {
+    padding-top: 90px;
+    position: relative;
+    z-index: 2;
+}
+
+.banner-destaque {
+    text-align: center;
+    padding: 40px 20px 20px;
+    position: relative;
+}
+
+.fundo-decorativo-banner .icone-fundo {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.15;
+    filter: blur(1px);
+}
+
+.esquerda-top { top: 10%; left: 15%; }
+.esquerda-bottom { bottom: 10%; left: 20%; }
+.direita-top { top: 10%; right: 15%; }
+.direita-bottom { bottom: 10%; right: 20%; }
+
+.brilhos-titulo .elemento-float {
+    position: absolute;
+    font-size: 1.2rem;
+    animation: flutuarLeve 3s infinite alternate ease-in-out;
+}
+
+.pos-1 { top: 15%; left: 35%; animation-delay: 0s; }
+.pos-2 { top: 25%; right: 35%; animation-delay: 0.5s; }
+.pos-3 { bottom: 20%; left: 38%; animation-delay: 1s; }
+.pos-4 { bottom: 15%; right: 38%; animation-delay: 1.5s; }
+.pos-5 { top: 10%; right: 48%; animation-delay: 0.8s; }
+
+@keyframes flutuarLeve {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-8px); }
+}
+
+.titulo-assinatura {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ff69b4, #ff1493, #c0c0c0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 25px rgba(255, 105, 180, 0.3);
+    margin-bottom: 10px;
+}
+
+.divisor-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.linha-lado {
+    height: 2px;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, #ff69b4, transparent);
+}
+
+.estrela-central {
+    color: #c0c0c0;
+    font-size: 1.2rem;
+    text-shadow: 0 0 8px #ffffff;
+}
+
+/* SEÇÕES E DESTAQUE DE TÍTULO */
+.secao-musica {
+    padding: 30px 4%;
+    scroll-margin-top: 100px;
+    transition: all 0.3s ease;
+}
+
+.secao-musica h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ffb6c1;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.secao-musica:target h2 {
+    font-size: 2.3rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #e60073;
+}
+
+/* CARROSSEL DE VÍDEOS */
+.videos {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 5px 25px;
+    scroll-behavior: smooth;
+}
+
+.videos::-webkit-scrollbar {
     height: 8px;
-    width: 8px;
 }
 
-::-webkit-scrollbar-track {
-    background: #12070d;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #6e1833;
+.videos::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
 }
 
-/* =========================================
-   🌸 RODAPÉ ELEGANTE
-========================================= */
+.videos::-webkit-scrollbar-thumb {
+    background: rgba(255, 105, 180, 0.4);
+    border-radius: 10px;
+}
 
+.videos::-webkit-scrollbar-thumb:hover {
+    background: #ff69b4;
+}
+
+/* CARDS DE VÍDEO */
+.card-video {
+    min-width: 260px;
+    max-width: 260px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 12px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-video:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 105, 180, 0.5);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.2);
+}
+
+.card-video.destaque-busca {
+    border: 2px solid #ff69b4;
+    box-shadow: 0 0 20px #ff69b4;
+    transform: scale(1.05);
+}
+
+.wrapper-video {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+}
+
+.yt-player-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+}
+
+.yt-player-container iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    border: none;
+}
+
+.overlay-play {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.overlay-play img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.overlay-play:hover img {
+    transform: scale(1.08);
+}
+
+.botao-play-custom {
+    position: relative;
+    z-index: 6;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 105, 180, 0.85);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+    transition: all 0.3s ease;
+}
+
+.botao-play-custom::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 0 8px 14px;
+    border-color: transparent transparent transparent #ffffff;
+    margin-left: 3px;
+}
+
+.overlay-play:hover .botao-play-custom {
+    transform: scale(1.15);
+    background: #ff1493;
+    box-shadow: 0 0 25px #ff1493;
+}
+
+.titulo-video {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #e0e0e0;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* RODAPÉ */
 footer {
+    margin-top: 50px;
+    padding: 30px 20px;
+    background: rgba(10, 2, 20, 0.9);
+    border-top: 1px solid rgba(255, 105, 180, 0.2);
+    text-align: center;
     position: relative;
     z-index: 2;
-    background: rgba(18, 7, 13, 0.95);
-    border-top: 1px solid rgba(255, 180, 200, 0.2);
-    padding: 30px 20px;
-    text-align: center;
-    margin-top: 40px;
 }
 
 .conteudo-rodape h3 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 36px;
-    color: #f3cbd4;
-    margin-bottom: 5px;
+    color: #ff69b4;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
 }
 
 .conteudo-rodape p {
-    color: #d1b8c2;
-    font-size: 14px;
+    color: #a0a0a0;
+    font-size: 0.85rem;
 }
 
 .linha-decorativa {
+    height: 1px;
     width: 100px;
-    height: 2px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #ff69b4,
-        transparent
-    );
+    background: rgba(255, 105, 180, 0.3);
     margin: 15px auto;
 }
 
 .direitos {
-    font-size: 12px;
-    color: #8c737e;
+    font-size: 0.75rem !important;
+    color: #707070 !important;
 }
 
-/* =========================================
-   📱 RESPONSIVIDADE PARA CELULARES
-========================================= */
-
-@media (max-width: 850px) {
-
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
     .menu-superior {
         flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .nav-central {
-        position: static;
-        transform: none;
+        height: auto;
+        padding: 12px;
+        gap: 10px;
     }
 
     .nav-central ul {
+        gap: 10px;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .banner-destaque {
-        margin: 15px auto 30px auto;
-        padding: 40px 10px 25px 10px;
+    .nav-central ul li a {
+        font-size: 0.85rem;
     }
 
     .titulo-assinatura {
-        font-size: 70px;
+        font-size: 2.5rem;
     }
 
-    .icone-fundo {
-        font-size: 45px;
+    .secao-musica {
+        scroll-margin-top: 140px;
     }
-
-    h2 {
-        font-size: 35px;
-    }
-
-    .wrapper-video {
-        width: 280px;
-        height: 170px;
-    }
-} 
+}
