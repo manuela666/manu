@@ -344,8 +344,8 @@
             });
         }
 
-        // Restaura a capa e o botão de play bonitinho ao terminar
-        function restaurarCapaAoTerminar(videoId) {
+        // Restaura a capa e o botão de play bonitinho
+        function restaurarCapa(videoId) {
             const playerDiv = document.getElementById('player-' + videoId);
             if (!playerDiv) return;
 
@@ -354,18 +354,52 @@
 
             const overlay = wrapper.querySelector('.overlay-play');
             if (overlay) {
-                // Torna a capa visível novamente
                 overlay.style.display = 'flex';
             }
 
-            // Reinicia o vídeo no player para o segundo 0 (para que, se for tocado de novo, comece do início)
             if (players[videoId] && typeof players[videoId].seekTo === 'function') {
                 players[videoId].seekTo(0);
                 players[videoId].stopVideo();
             }
         }
 
-        // Inicia o vídeo selecionado e pausa os anteriores
+        // Encontra e toca automaticamente o próximo vídeo na lista
+        function tocarProximoVideo(videoIdAtual) {
+            const playerDivAtual = document.getElementById('player-' + videoIdAtual);
+            if (!playerDivAtual) return;
+
+            const cardAtual = playerDivAtual.closest('.card-video');
+            if (!cardAtual) return;
+
+            const proximoCard = cardAtual.nextElementSibling;
+
+            if (proximoCard && proximoCard.classList.contains('card-video')) {
+                const overlayProximo = proximoCard.querySelector('.overlay-play');
+                
+                if (overlayProximo) {
+                    const imgOverlay = overlayProximo.querySelector('img');
+                    if (imgOverlay) {
+                        const urlImg = imgOverlay.src;
+                        const match = urlImg.match(/\/vi\/([^\/]+)\//);
+                        if (match && match[1]) {
+                            const proximoVideoId = match[1];
+
+                            // Rola a página suavemente até o próximo vídeo
+                            proximoCard.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'nearest',
+                                inline: 'center'
+                            });
+
+                            // Executa a inicialização do próximo vídeo
+                            iniciarVideo(overlayProximo, proximoVideoId);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Inicia o vídeo selecionado e gerencia o evento de término
         function iniciarVideo(elementoOverlay, videoId) {
             elementoOverlay.style.display = 'none';
 
@@ -388,9 +422,14 @@
                             if (event.data === YT.PlayerState.PLAYING) {
                                 pausarOutrosVideos(videoId);
                             }
-                            // Quando o vídeo acabar (YT.PlayerState.ENDED = 0), volta a capa linda!
+                            
+                            // Quando a música acabar (ENDED = 0)
                             if (event.data === YT.PlayerState.ENDED) {
-                                restaurarCapaAoTerminar(videoId);
+                                // 1. Restaura a capa da música que acabou
+                                restaurarCapa(videoId);
+                                
+                                // 2. Toca a próxima música automaticamente
+                                tocarProximoVideo(videoId);
                             }
                         }
                     }
