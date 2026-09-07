@@ -210,7 +210,7 @@
     </footer>
 
     <script>
-        // Função para gerar as 50 estrelinhas prateadas no fundo
+        // Função para gerar as 50 estrelinhas prateadas mais rápidas
         function gerarEstrelasPrata() {
             const container = document.getElementById('container-estrelas');
             const totalEstrelas = 50;
@@ -223,9 +223,11 @@
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
                 const tamanho = Math.random() * 4 + 2; // Tamanho entre 2px e 6px
-                const duracaoPiscar = Math.random() * 3 + 1.5; // Duração do brilho
-                const duracaoMovimento = Math.random() * 8 + 6; // Duração do movimento
-                const atraso = Math.random() * 5;
+                
+                // Animações bem dinâmicas e rapidinhas
+                const duracaoPiscar = Math.random() * 1.2 + 0.5; // Pisca de 0.5s a 1.7s
+                const duracaoMovimento = Math.random() * 4 + 3;  // Flutua de 3s a 7s
+                const atraso = Math.random() * 3;
 
                 estrela.style.left = `${posX}%`;
                 estrela.style.top = `${posY}%`;

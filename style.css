@@ -69,23 +69,23 @@ body::before {
         0 0 12px #e6f0ff,
         0 0 18px rgba(220, 235, 255, 0.8);
     animation:
-        piscarBrilho 2s infinite alternate ease-in-out,
-        movimentoFlutuante 10s infinite linear;
+        piscarBrilho 1s infinite alternate ease-in-out,
+        movimentoFlutuante 5s infinite linear;
 }
 
 @keyframes piscarBrilho {
     0% {
-        opacity: 0.2;
-        transform: scale(0.6);
+        opacity: 0.15;
+        transform: scale(0.5);
         box-shadow: 0 0 2px #ffffff;
     }
     100% {
         opacity: 1;
-        transform: scale(1.4);
+        transform: scale(1.5);
         box-shadow:
-            0 0 8px #ffffff,
-            0 0 16px #d8e6ff,
-            0 0 24px rgba(255, 255, 255, 0.9);
+            0 0 10px #ffffff,
+            0 0 20px #d8e6ff,
+            0 0 30px rgba(255, 255, 255, 0.9);
     }
 }
 
@@ -94,7 +94,7 @@ body::before {
         transform: translateY(0px) translateX(0px);
     }
     50% {
-        transform: translateY(-20px) translateX(10px);
+        transform: translateY(-25px) translateX(15px);
     }
     100% {
         transform: translateY(0px) translateX(0px);
