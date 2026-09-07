@@ -344,6 +344,34 @@
             });
         }
 
+        // Toca o próximo vídeo da mesma seção quando a música atual terminar
+        function tocarProximoVideo(videoIdAtual) {
+            const playerDivAtual = document.getElementById('player-' + videoIdAtual);
+            if (!playerDivAtual) return;
+
+            const cardAtual = playerDivAtual.closest('.card-video');
+            if (!cardAtual) return;
+
+            const proximoCard = cardAtual.nextElementSibling;
+
+            if (proximoCard && proximoCard.classList.contains('card-video')) {
+                const overlayProximo = proximoCard.querySelector('.overlay-play');
+                
+                // Pega o ID do próximo vídeo a partir da imagem do overlay
+                if (overlayProximo) {
+                    const imgOverlay = overlayProximo.querySelector('img');
+                    if (imgOverlay) {
+                        const urlImg = imgOverlay.src;
+                        const match = urlImg.match(/\/vi\/([^\/]+)\//);
+                        if (match && match[1]) {
+                            const proximoVideoId = match[1];
+                            iniciarVideo(overlayProximo, proximoVideoId);
+                        }
+                    }
+                }
+            }
+        }
+
         // Inicia o vídeo selecionado e pausa os anteriores
         function iniciarVideo(elementoOverlay, videoId) {
             elementoOverlay.style.display = 'none';
@@ -364,9 +392,12 @@
                             event.target.playVideo();
                         },
                         'onStateChange': function(event) {
-                            // Se o usuário clicar manualmente no play do leitor nativo do YT, também pausa os outros
                             if (event.data === YT.PlayerState.PLAYING) {
                                 pausarOutrosVideos(videoId);
+                            }
+                            // Quando o vídeo acabar (Estado 0/ENDED), chama a próxima música
+                            if (event.data === YT.PlayerState.ENDED) {
+                                tocarProximoVideo(videoId);
                             }
                         }
                     }
@@ -476,4 +507,4 @@
     </script>
 
 </body>
-</html>f
+</html>
