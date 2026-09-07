@@ -6,6 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Lily - Músicas</title>
+
+    <style>
+        /* ESTILOS ESPECÍFICOS DO BANNER ATUALIZADO */
+        .banner-destaque {
+            position: relative;
+            overflow: hidden;
+            perspective: 800px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Ondas suaves em perspectiva posicionadas ao fundo */
+        .ondas-perspectiva-fundo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Fica atrás dos discos */
+            transform: rotateX(25deg) scale(1.1);
+            transform-origin: bottom center;
+            pointer-events: none;
+        }
+
+        .onda-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 6px rgba(219, 112, 147, 0.2));
+        }
+
+        /* Coroa e Título */
+        .container-titulo-coroa {
+            position: relative;
+            z-index: 5;
+            display: inline-block;
+        }
+
+        .coroa-brilhante {
+            font-size: 2.2rem;
+            margin-bottom: -10px;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+            animation: flutuarCoroa 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes flutuarCoroa {
+            from { transform: translateY(0) scale(1); }
+            to { transform: translateY(-6px) scale(1.08); }
+        }
+
+        /* Discos ajustados para camada frontal em relação às ondas */
+        .disco {
+            position: absolute;
+            z-index: 2;
+        }
+
+        /* Notas Rosa / Vinho Transparentes Espalhadas */
+        .notas-rosa-espalhadas .nota-vinho {
+            position: absolute;
+            z-index: 3;
+            color: #8b004f;
+            opacity: 0.35;
+            filter: drop-shadow(0 0 5px rgba(219, 112, 147, 0.4));
+            font-size: 1.4rem;
+            pointer-events: none;
+            animation: flutuarNotas 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes flutuarNotas {
+            from { transform: translateY(0px) rotate(0deg); }
+            to { transform: translateY(-8px) rotate(10deg); }
+        }
+
+        .pos-n1 { top: 20%; left: 15%; animation-delay: 0s; }
+        .pos-n2 { top: 65%; left: 22%; font-size: 1.8rem; opacity: 0.25; animation-delay: 1s; }
+        .pos-n3 { top: 28%; right: 18%; animation-delay: 0.5s; }
+        .pos-n4 { top: 70%; right: 25%; font-size: 1.6rem; opacity: 0.3; animation-delay: 1.5s; }
+        .pos-n5 { top: 15%; left: 48%; font-size: 1.1rem; animation-delay: 0.8s; }
+        .pos-n6 { top: 75%; left: 52%; font-size: 1.2rem; animation-delay: 1.2s; }
+    </style>
 </head>
 
 <body>
@@ -68,8 +148,20 @@
 
     <main id="inicio" class="conteudo-principal">
 
-        <!-- BANNER -->
+        <!-- BANNER COM ONDAS SUAVES, NOTAS ROSA/VINHO, COROA E "MÚSICAS" -->
         <div class="banner-destaque">
+
+            <!-- 2 ONDAS GRANDES E SUAVES EM PERSPECTIVA (Fundo / Atrás dos discos) -->
+            <div class="ondas-perspectiva-fundo">
+                <svg viewBox="0 0 1200 400" preserveAspectRatio="none" class="onda-svg onda-1">
+                    <path d="M 0,200 C 300,100 600,300 1200,150 L 1200,400 L 0,400 Z" fill="none" stroke="rgba(255, 182, 193, 0.25)" stroke-width="2.5" />
+                    <path d="M 0,220 C 350,120 650,320 1200,170" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
+                </svg>
+                <svg viewBox="0 0 1200 400" preserveAspectRatio="none" class="onda-svg onda-2">
+                    <path d="M 0,280 C 400,150 800,350 1200,200 L 1200,400 L 0,400 Z" fill="none" stroke="rgba(199, 21, 133, 0.2)" stroke-width="2" />
+                    <path d="M 0,300 C 450,170 850,370 1200,220" fill="none" stroke="rgba(255, 192, 203, 0.15)" stroke-width="1.5" />
+                </svg>
+            </div>
 
             <!-- DISCOS DECORATIVOS -->
             <div class="disco disco-esquerdo">
@@ -82,37 +174,28 @@
                 <div class="centro-disco"></div>
             </div>
 
+            <!-- NOTAS ROSA / VINHO TRANSPARENTES -->
+            <div class="notas-rosa-espalhadas">
+                <span class="nota-vinho pos-n1">🎵</span>
+                <span class="nota-vinho pos-n2">🎶</span>
+                <span class="nota-vinho pos-n3">🎼</span>
+                <span class="nota-vinho pos-n4">🎵</span>
+                <span class="nota-vinho pos-n5">🎶</span>
+                <span class="nota-vinho pos-n6">🎵</span>
+            </div>
 
+            <!-- BRILHOS DELICADOS -->
             <div class="brilhos-titulo">
                 <span class="elemento-float pos-1">✨</span>
-                <span class="elemento-float pos-2">🎵</span>
-                <span class="elemento-float pos-3">🌟</span>
-                <span class="elemento-float pos-4">🎶</span>
-                <span class="elemento-float pos-5">✨</span>
+                <span class="elemento-float pos-2">🌟</span>
+                <span class="elemento-float pos-3">✨</span>
             </div>
 
-
-            <!-- PAUTAS MUSICAIS ONDULADAS -->
-            <div class="pauta pauta-esquerda">
-                <svg viewBox="0 0 400 130" preserveAspectRatio="none">
-                    <path d="M0,30 Q50,10 100,30 T200,30 T300,30 T400,30"></path>
-                    <path d="M0,45 Q50,25 100,45 T200,45 T300,45 T400,45"></path>
-                    <path d="M0,60 Q50,40 100,60 T200,60 T300,60 T400,60"></path>
-                    <path d="M0,75 Q50,55 100,75 T200,75 T300,75 T400,75"></path>
-                </svg>
+            <!-- COROA BRILHANTE E TÍTULO "MÚSICAS" -->
+            <div class="container-titulo-coroa">
+                <div class="coroa-brilhante">👑</div>
+                <h1 class="titulo-assinatura">Músicas</h1>
             </div>
-
-            <div class="pauta pauta-direita">
-                <svg viewBox="0 0 400 130" preserveAspectRatio="none">
-                    <path d="M0,30 Q50,10 100,30 T200,30 T300,30 T400,30"></path>
-                    <path d="M0,45 Q50,25 100,45 T200,45 T300,45 T400,45"></path>
-                    <path d="M0,60 Q50,40 100,60 T200,60 T300,60 T400,60"></path>
-                    <path d="M0,75 Q50,55 100,75 T200,75 T300,75 T400,75"></path>
-                </svg>
-            </div>
-
-
-            <h1 class="titulo-assinatura">Música</h1>
 
             <div class="divisor-banner">
                 <div class="linha-lado"></div>
@@ -510,7 +593,7 @@
 
         <div class="conteudo-rodape">
 
-            <h3>✨ Música ✨</h3>
+            <h3>✨ Músicas ✨</h3>
 
             <p>
                 Encontre seus estilos favoritos e aproveite o som!
@@ -695,7 +778,6 @@
             }
         }
 
-        // Inicialização
         document.addEventListener('DOMContentLoaded', () => {
             gerarEstrelasPrata();
         });
