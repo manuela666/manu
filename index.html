@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -17,19 +18,8 @@
 
 <body>
 
-    <!-- 🌌 PARTICULAS E NOTAS MUSICAIS DE FUNDO -->
+    <!-- 🌌 PARTICULAS -->
     <div class="particulas">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-
         <div class="nota-musical">🎵</div>
         <div class="nota-musical">🎶</div>
         <div class="nota-musical">✨</div>
@@ -37,8 +27,7 @@
         <div class="nota-musical">🎶</div>
     </div>
 
-
-    <!-- 📌 MENU SUPERIOR -->
+    <!-- 📌 MENU -->
     <header class="menu-superior">
 
         <div class="logo">
@@ -68,86 +57,77 @@
 
     </header>
 
-
     <!-- 🎵 CONTEÚDO -->
     <main id="inicio" class="conteudo-principal">
-
 
         <!-- 🌸 BANNER -->
         <div class="banner-destaque">
 
             <div class="fundo-decorativo-banner">
-
                 <span class="icone-fundo esquerda-top">🎧</span>
                 <span class="icone-fundo esquerda-bottom">🎶</span>
                 <span class="icone-fundo direita-top">🎵</span>
                 <span class="icone-fundo direita-bottom">💿</span>
-
             </div>
 
             <div class="brilhos-titulo">
-
                 <span class="elemento-float pos-1">✨</span>
                 <span class="elemento-float pos-2">🎵</span>
                 <span class="elemento-float pos-3">🌟</span>
                 <span class="elemento-float pos-4">🎶</span>
                 <span class="elemento-float pos-5">✨</span>
-
             </div>
 
-            <h1 class="titulo-assinatura">
-                Música
-            </h1>
+            <h1 class="titulo-assinatura">Música</h1>
 
             <div class="divisor-banner">
-
                 <div class="linha-lado"></div>
-
                 <span class="estrela-central">✦</span>
-
                 <div class="linha-lado"></div>
-
             </div>
 
         </div>
 
-
-        <!-- 🎤 RAP / HIP HOP -->
+        <!-- 🎤 RAP -->
         <section id="rap" class="secao-musica">
 
             <h2>✨ Rap / Hip Hop ✨</h2>
 
             <div class="videos">
 
-
                 <!-- 🎵 FÚTIL -->
                 <div class="card-video" data-nome="futil fútil chris mc l7nnon l7">
 
-                    <div class="video-wrapper">
+                    <div class="wrapper-video wrapper-futil">
 
                         <iframe
+                            id="player-futil"
                             src="https://www.youtube.com/embed/7c3SWrQIE0A?enablejsapi=1"
                             title="Fútil - Chris MC ft. L7NNON"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen>
                         </iframe>
 
+                        <!-- BOTÃO LETRA -->
                         <button
+                            type="button"
                             class="botao-letra"
                             onclick="abrirLetra(event)">
                             🎵 LETRA
                         </button>
 
-                        <div class="letra-container" id="letra-futil">
+                    </div>
 
-                            <div class="letra-titulo">
-                                🎵 Fútil
-                            </div>
+                    <!-- ÁREA DA LETRA -->
+                    <div class="letra-container" id="letra-futil">
 
-                            <div class="letra-atual" id="letra-atual">
-                                A letra aparecerá aqui...
-                            </div>
+                        <div class="letra-cabecalho">
+                            <span>🎵 Fútil</span>
+                            <span class="texto-sincronizado">LETRA SINCRONIZADA</span>
+                        </div>
 
+                        <div class="letra-atual" id="letra-atual">
+                            ♪ Aperte play e acompanhe a música ♪
                         </div>
 
                     </div>
@@ -157,26 +137,25 @@
                     </p>
 
                     <div class="avaliacao-estrelas">
-
                         <span class="estrela" data-valor="1">★</span>
                         <span class="estrela" data-valor="2">★</span>
                         <span class="estrela" data-valor="3">★</span>
                         <span class="estrela" data-valor="4">★</span>
                         <span class="estrela" data-valor="5">★</span>
-
                     </div>
 
                 </div>
 
-
                 <!-- SOFÁ -->
                 <div class="card-video" data-nome="sofa breja e netflix sofá">
 
-                    <iframe
-                        src="https://www.youtube.com/embed/ncLaAaENRWY"
-                        title="Sofá, Breja e Netflix"
-                        allowfullscreen>
-                    </iframe>
+                    <div class="wrapper-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/ncLaAaENRWY"
+                            title="Sofá, Breja e Netflix"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
 
                     <p class="titulo-video">
                         Sofá, Breja e Netflix
@@ -192,15 +171,16 @@
 
                 </div>
 
-
                 <!-- POESIA ACÚSTICA -->
                 <div class="card-video" data-nome="poesia acustica 6 poesia acústica 6">
 
-                    <iframe
-                        src="https://www.youtube.com/embed/jK2k1P56Cno"
-                        title="Poesia Acústica 6"
-                        allowfullscreen>
-                    </iframe>
+                    <div class="wrapper-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/jK2k1P56Cno"
+                            title="Poesia Acústica 6"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
 
                     <p class="titulo-video">
                         Poesia Acústica #6
@@ -216,15 +196,16 @@
 
                 </div>
 
-
                 <!-- TE ENCONTRAR NA LAPA -->
                 <div class="card-video" data-nome="te encontrar na lapa">
 
-                    <iframe
-                        src="https://www.youtube.com/embed/3-M7y_x5Eno"
-                        title="Te Encontrar na Lapa"
-                        allowfullscreen>
-                    </iframe>
+                    <div class="wrapper-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/3-M7y_x5Eno"
+                            title="Te Encontrar na Lapa"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
 
                     <p class="titulo-video">
                         Te Encontrar na Lapa
@@ -240,15 +221,16 @@
 
                 </div>
 
-
                 <!-- PENSANDO EM MIM -->
                 <div class="card-video" data-nome="pensando em mim">
 
-                    <iframe
-                        src="https://www.youtube.com/embed/uK6UB4yVXMU"
-                        title="Pensando em Mim"
-                        allowfullscreen>
-                    </iframe>
+                    <div class="wrapper-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/uK6UB4yVXMU"
+                            title="Pensando em Mim"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
 
                     <p class="titulo-video">
                         Pensando em Mim
@@ -264,15 +246,16 @@
 
                 </div>
 
-
                 <!-- BEATRIZ -->
                 <div class="card-video" data-nome="beatriz">
 
-                    <iframe
-                        src="https://www.youtube.com/embed/qcbrCmIt7ww"
-                        title="Beatriz"
-                        allowfullscreen>
-                    </iframe>
+                    <div class="wrapper-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/qcbrCmIt7ww"
+                            title="Beatriz"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
 
                     <p class="titulo-video">
                         Beatriz
@@ -289,9 +272,7 @@
                 </div>
 
             </div>
-
         </section>
-
 
         <!-- 🤠 SERTANEJO -->
         <section id="sertanejo" class="secao-musica">
@@ -300,147 +281,68 @@
 
             <div class="videos">
 
-                <div class="card-video" data-nome="ao vivo e a cores matheus e kauan anitta">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/iyI9RMkEzbQ"
-                        title="Ao Vivo E A Cores"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Ao Vivo E A Cores - Matheus & Kauan ft. Anitta
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                <div class="card-video" data-nome="ao vivo e a cores matheus kauan anitta">
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/iyI9RMkEzbQ" title="Ao Vivo E A Cores" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Ao Vivo E A Cores - Matheus & Kauan ft. Anitta</p>
+                    <div class="avaliacao-estrelas">
+                        <span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span>
+                    </div>
                 </div>
 
-
-                <div class="card-video" data-nome="suite 14 suíte 14 henrique e diego mc guime guimê">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/e5Ct8ZW_rcs"
-                        title="Suíte 14"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Suíte 14 - Henrique & Diego ft. MC Guimê
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                <div class="card-video" data-nome="suite 14 suíte 14 henrique diego mc guime">
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/e5Ct8ZW_rcs" title="Suíte 14" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Suíte 14 - Henrique & Diego ft. MC Guimê</p>
+                    <div class="avaliacao-estrelas">
+                        <span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span>
+                    </div>
                 </div>
-
 
                 <div class="card-video" data-nome="coladinho em mim gustavo mioto anitta">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/gmvFLIuVAbA"
-                        title="Coladinho Em Mim"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Coladinho Em Mim - Gustavo Mioto ft. Anitta
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/gmvFLIuVAbA" title="Coladinho Em Mim" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Coladinho Em Mim - Gustavo Mioto ft. Anitta</p>
+                    <div class="avaliacao-estrelas">
+                        <span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span>
+                    </div>
                 </div>
-
 
                 <div class="card-video" data-nome="vinganca vingança luan santana">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/1qKz_QohN7g"
-                        title="Vingança"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Vingança - Luan Santana
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/1qKz_QohN7g" title="Vingança" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Vingança - Luan Santana</p>
+                    <div class="avaliacao-estrelas">
+                        <span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span>
+                    </div>
                 </div>
 
-
-                <div class="card-video" data-nome="intencao intenção marilia mendonca marília mendonça">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/ex-cr18tKDE"
-                        title="Intenção"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Intenção - Marília Mendonça
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                <div class="card-video" data-nome="intencao intenção marilia mendonca">
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/ex-cr18tKDE" title="Intenção" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Intenção - Marília Mendonça</p>
+                    <div class="avaliacao-estrelas">
+                        <span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span>
+                    </div>
                 </div>
 
-
-                <div class="card-video" data-nome="seu astral jorge e mateus">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/SETK2maosQY"
-                        title="Seu Astral"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Seu Astral - Jorge & Mateus
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                <div class="card-video" data-nome="seu astral jorge mateus">
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/SETK2maosQY" title="Seu Astral" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Seu Astral - Jorge & Mateus</p>
+                    <div class="avaliacao-estrelas">
+                        <span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span>
+                    </div>
                 </div>
 
             </div>
-
         </section>
-
 
         <!-- 🔊 FUNK -->
         <section id="funk" class="secao-musica">
@@ -449,196 +351,74 @@
 
             <div class="videos">
 
-
                 <div class="card-video" data-nome="vai embrazando mc zaac">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/Nk7S7D0CQOY"
-                        title="Vai Embrazando"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Vai Embrazando - MC Zaac
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/Nk7S7D0CQOY" title="Vai Embrazando" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Vai Embrazando - MC Zaac</p>
+                    <div class="avaliacao-estrelas"><span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span></div>
                 </div>
-
 
                 <div class="card-video" data-nome="hit contagiante felipe original">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/sdcoyDUfbG0"
-                        title="Hit Contagiante"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Hit Contagiante - Felipe Original
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/sdcoyDUfbG0" title="Hit Contagiante" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Hit Contagiante - Felipe Original</p>
+                    <div class="avaliacao-estrelas"><span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span></div>
                 </div>
-
 
                 <div class="card-video" data-nome="fuleragem mc wm">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/WaOicuaHdzo"
-                        title="Fuleragem"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Fuleragem - MC WM
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/WaOicuaHdzo" title="Fuleragem" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Fuleragem - MC WM</p>
+                    <div class="avaliacao-estrelas"><span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span></div>
                 </div>
-
 
                 <div class="card-video" data-nome="pandora pedro sampaio">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/6MNxuMgg58k"
-                        title="Pandora"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Pandora - Pedro Sampaio
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/6MNxuMgg58k" title="Pandora" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Pandora - Pedro Sampaio</p>
+                    <div class="avaliacao-estrelas"><span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span></div>
                 </div>
-
 
                 <div class="card-video" data-nome="trilogia 150">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/UTYNURBuv7o"
-                        title="Trilogia 150"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Trilogia 150
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Trilogia 150" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Trilogia 150</p>
+                    <div class="avaliacao-estrelas"><span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span></div>
                 </div>
-
 
                 <div class="card-video" data-nome="eterna sacanagem mc kevinho jottape mc zaac">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/vhTrtN7e2bs"
-                        title="Eterna Sacanagem"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Eterna Sacanagem - MC Kevinho, Jottapê e MC Zaac
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/vhTrtN7e2bs" title="Eterna Sacanagem" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Eterna Sacanagem - MC Kevinho, Jottapê e MC Zaac</p>
+                    <div class="avaliacao-estrelas"><span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span></div>
                 </div>
-
 
                 <div class="card-video" data-nome="ate o ceu até o céu">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/UTYNURBuv7o"
-                        title="Até o Céu"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Até o Céu
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/UTYNURBuv7o" title="Até o Céu" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Até o Céu</p>
+                    <div class="avaliacao-estrelas"><span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span></div>
                 </div>
 
-
                 <div class="card-video" data-nome="tudo aconteceu dj duppa">
-
-                    <iframe
-                        src="https://www.youtube.com/embed/V0MECgmHCOo"
-                        title="Tudo Aconteceu"
-                        allowfullscreen>
-                    </iframe>
-
-                    <p class="titulo-video">
-                        Tudo Aconteceu - DJ Duppa
-                    </p>
-
-                    <div class="avaliacao-estrelas">
-                        <span class="estrela" data-valor="1">★</span>
-                        <span class="estrela" data-valor="2">★</span>
-                        <span class="estrela" data-valor="3">★</span>
-                        <span class="estrela" data-valor="4">★</span>
-                        <span class="estrela" data-valor="5">★</span>
+                    <div class="wrapper-video">
+                        <iframe src="https://www.youtube.com/embed/V0MECgmHCOo" title="Tudo Aconteceu" allowfullscreen></iframe>
                     </div>
-
+                    <p class="titulo-video">Tudo Aconteceu - DJ Duppa</p>
+                    <div class="avaliacao-estrelas"><span class="estrela" data-valor="1">★</span><span class="estrela" data-valor="2">★</span><span class="estrela" data-valor="3">★</span><span class="estrela" data-valor="4">★</span><span class="estrela" data-valor="5">★</span></div>
                 </div>
 
             </div>
-
         </section>
 
     </main>
-
 
     <!-- 🌸 RODAPÉ -->
     <footer id="sobre">
@@ -647,9 +427,7 @@
 
             <h3>✨ Música ✨</h3>
 
-            <p>
-                Encontre seus estilos favoritos e aproveite o som!
-            </p>
+            <p>Encontre seus estilos favoritos e aproveite o som!</p>
 
             <div class="linha-decorativa"></div>
 
@@ -665,179 +443,133 @@
 
     </footer>
 
-
-    <!-- 🎬 API DO YOUTUBE -->
+    <!-- 🎬 JAVASCRIPT -->
     <script>
+
         let playerFutil = null;
         let intervaloLetra = null;
-        let letraAberta = false;
-
 
         /*
-         * 🎵 TEMPOS DA LETRA
-         *
-         * Os tempos são exatamente os que você passou.
-         * Basta colocar cada trecho da sua letra no lugar
-         * de "COLE O TRECHO..."
-         */
+        ====================================
+        🎵 TRECHOS E TEMPOS DA LETRA
+        ====================================
+
+        Cole seus trechos entre as crases.
+        NÃO use aspas normais para textos
+        com várias linhas.
+        */
 
         const letraFutil = [
 
             {
                 inicio: 19,
                 fim: 34,
-                texto: "Sei que nem sempre é a melhor hora pra te ligar
-                        Vê se fica, eu vou sem brigar
-                        Meus pensamentos têm o costume de te alcançar
-                        Te procurar, cê ainda é meu lar"
+                texto: `COLE AQUI O TRECHO 1`
             },
 
             {
                 inicio: 35,
                 fim: 50,
-                texto: "Cê se sujeita a tanta coisa que cê nem precisa
-                        Lembro de acordar, te ver dormindo só com a minha camisa
-                        Ainda perde tempo com esses caras que cê nem precisa
-                        Sempre quando perguntam de nós, te sinto indecisa"
+                texto: `COLE AQUI O TRECHO 2`
             },
 
             {
                 inicio: 51,
                 fim: 65,
-                texto: "Confesso quе me dói saber
-                        Se o tеmpo é otimizado entre se martirizar e tentar esconder
-                        O que isso tudo é pra você?
-                        São milhões de olhares, lugares só pra te remeter"
+                texto: `COLE AQUI O TRECHO 3`
             },
 
             {
                 inicio: 66,
                 fim: 81,
-                texto: "Que eu ainda te vejo em tudo
-                        Mesmo depois de um tempo distante
-                        Meu corpo ainda chama você
-                        Cê faz parte do meu mundo
-                        Meu tudo em questão de instantes
-                        São só coisas que eu queria te dizer"
+                texto: `COLE AQUI O TRECHO 4`
             },
 
             {
                 inicio: 82,
                 fim: 99,
-                texto: "Que eu ainda te vejo em tudo
-                        Mesmo depois do tempo distante
-                        Meu corpo ainda chama você
-                        Cê faz parte do meu mundo
-                        Meu tudo em questão de instantes
-                        São só coisas que eu queria te dizer, hmm"
+                texto: `COLE AQUI O TRECHO 5`
             },
 
             {
                 inicio: 100,
                 fim: 115,
-                texto: "E eu tô em outro lugar pensando em você
-                        E olha que eu só vim pra cá pra tentar esquecer
-                        Eu lembro de tudo, quando anoitece
-                        Hoje eu tenho de tudo e ninguém me aquece"
+                texto: `COLE AQUI O TRECHO 6`
             },
 
             {
                 inicio: 117,
                 fim: 131,
-                texto: "Uh, tava pra te dar o mundo
-                        Foto de plano de fundo, lembro de cada segundo
-                        Uh, mesmo de longe tava junto
-                        O que não faltava era assunto, mas nosso barco afundou"
+                texto: `COLE AQUI O TRECHO 7`
             },
 
             {
                 inicio: 132,
                 fim: 148,
-                texto: "Yeah, e olha que não dava pé, hoje o que não falta é fé
-                        Tô de carro, mas também já tive a pé
-                        Não é mais até o fim, enfim
-                        Até a próxima, nem tenta se aproximar
-                        Quem dera não fosse mais que uma carta, L7 assinado"
+                texto: `COLE AQUI O TRECHO 8`
             },
 
             {
                 inicio: 150,
                 fim: 164,
-                texto: "Tava pra te dar o mundo
-                        Foto de plano de fundo, lembro de cada segundo
-                        Uh, mesmo de longe tava junto
-                        O que não faltava era assunto, mas nosso barco afundou"
+                texto: `COLE AQUI O TRECHO 9`
             },
 
             {
                 inicio: 165,
                 fim: 181,
-                texto: "Mesmo depois de um tempo distante
-                        Meu corpo ainda chama você
-                        Cê faz parte do meu mundo
-                        Meu tudo em questão de instantes
-                        São só coisas que eu queria dizer
-                        Que eu ainda te vejo em tudoI"
+                texto: `COLE AQUI O TRECHO 10`
             },
 
             {
                 inicio: 182,
                 fim: 197,
-                texto: "Mesmo depois do tempo distante
-                        Meu corpo ainda chama você                
-                        Cê faz parte do meu mundo
-                        Meu tudo em questão de instante
-                        São só coisas que eu queria te dizer, hmm"
+                texto: `COLE AQUI O TRECHO 11`
             }
 
         ];
 
 
         /*
-         * 🎬 QUANDO A API DO YOUTUBE CARREGAR
-         */
+        ====================================
+        📺 API DO YOUTUBE
+        ====================================
+        */
 
         function onYouTubeIframeAPIReady() {
 
-            const iframe = document.querySelector(
-                '.card-video[data-nome*="futil"] iframe'
-            );
-
-            if (!iframe) return;
-
             playerFutil = new YT.Player(
-                iframe,
+                "player-futil",
                 {
                     events: {
-
-                        onStateChange: function(event) {
-
-                            if (
-                                event.data ===
-                                YT.PlayerState.PLAYING
-                            ) {
-
-                                iniciarSincronizacao();
-
-                            } else {
-
-                                pararSincronizacao();
-
-                            }
-
-                        }
-
+                        onStateChange: onPlayerStateChange
                     }
-
                 }
             );
 
         }
 
 
+        function onPlayerStateChange(event) {
+
+            if (event.data === YT.PlayerState.PLAYING) {
+
+                iniciarSincronizacao();
+
+            } else {
+
+                pararSincronizacao();
+
+            }
+
+        }
+
+
         /*
-         * 🎵 BOTÃO LETRA
-         */
+        ====================================
+        🎵 ABRIR E FECHAR LETRA
+        ====================================
+        */
 
         function abrirLetra(event) {
 
@@ -847,22 +579,24 @@
             const container =
                 document.getElementById("letra-futil");
 
-            letraAberta =
-                !container.classList.contains("aberta");
+            const botao =
+                event.currentTarget;
 
-            if (letraAberta) {
-
-                container.classList.add("aberta");
-
-                event.currentTarget.innerHTML =
-                    "✕ FECHAR";
-
-            } else {
+            if (container.classList.contains("aberta")) {
 
                 container.classList.remove("aberta");
 
-                event.currentTarget.innerHTML =
+                botao.innerHTML =
                     "🎵 LETRA";
+
+            } else {
+
+                container.classList.add("aberta");
+
+                botao.innerHTML =
+                    "✕ FECHAR";
+
+                atualizarLetra();
 
             }
 
@@ -870,22 +604,20 @@
 
 
         /*
-         * 🎶 COMEÇA A SINCRONIZAÇÃO
-         */
+        ====================================
+        🎶 SINCRONIZAÇÃO
+        ====================================
+        */
 
         function iniciarSincronizacao() {
 
             pararSincronizacao();
 
             intervaloLetra =
-                setInterval(atualizarLetra, 100);
+                setInterval(atualizarLetra, 150);
 
         }
 
-
-        /*
-         * ⏸️ PARA A SINCRONIZAÇÃO
-         */
 
         function pararSincronizacao() {
 
@@ -900,13 +632,14 @@
         }
 
 
-        /*
-         * 🎤 DESCOBRE QUAL TRECHO ESTÁ TOCANDO
-         */
-
         function atualizarLetra() {
 
             if (!playerFutil) return;
+
+            const container =
+                document.getElementById("letra-futil");
+
+            if (!container.classList.contains("aberta")) return;
 
             const tempo =
                 playerFutil.getCurrentTime();
@@ -929,19 +662,31 @@
 
             if (trecho) {
 
-                texto.textContent =
-                    trecho.texto;
+                if (
+                    texto.dataset.trecho !==
+                    String(trecho.inicio)
+                ) {
 
-                texto.classList.add("aparecendo");
+                    texto.textContent =
+                        trecho.texto;
+
+                    texto.dataset.trecho =
+                        trecho.inicio;
+
+                    texto.classList.remove("trocar");
+
+                    void texto.offsetWidth;
+
+                    texto.classList.add("trocar");
+
+                }
 
             } else {
 
                 texto.textContent =
                     "♪";
 
-                texto.classList.remove(
-                    "aparecendo"
-                );
+                texto.dataset.trecho = "";
 
             }
 
@@ -949,8 +694,10 @@
 
 
         /*
-         * 🔍 BUSCA
-         */
+        ====================================
+        🔍 BUSCA
+        ====================================
+        */
 
         function limparTexto(texto) {
 
@@ -959,14 +706,8 @@
             return texto
                 .toLowerCase()
                 .normalize("NFD")
-                .replace(
-                    /[\u0300-\u036f]/g,
-                    ""
-                )
-                .replace(
-                    /[^a-z0-9\s]/g,
-                    ""
-                )
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-z0-9\s]/g, "")
                 .trim();
 
         }
@@ -1099,8 +840,10 @@
 
 
         /*
-         * ⭐ ESTRELAS
-         */
+        ====================================
+        ⭐ AVALIAÇÃO
+        ====================================
+        */
 
         document
             .querySelectorAll(
@@ -1157,10 +900,10 @@
 
     </script>
 
-
-    <!-- 📺 CARREGA A API DO YOUTUBE -->
+    <!-- 📺 API YOUTUBE -->
     <script src="https://www.youtube.com/iframe_api"></script>
 
 </body>
 
 </html>
+```
