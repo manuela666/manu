@@ -21,7 +21,6 @@
         <div class="nota-musical">🎶</div>
     </div>
 
-    <!-- Estrelas prateadas -->
     <div id="container-estrelas"></div>
 
     <header class="menu-superior">
@@ -33,19 +32,19 @@
                 <li><a href="#inicio">Início</a></li>
 
                 <li>
-                    <a href="#rap" onclick="destacarTitulo('rap')">
+                    <a href="#rap" onclick="destacarTitulo('titulo-rap')">
                         Rap / Hip Hop
                     </a>
                 </li>
 
                 <li>
-                    <a href="#sertanejo" onclick="destacarTitulo('sertanejo')">
+                    <a href="#sertanejo" onclick="destacarTitulo('titulo-sertanejo')">
                         Sertanejo
                     </a>
                 </li>
 
                 <li>
-                    <a href="#funk" onclick="destacarTitulo('funk')">
+                    <a href="#funk" onclick="destacarTitulo('titulo-funk')">
                         Funk
                     </a>
                 </li>
@@ -61,7 +60,6 @@
                 placeholder="Buscar música..."
                 onkeypress="verificarEnter(event)"
             >
-
             <button onclick="buscarMusica()">🔍</button>
         </div>
 
@@ -70,17 +68,18 @@
 
     <main id="inicio" class="conteudo-principal">
 
-
         <!-- BANNER -->
         <div class="banner-destaque">
 
             <!-- DISCOS DECORATIVOS -->
-            <div class="disco-vinil disco-esquerdo">
-                <div class="disco-centro"></div>
+            <div class="disco disco-esquerdo">
+                <div class="anel-disco"></div>
+                <div class="centro-disco"></div>
             </div>
 
-            <div class="disco-vinil disco-direito">
-                <div class="disco-centro"></div>
+            <div class="disco disco-direito">
+                <div class="anel-disco"></div>
+                <div class="centro-disco"></div>
             </div>
 
 
@@ -96,9 +95,7 @@
 
             <div class="divisor-banner">
                 <div class="linha-lado"></div>
-
                 <span class="estrela-central">✦</span>
-
                 <div class="linha-lado"></div>
             </div>
 
@@ -108,13 +105,12 @@
         <!-- RAP / HIP HOP -->
         <section id="rap" class="secao-musica">
 
-            <h2>✨ Rap / Hip Hop ✨</h2>
+            <h2 id="titulo-rap">✨ Rap / Hip Hop ✨</h2>
 
             <div class="videos">
 
                 <div class="card-video" data-nome="futil chris mc l7nnon">
                     <div class="wrapper-video">
-
                         <div id="player-7c3SWrQIE0A" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, '7c3SWrQIE0A')">
@@ -124,18 +120,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Fútil - Chris MC ft. L7NNON
-                    </p>
+                    <p class="titulo-video">Fútil - Chris MC ft. L7NNON</p>
                 </div>
 
 
                 <div class="card-video" data-nome="sofa breja netflix">
                     <div class="wrapper-video">
-
                         <div id="player-ncLaAaENRWY" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'ncLaAaENRWY')">
@@ -145,18 +137,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Sofá, Breja e Netflix
-                    </p>
+                    <p class="titulo-video">Sofá, Breja e Netflix</p>
                 </div>
 
 
                 <div class="card-video" data-nome="poesia acustica 6">
                     <div class="wrapper-video">
-
                         <div id="player-jK2k1P56Cno" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'jK2k1P56Cno')">
@@ -166,18 +154,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Poesia Acústica #6
-                    </p>
+                    <p class="titulo-video">Poesia Acústica #6</p>
                 </div>
 
 
                 <div class="card-video" data-nome="te encontrar na lapa">
                     <div class="wrapper-video">
-
                         <div id="player-439kVuNoNrA" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, '439kVuNoNrA')">
@@ -187,18 +171,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Te Encontrar na Lapa
-                    </p>
+                    <p class="titulo-video">Te Encontrar na Lapa</p>
                 </div>
 
 
                 <div class="card-video" data-nome="pensando em mim">
                     <div class="wrapper-video">
-
                         <div id="player-uK6UB4yVXMU" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'uK6UB4yVXMU')">
@@ -208,18 +188,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Pensando em Mim
-                    </p>
+                    <p class="titulo-video">Pensando em Mim</p>
                 </div>
 
 
                 <div class="card-video" data-nome="beatriz">
                     <div class="wrapper-video">
-
                         <div id="player-qcbrCmIt7ww" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'qcbrCmIt7ww')">
@@ -229,29 +205,24 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Beatriz
-                    </p>
+                    <p class="titulo-video">Beatriz</p>
                 </div>
 
             </div>
-
         </section>
 
 
         <!-- SERTANEJO -->
         <section id="sertanejo" class="secao-musica">
 
-            <h2>✨ Sertanejo ✨</h2>
+            <h2 id="titulo-sertanejo">✨ Sertanejo ✨</h2>
 
             <div class="videos">
 
                 <div class="card-video" data-nome="ao vivo e a cores">
                     <div class="wrapper-video">
-
                         <div id="player-iyI9RMkEzbQ" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'iyI9RMkEzbQ')">
@@ -261,7 +232,6 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
                     <p class="titulo-video">
@@ -272,7 +242,6 @@
 
                 <div class="card-video" data-nome="suite 14">
                     <div class="wrapper-video">
-
                         <div id="player-gmvFLIuVAbA" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'gmvFLIuVAbA')">
@@ -282,7 +251,6 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
                     <p class="titulo-video">
@@ -293,7 +261,6 @@
 
                 <div class="card-video" data-nome="coladinho em mim">
                     <div class="wrapper-video">
-
                         <div id="player-e5Ct8ZW_rcs" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'e5Ct8ZW_rcs')">
@@ -303,7 +270,6 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
                     <p class="titulo-video">
@@ -314,7 +280,6 @@
 
                 <div class="card-video" data-nome="vinganca">
                     <div class="wrapper-video">
-
                         <div id="player-ex-cr18tKDE" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'ex-cr18tKDE')">
@@ -324,18 +289,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Vingança - Luan Santana
-                    </p>
+                    <p class="titulo-video">Vingança - Luan Santana</p>
                 </div>
 
 
                 <div class="card-video" data-nome="intencao">
                     <div class="wrapper-video">
-
                         <div id="player-1qKz_QohN7g" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, '1qKz_QohN7g')">
@@ -345,18 +306,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Intenção - Marília Mendonça
-                    </p>
+                    <p class="titulo-video">Intenção - Marília Mendonça</p>
                 </div>
 
 
                 <div class="card-video" data-nome="seu astral">
                     <div class="wrapper-video">
-
                         <div id="player-SETK2maosQY" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'SETK2maosQY')">
@@ -366,29 +323,24 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Seu Astral - Jorge & Mateus
-                    </p>
+                    <p class="titulo-video">Seu Astral - Jorge & Mateus</p>
                 </div>
 
             </div>
-
         </section>
 
 
         <!-- FUNK -->
         <section id="funk" class="secao-musica">
 
-            <h2>✨ Funk ✨</h2>
+            <h2 id="titulo-funk">✨ Funk ✨</h2>
 
             <div class="videos">
 
                 <div class="card-video" data-nome="vai embrazando">
                     <div class="wrapper-video">
-
                         <div id="player-Nk7S7D0CQOY" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'Nk7S7D0CQOY')">
@@ -398,18 +350,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Vai Embrazando - MC Zaac
-                    </p>
+                    <p class="titulo-video">Vai Embrazando - MC Zaac</p>
                 </div>
 
 
                 <div class="card-video" data-nome="hit contagiante">
                     <div class="wrapper-video">
-
                         <div id="player-WaOicuaHdzo" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'WaOicuaHdzo')">
@@ -419,18 +367,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Hit Contagiante - Felipe Original
-                    </p>
+                    <p class="titulo-video">Hit Contagiante - Felipe Original</p>
                 </div>
 
 
                 <div class="card-video" data-nome="fuleragem">
                     <div class="wrapper-video">
-
                         <div id="player-sdcoyDUfbG0" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'sdcoyDUfbG0')">
@@ -440,18 +384,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Fuleragem - MC WM
-                    </p>
+                    <p class="titulo-video">Fuleragem - MC WM</p>
                 </div>
 
 
                 <div class="card-video" data-nome="pandora">
                     <div class="wrapper-video">
-
                         <div id="player-6MNxuMgg58k" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, '6MNxuMgg58k')">
@@ -461,18 +401,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Pandora
-                    </p>
+                    <p class="titulo-video">Pandora</p>
                 </div>
 
 
                 <div class="card-video" data-nome="trilogia 150">
                     <div class="wrapper-video">
-
                         <div id="player-UTYNURBuv7o" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'UTYNURBuv7o')">
@@ -482,18 +418,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Trilogia 150
-                    </p>
+                    <p class="titulo-video">Trilogia 150</p>
                 </div>
 
 
                 <div class="card-video" data-nome="ate o ceu">
                     <div class="wrapper-video">
-
                         <div id="player-49ez6OpzU6c" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, '49ez6OpzU6c')">
@@ -503,7 +435,6 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
                     <p class="titulo-video">
@@ -514,7 +445,6 @@
 
                 <div class="card-video" data-nome="eterna sacanagem">
                     <div class="wrapper-video">
-
                         <div id="player-2ndgHnrJkhA" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, '2ndgHnrJkhA')">
@@ -524,18 +454,14 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
-                    <p class="titulo-video">
-                        Eterna Sacanagem
-                    </p>
+                    <p class="titulo-video">Eterna Sacanagem</p>
                 </div>
 
 
                 <div class="card-video" data-nome="tudo aconteceu">
                     <div class="wrapper-video">
-
                         <div id="player-wU1U7Jgq_uo" class="yt-player-container"></div>
 
                         <div class="overlay-play" onclick="iniciarVideo(this, 'wU1U7Jgq_uo')">
@@ -545,7 +471,6 @@
                             >
                             <button class="botao-play-custom"></button>
                         </div>
-
                     </div>
 
                     <p class="titulo-video">
@@ -554,7 +479,6 @@
                 </div>
 
             </div>
-
         </section>
 
     </main>
@@ -586,44 +510,30 @@
     </footer>
 
 
-    <!-- API DO YOUTUBE -->
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
 
         const players = {};
 
+        /* EFEITO SOMENTE NO TÍTULO DA CATEGORIA */
+        function destacarTitulo(idTitulo) {
 
-        /* =========================================
-           DESTAQUE DO TÍTULO DA CATEGORIA
-        ========================================= */
-
-        function destacarTitulo(idSecao) {
-
-            const secao = document.getElementById(idSecao);
-
-            if (!secao) return;
-
-            const titulo = secao.querySelector('h2');
+            const titulo = document.getElementById(idTitulo);
 
             if (!titulo) return;
 
-            titulo.classList.remove('titulo-destaque');
+            titulo.classList.remove('efeito-titulo-menu');
 
             void titulo.offsetWidth;
 
-            titulo.classList.add('titulo-destaque');
+            titulo.classList.add('efeito-titulo-menu');
 
             setTimeout(() => {
-                titulo.classList.remove('titulo-destaque');
+                titulo.classList.remove('efeito-titulo-menu');
             }, 3000);
-
         }
 
-
-        /* =========================================
-           PAUSAR OUTROS VÍDEOS
-        ========================================= */
 
         function pausarOutrosVideos(idAtual) {
 
@@ -638,13 +548,8 @@
                 }
 
             });
-
         }
 
-
-        /* =========================================
-           RESTAURAR CAPA
-        ========================================= */
 
         function restaurarCapa(videoId) {
 
@@ -672,13 +577,8 @@
                 players[videoId].seekTo(0);
                 players[videoId].stopVideo();
             }
-
         }
 
-
-        /* =========================================
-           TOCAR PRÓXIMO VÍDEO
-        ========================================= */
 
         function tocarProximoVideo(videoIdAtual) {
 
@@ -732,16 +632,11 @@
                                 proximoVideoId
                             );
                         }
-
                     }
                 }
             }
         }
 
-
-        /* =========================================
-           INICIAR VÍDEO
-        ========================================= */
 
         function iniciarVideo(elementoOverlay, videoId) {
 
@@ -786,23 +681,16 @@
                                         YT.PlayerState.ENDED
                                     ) {
                                         restaurarCapa(videoId);
-
                                         tocarProximoVideo(videoId);
                                     }
 
                                 }
-
                             }
-
                         }
                     );
             }
         }
 
-
-        /* =========================================
-           GERAR ESTRELAS
-        ========================================= */
 
         function gerarEstrelasPrata() {
 
@@ -862,7 +750,6 @@
 
                 container.appendChild(estrela);
             }
-
         }
 
 
@@ -871,10 +758,6 @@
             gerarEstrelasPrata
         );
 
-
-        /* =========================================
-           LIMPAR TEXTO DA BUSCA
-        ========================================= */
 
         function limparTexto(texto) {
 
@@ -886,13 +769,8 @@
                 .replace(/[\u0300-\u036f]/g, "")
                 .replace(/[^a-z0-9\s]/g, "")
                 .trim();
-
         }
 
-
-        /* =========================================
-           BUSCAR MÚSICA
-        ========================================= */
 
         function buscarMusica() {
 
@@ -977,7 +855,6 @@
                     'Música não encontrada! Tente pesquisar por uma palavra mais simples.'
                 );
             }
-
         }
 
 
@@ -986,10 +863,10 @@
             if (event.key === 'Enter') {
                 buscarMusica();
             }
-
         }
 
     </script>
 
 </body>
+
 </html>
