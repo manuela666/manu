@@ -1,484 +1,244 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Lily - Músicas</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Player de Música</title>
+  <style>
+    /* =========================================
+       1. ESTILOS GERAIS E VARIÁVEIS
+       ========================================= */
+    :root {
+      --bg-dark: #121214;
+      --card-bg: #1e1e24;
+      --card-hover: #2a2a32;
+      --primary: #9d4edd;
+      --primary-bright: #c77dff;
+      --text-main: #ffffff;
+      --text-sub: #a0a0b0;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem 8rem 1rem; /* Espaço na parte inferior para o player fixo */
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--primary-bright);
+    }
+
+    /* =========================================
+       2. GRADE DE MÚSICAS (CARDS LADO A LADO)
+       ========================================= */
+    .playlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .musica-card {
+      background-color: var(--card-bg);
+      padding: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border: 2px solid transparent;
+    }
+
+    .musica-card:hover {
+      background-color: var(--card-hover);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Estilo para a música que está tocando no momento */
+    .musica-card.tocando {
+      border-color: var(--primary-bright);
+      background-color: var(--card-hover);
+      box-shadow: 0 0 15px rgba(199, 125, 255, 0.3);
+    }
+
+    .capa-container {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+
+    .capa-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .titulo-musica {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--text-main);
+    }
+
+    .nome-artista {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+    }
+
+    /* =========================================
+       3. PLAYER DE ÁUDIO FIXO NA PARTE INFERIOR
+       ========================================= */
+    .player-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #18181b;
+      border-top: 1px solid #2d2d35;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .info-musica-atual {
+      font-size: 0.9rem;
+      color: var(--primary-bright);
+      font-weight: 500;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 600px;
+      height: 40px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
 <body>
 
-    <div class="particulas">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-        <div class="nota-musical">🎵</div>
-        <div class="nota-musical">🎶</div>
-        <div class="nota-musical">✨</div>
-        <div class="nota-musical">🎵</div>
-        <div class="nota-musical">🎶</div>
+  <h1>Minha Playlist</h1>
+
+  <!-- Grade de Músicas -->
+  <div class="playlist-grid">
+
+    <!-- MÚSICA 1 -->
+    <!-- Coloque o caminho do seu arquivo MP3 no 'data-src' -->
+    <div class="musica-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+      <div class="capa-container">
+        <img src="https://picsum.photos/200?random=1" alt="Capa da Música 1">
+      </div>
+      <div class="titulo-musica">Música Número 1</div>
+      <div class="nome-artista">Artista Exemplo A</div>
     </div>
 
-    <!-- Container das 50 estrelas prateadas -->
-    <div id="container-estrelas"></div>
-
-    <header class="menu-superior">
-        <div class="logo">✨ Lily Music</div>
-
-        <nav class="nav-central">
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#rap">Rap / Hip Hop</a></li>
-                <li><a href="#sertanejo">Sertanejo</a></li>
-                <li><a href="#funk">Funk</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-            </ul>
-        </nav>
-
-        <div class="caixa-pesquisa">
-            <input type="text" id="campo-busca" placeholder="Buscar música..." onkeypress="verificarEnter(event)">
-            <button onclick="buscarMusica()">🔍</button>
-        </div>
-    </header>
-
-    <main id="inicio" class="conteudo-principal">
-
-        <div class="banner-destaque">
-
-            <div class="fundo-decorativo-banner">
-                <span class="icone-fundo esquerda-top">🎧</span>
-                <span class="icone-fundo esquerda-bottom">🎶</span>
-                <span class="icone-fundo direita-top">🎵</span>
-                <span class="icone-fundo direita-bottom">💿</span>
-            </div>
-
-            <div class="brilhos-titulo">
-                <span class="elemento-float pos-1">✨</span>
-                <span class="elemento-float pos-2">🎵</span>
-                <span class="elemento-float pos-3">🌟</span>
-                <span class="elemento-float pos-4">🎶</span>
-                <span class="elemento-float pos-5">✨</span>
-            </div>
-
-            <h1 class="titulo-assinatura">Música</h1>
-
-            <div class="divisor-banner">
-                <div class="linha-lado"></div>
-                <span class="estrela-central">✦</span>
-                <div class="linha-lado"></div>
-            </div>
-
-        </div>
-
-        <!-- RAP / HIP HOP -->
-        <section id="rap" class="secao-musica">
-            <h2>✨ Rap / Hip Hop ✨</h2>
-
-            <div class="videos">
-
-                <div class="card-video" data-nome="futil chris mc l7nnon">
-                    <div class="wrapper-video">
-                        <div id="player-7c3SWrQIE0A" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-7c3SWrQIE0A" onclick="iniciarVideo(this, '7c3SWrQIE0A')">
-                            <img src="https://img.youtube.com/vi/7c3SWrQIE0A/hqdefault.jpg" alt="Fútil">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Fútil - Chris MC ft. L7NNON</p>
-                </div>
-
-                <div class="card-video" data-nome="sofa breja netflix">
-                    <div class="wrapper-video">
-                        <div id="player-ncLaAaENRWY" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-ncLaAaENRWY" onclick="iniciarVideo(this, 'ncLaAaENRWY')">
-                            <img src="https://img.youtube.com/vi/ncLaAaENRWY/hqdefault.jpg" alt="Sofá Breja e Netflix">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Sofá, Breja e Netflix</p>
-                </div>
-
-                <div class="card-video" data-nome="poesia acustica 6">
-                    <div class="wrapper-video">
-                        <div id="player-jK2k1P56Cno" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-jK2k1P56Cno" onclick="iniciarVideo(this, 'jK2k1P56Cno')">
-                            <img src="https://img.youtube.com/vi/jK2k1P56Cno/hqdefault.jpg" alt="Poesia Acústica 6">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Poesia Acústica #6</p>
-                </div>
-
-                <div class="card-video" data-nome="te encontrar na lapa">
-                    <div class="wrapper-video">
-                        <div id="player-439kVuNoNrA" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-439kVuNoNrA" onclick="iniciarVideo(this, '439kVuNoNrA')">
-                            <img src="https://img.youtube.com/vi/439kVuNoNrA/hqdefault.jpg" alt="Te Encontrar na Lapa">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Te Encontrar na Lapa</p>
-                </div>
-
-                <div class="card-video" data-nome="pensando em mim">
-                    <div class="wrapper-video">
-                        <div id="player-uK6UB4yVXMU" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-uK6UB4yVXMU" onclick="iniciarVideo(this, 'uK6UB4yVXMU')">
-                            <img src="https://img.youtube.com/vi/uK6UB4yVXMU/hqdefault.jpg" alt="Pensando em Mim">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Pensando em Mim</p>
-                </div>
-
-                <div class="card-video" data-nome="beatriz">
-                    <div class="wrapper-video">
-                        <div id="player-qcbrCmIt7ww" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-qcbrCmIt7ww" onclick="iniciarVideo(this, 'qcbrCmIt7ww')">
-                            <img src="https://img.youtube.com/vi/qcbrCmIt7ww/hqdefault.jpg" alt="Beatriz">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Beatriz</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- SERTANEJO -->
-        <section id="sertanejo" class="secao-musica">
-            <h2>✨ Sertanejo ✨</h2>
-
-            <div class="videos">
-
-                <div class="card-video" data-nome="ao vivo e a cores">
-                    <div class="wrapper-video">
-                        <div id="player-iyI9RMkEzbQ" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-iyI9RMkEzbQ" onclick="iniciarVideo(this, 'iyI9RMkEzbQ')">
-                            <img src="https://img.youtube.com/vi/iyI9RMkEzbQ/hqdefault.jpg" alt="Ao Vivo E A Cores">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Ao Vivo E A Cores - Matheus & Kauan ft. Anitta</p>
-                </div>
-
-                <div class="card-video" data-nome="suite 14">
-                    <div class="wrapper-video">
-                        <div id="player-gmvFLIuVAbA" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-gmvFLIuVAbA" onclick="iniciarVideo(this, 'gmvFLIuVAbA')">
-                            <img src="https://img.youtube.com/vi/gmvFLIuVAbA/hqdefault.jpg" alt="Suíte 14">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Suíte 14 - Henrique & Diego ft. MC Guimê</p>
-                </div>
-
-                <div class="card-video" data-nome="coladinho em mim">
-                    <div class="wrapper-video">
-                        <div id="player-e5Ct8ZW_rcs" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-e5Ct8ZW_rcs" onclick="iniciarVideo(this, 'e5Ct8ZW_rcs')">
-                            <img src="https://img.youtube.com/vi/e5Ct8ZW_rcs/hqdefault.jpg" alt="Coladinho em Mim">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Coladinho Em Mim - Gustavo Mioto ft. Anitta</p>
-                </div>
-
-                <div class="card-video" data-nome="vinganca">
-                    <div class="wrapper-video">
-                        <div id="player-ex-cr18tKDE" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-ex-cr18tKDE" onclick="iniciarVideo(this, 'ex-cr18tKDE')">
-                            <img src="https://img.youtube.com/vi/ex-cr18tKDE/hqdefault.jpg" alt="Vingança">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Vingança - Luan Santana</p>
-                </div>
-
-                <div class="card-video" data-nome="intencao">
-                    <div class="wrapper-video">
-                        <div id="player-1qKz_QohN7g" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-1qKz_QohN7g" onclick="iniciarVideo(this, '1qKz_QohN7g')">
-                            <img src="https://img.youtube.com/vi/1qKz_QohN7g/hqdefault.jpg" alt="Intenção">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Intenção - Marília Mendonça</p>
-                </div>
-
-                <div class="card-video" data-nome="seu astral">
-                    <div class="wrapper-video">
-                        <div id="player-SETK2maosQY" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-SETK2maosQY" onclick="iniciarVideo(this, 'SETK2maosQY')">
-                            <img src="https://img.youtube.com/vi/SETK2maosQY/hqdefault.jpg" alt="Seu Astral">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Seu Astral - Jorge & Mateus</p>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- FUNK -->
-        <section id="funk" class="secao-musica">
-            <h2>✨ Funk ✨</h2>
-
-            <div class="videos">
-
-                <div class="card-video" data-nome="vai embrazando">
-                    <div class="wrapper-video">
-                        <div id="player-Nk7S7D0CQOY" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-Nk7S7D0CQOY" onclick="iniciarVideo(this, 'Nk7S7D0CQOY')">
-                            <img src="https://img.youtube.com/vi/Nk7S7D0CQOY/hqdefault.jpg" alt="Vai Embrazando">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Vai Embrazando - MC Zaac</p>
-                </div>
-
-                <div class="card-video" data-nome="hit contagiante">
-                    <div class="wrapper-video">
-                        <div id="player-WaOicuaHdzo" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-WaOicuaHdzo" onclick="iniciarVideo(this, 'WaOicuaHdzo')">
-                            <img src="https://img.youtube.com/vi/WaOicuaHdzo/hqdefault.jpg" alt="Hit Contagiante">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Hit Contagiante - Felipe Original</p>
-                </div>
-
-                <div class="card-video" data-nome="fuleragem">
-                    <div class="wrapper-video">
-                        <div id="player-sdcoyDUfbG0" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-sdcoyDUfbG0" onclick="iniciarVideo(this, 'sdcoyDUfbG0')">
-                            <img src="https://img.youtube.com/vi/sdcoyDUfbG0/hqdefault.jpg" alt="Fuleragem">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Fuleragem - MC WM</p>
-                </div>
-
-                <div class="card-video" data-nome="pandora">
-                    <div class="wrapper-video">
-                        <div id="player-6MNxuMgg58k" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-6MNxuMgg58k" onclick="iniciarVideo(this, '6MNxuMgg58k')">
-                            <img src="https://img.youtube.com/vi/6MNxuMgg58k/hqdefault.jpg" alt="Pandora">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Pandora</p>
-                </div>
-
-                <div class="card-video" data-nome="trilogia 150">
-                    <div class="wrapper-video">
-                        <div id="player-UTYNURBuv7o" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-UTYNURBuv7o" onclick="iniciarVideo(this, 'UTYNURBuv7o')">
-                            <img src="https://img.youtube.com/vi/UTYNURBuv7o/hqdefault.jpg" alt="Trilogia 150">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Trilogia 150</p>
-                </div>
-
-                <div class="card-video" data-nome="ate o ceu">
-                    <div class="wrapper-video">
-                        <div id="player-49ez6OpzU6c" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-49ez6OpzU6c" onclick="iniciarVideo(this, '49ez6OpzU6c')">
-                            <img src="https://img.youtube.com/vi/49ez6OpzU6c/hqdefault.jpg" alt="Até o Céu">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Até o Céu - Anitta feat. MC Cabelinho</p>
-                </div>
-
-                <div class="card-video" data-nome="eterna sacanagem">
-                    <div class="wrapper-video">
-                        <div id="player-2ndgHnrJkhA" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-2ndgHnrJkhA" onclick="iniciarVideo(this, '2ndgHnrJkhA')">
-                            <img src="https://img.youtube.com/vi/2ndgHnrJkhA/hqdefault.jpg" alt="Eterna Sacanagem">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Eterna Sacanagem - MC Jottapê, MC Kekel e Kevinho</p>
-                </div>
-
-                <div class="card-video" data-nome="tudo aconteceu">
-                    <div class="wrapper-video">
-                        <div id="player-wU1U7Jgq_uo" class="yt-player-container"></div>
-                        <div class="overlay-play" id="overlay-wU1U7Jgq_uo" onclick="iniciarVideo(this, 'wU1U7Jgq_uo')">
-                            <img src="https://img.youtube.com/vi/wU1U7Jgq_uo/hqdefault.jpg" alt="Tudo Aconteceu">
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-                    <p class="titulo-video">Tudo Aconteceu - MC Du Black, Delacruz</p>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <footer id="sobre">
-        <div class="conteudo-rodape">
-            <h3>✨ Música ✨</h3>
-            <p>Encontre seus estilos favoritos e aproveite o som!</p>
-            <div class="linha-decorativa"></div>
-            <p class="direitos">© 2026 - Todos os direitos reservados</p>
-        </div>
-    </footer>
-
-    <!-- Script Oficial da API IFrame do YouTube -->
-    <script src="https://www.youtube.com/iframe_api"></script>
-
-    <script>
-        const players = {};
-
-        // Para e reseta todos os outros vídeos, reexibindo a capa rosa estilizada
-        function pausarEResetarOutrosVideos(idAtual) {
-            Object.keys(players).forEach(id => {
-                if (id !== idAtual && players[id]) {
-                    if (typeof players[id].stopVideo === 'function') {
-                        players[id].stopVideo();
-                    }
-                    const overlay = document.getElementById('overlay-' + id);
-                    if (overlay) {
-                        overlay.style.display = 'flex';
-                    }
-                }
-            });
-        }
-
-        // Inicia o vídeo selecionado
-        function iniciarVideo(elementoOverlay, videoId) {
-            elementoOverlay.style.display = 'none';
-
-            pausarEResetarOutrosVideos(videoId);
-
-            if (players[videoId]) {
-                players[videoId].playVideo();
-            } else {
-                players[videoId] = new YT.Player('player-' + videoId, {
-                    videoId: videoId,
-                    playerVars: {
-                        'autoplay': 1,
-                        'rel': 0
-                    },
-                    events: {
-                        'onReady': function(event) {
-                            event.target.playVideo();
-                        },
-                        'onStateChange': function(event) {
-                            if (event.data === YT.PlayerState.PLAYING) {
-                                pausarEResetarOutrosVideos(videoId);
-                            }
-                        }
-                    }
-                });
-            }
-        }
-
-        // Gerador de 50 estrelas prateadas
-        function gerarEstrelasPrata() {
-            const container = document.getElementById('container-estrelas');
-            const totalEstrelas = 50;
-
-            for (let i = 0; i < totalEstrelas; i++) {
-                const estrela = document.createElement('div');
-                estrela.classList.add('estrela-prata');
-
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const tamanho = Math.random() * 4 + 2;
-                
-                const duracaoPiscar = Math.random() * 1.2 + 0.5;
-                const duracaoMovimento = Math.random() * 4 + 3;
-                const atraso = Math.random() * 3;
-
-                estrela.style.left = `${posX}%`;
-                estrela.style.top = `${posY}%`;
-                estrela.style.width = `${tamanho}px`;
-                estrela.style.height = `${tamanho}px`;
-                estrela.style.animationDuration = `${duracaoPiscar}s, ${duracaoMovimento}s`;
-                estrela.style.animationDelay = `${atraso}s, ${atraso}s`;
-
-                container.appendChild(estrela);
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', gerarEstrelasPrata);
-
-        function limparTexto(texto) {
-            if (!texto) return "";
-
-            return texto
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-                .replace(/[^a-z0-9\s]/g, "")
-                .trim();
-        }
-
-        function buscarMusica() {
-            const campo = document.getElementById('campo-busca');
-            const termoLimpo = limparTexto(campo.value);
-
-            if (!termoLimpo) return;
-
-            const cards = document.querySelectorAll('.card-video');
-            let encontrado = false;
-
-            cards.forEach(card => card.classList.remove('destaque-busca'));
-
-            const palavrasBusca = termoLimpo.split(/\s+/);
-
-            for (let card of cards) {
-                const dataNome = limparTexto(card.getAttribute('data-nome'));
-
-                const atendeBusca = palavrasBusca.every(
-                    palavra => dataNome.includes(palavra)
-                );
-
-                if (atendeBusca) {
-                    encontrado = true;
-
-                    card.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center'
-                    });
-
-                    setTimeout(() => {
-                        const container = card.parentElement;
-
-                        const deslocamentoEsquerda =
-                            card.offsetLeft -
-                            (container.clientWidth / 2) +
-                            (card.clientWidth / 2);
-
-                        container.scrollTo({
-                            left: deslocamentoEsquerda,
-                            behavior: 'smooth'
-                        });
-
-                        card.classList.add('destaque-busca');
-                    }, 250);
-
-                    break;
-                }
-            }
-
-            if (!encontrado) {
-                alert('Música não encontrada! Tente pesquisar por uma palavra mais simples.');
-            }
-        }
-
-        function verificarEnter(event) {
-            if (event.key === 'Enter') {
-                buscarMusica();
-            }
-        }
-    </script>
+    <!-- MÚSICA 2 -->
+    <div class="musica-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">
+      <div class="capa-container">
+        <img src="https://picsum.photos/200?random=2" alt="Capa da Música 2">
+      </div>
+      <div class="titulo-musica">Música Número 2</div>
+      <div class="nome-artista">Artista Exemplo B</div>
+    </div>
+
+    <!-- MÚSICA 3 -->
+    <div class="musica-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3">
+      <div class="capa-container">
+        <img src="https://picsum.photos/200?random=3" alt="Capa da Música 3">
+      </div>
+      <div class="titulo-musica">Música Número 3</div>
+      <div class="nome-artista">Artista Exemplo C</div>
+    </div>
+
+    <!-- MÚSICA 4 -->
+    <div class="musica-card" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3">
+      <div class="capa-container">
+        <img src="https://picsum.photos/200?random=4" alt="Capa da Música 4">
+      </div>
+      <div class="titulo-musica">Música Número 4</div>
+      <div class="nome-artista">Artista Exemplo D</div>
+    </div>
+
+  </div>
+
+  <!-- Player de Áudio na parte inferior -->
+  <div class="player-container">
+    <div class="info-musica-atual" id="infoMusica">Clique em uma música para tocar</div>
+    <audio id="meuPlayer" controls></audio>
+  </div>
+
+  <!-- =========================================
+       4. JAVASCRIPT (LÓGICA AUTOMÁTICA DE TROCA)
+       ========================================= -->
+  <script>
+    const player = document.getElementById('meuPlayer');
+    const cards = document.querySelectorAll('.musica-card');
+    const infoMusica = document.getElementById('infoMusica');
+    
+    let indiceAtual = 0;
+
+    // Função para tocar uma música específica pelo seu número (índice)
+    function tocarMusica(index) {
+      if (index >= cards.length) {
+        // Se chegou ao final da playlist, recomeça da primeira
+        index = 0;
+      }
+
+      indiceAtual = index;
+      const cardAtual = cards[indiceAtual];
+      const audioUrl = cardAtual.getAttribute('data-src');
+      const titulo = cardAtual.querySelector('.titulo-musica').textContent;
+      const artista = cardAtual.querySelector('.nome-artista').textContent;
+
+      // 1. Atualiza a fonte do player e toca
+      player.src = audioUrl;
+      player.play();
+
+      // 2. Atualiza o texto na tela
+      infoMusica.textContent = `Tocando agora: ${titulo} - ${artista}`;
+
+      // 3. Remove o destaque visual de todos os cards
+      cards.forEach(c => c.classList.remove('tocando'));
+
+      // 4. Adiciona destaque visual no card que está tocando
+      cardAtual.classList.add('tocando');
+    }
+
+    // Clique em qualquer card de música para tocar
+    cards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        tocarMusica(index);
+      });
+    });
+
+    // MÁGICA AQUI: Quando a música terminar (evento 'ended'), toca a próxima do lado!
+    player.addEventListener('ended', () => {
+      tocarMusica(indiceAtual + 1);
+    });
+  </script>
 
 </body>
 </html>
