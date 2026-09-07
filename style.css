@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Fredericka+the+Great&family=Poppins:wght@300;400;600&display=swap');
 
+/* =========================================
+   🌐 CONFIGURAÇÕES GERAIS E ROLAGEM SUAVE
+========================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,8 +12,12 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 110px;
+    scroll-padding-top: 110px; /* Impede que o menu fixo cubra os títulos das seções */
 }
+
+/* =========================================
+   🌌 FUNDO ESCURO EM TONS VINHO E SEDA
+========================================= */
 
 body {
     background-color: #12070d;
@@ -41,7 +49,9 @@ body::before {
     );
 }
 
-/* ESTRELAS */
+/* =========================================
+   ✨ ESTRELAS PRATEADAS FLUTUANTES E PISCANTES
+========================================= */
 
 #container-estrelas {
     position: fixed;
@@ -65,36 +75,36 @@ body::before {
 }
 
 @keyframes piscarBrilho {
-
     0% {
         opacity: 0.15;
         transform: scale(0.5);
+        box-shadow: 0 0 2px #ffffff;
     }
-
     100% {
         opacity: 1;
         transform: scale(1.5);
+        box-shadow:
+            0 0 10px #ffffff,
+            0 0 20px #d8e6ff,
+            0 0 30px rgba(255, 255, 255, 0.9);
     }
-
 }
 
 @keyframes movimentoFlutuante {
-
     0% {
-        transform: translateY(0) translateX(0);
+        transform: translateY(0px) translateX(0px);
     }
-
     50% {
         transform: translateY(-25px) translateX(15px);
     }
-
     100% {
-        transform: translateY(0) translateX(0);
+        transform: translateY(0px) translateX(0px);
     }
-
 }
 
-/* MENU */
+/* =========================================
+   📌 MENU SUPERIOR COM NAVEGAÇÃO CENTRALIZADA
+========================================= */
 
 .menu-superior {
     position: sticky;
@@ -119,6 +129,8 @@ body::before {
     white-space: nowrap;
 }
 
+/* CENTRALIZAÇÃO DOS LINKS DO MENU */
+
 .nav-central {
     position: absolute;
     left: 50%;
@@ -130,6 +142,8 @@ body::before {
     list-style: none;
     gap: 12px;
 }
+
+/* EFEITO BOLA AO PASSAR O MOUSE */
 
 .nav-central a {
     position: relative;
@@ -147,18 +161,14 @@ body::before {
 .nav-central a:focus,
 .nav-central a:active {
     color: #ffffff;
-    background: linear-gradient(
-        135deg,
-        rgba(201, 79, 115, 0.8),
-        rgba(110, 24, 51, 0.9)
-    );
+    background: linear-gradient(135deg, rgba(201, 79, 115, 0.8), rgba(110, 24, 51, 0.9));
     box-shadow:
         0 0 15px rgba(255, 105, 180, 0.6),
         inset 0 0 8px rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
 }
 
-/* PESQUISA */
+/* 🔍 BARRA DE PESQUISA */
 
 .caixa-pesquisa {
     display: flex;
@@ -167,6 +177,13 @@ body::before {
     border: 1px solid rgba(255, 182, 193, 0.3);
     border-radius: 25px;
     padding: 4px 6px 4px 15px;
+    transition: all 0.3s ease;
+}
+
+.caixa-pesquisa:focus-within {
+    border-color: #ff69b4;
+    box-shadow: 0 0 12px rgba(255, 105, 180, 0.5);
+    background: rgba(55, 15, 35, 0.9);
 }
 
 .caixa-pesquisa input {
@@ -177,6 +194,7 @@ body::before {
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
     width: 150px;
+    transition: width 0.3s ease;
 }
 
 .caixa-pesquisa input:focus {
@@ -188,20 +206,24 @@ body::before {
 }
 
 .caixa-pesquisa button {
-    background: linear-gradient(
-        135deg,
-        #c94f73,
-        #6e1833
-    );
+    background: linear-gradient(135deg, #c94f73, #6e1833);
     border: none;
     color: white;
     padding: 6px 12px;
     border-radius: 50%;
     cursor: pointer;
     font-size: 12px;
+    transition: transform 0.2s ease, background 0.3s ease;
 }
 
-/* BANNER */
+.caixa-pesquisa button:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #ff69b4, #c94f73);
+}
+
+/* =========================================
+   🌸 BANNER PRINCIPAL DESTAQUE
+========================================= */
 
 .conteudo-principal {
     position: relative;
@@ -213,23 +235,31 @@ body::before {
     position: relative;
     max-width: 1100px;
     margin: 30px auto 60px auto;
-    padding: 60px 20px 40px;
+    padding: 60px 20px 40px 20px;
     text-align: center;
     border-radius: 30px;
 
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(80, 20, 45, 0.6) 0%,
-            rgba(35, 8, 20, 0.4) 70%,
-            transparent 100%
-        );
+    background: radial-gradient(
+        circle at center,
+        rgba(80, 20, 45, 0.6) 0%,
+        rgba(35, 8, 20, 0.4) 70%,
+        transparent 100%
+    );
 
     border: 1px solid rgba(255, 182, 193, 0.25);
 
     box-shadow:
         0 0 30px rgba(110, 24, 51, 0.4),
         inset 0 0 25px rgba(255, 105, 180, 0.15);
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Cpath d='M0,50 Q250,0 500,50 T1000,50' fill='none' stroke='rgba(255,182,193,0.05)' stroke-width='2'/%3E%3C/svg%3E"),
+        radial-gradient(
+            circle at center,
+            rgba(80, 20, 45, 0.6) 0%,
+            rgba(35, 8, 20, 0.4) 70%,
+            transparent 100%
+        );
 
     overflow: hidden;
 }
@@ -238,6 +268,7 @@ body::before {
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 0;
 }
 
 .icone-fundo {
@@ -250,21 +281,28 @@ body::before {
 .esquerda-top {
     top: 10px;
     left: 30px;
+    transform: rotate(-15deg);
 }
 
 .esquerda-bottom {
     bottom: 10px;
     left: 60px;
+    transform: rotate(10deg);
+    font-size: 60px;
 }
 
 .direita-top {
     top: 15px;
     right: 40px;
+    transform: rotate(20deg);
+    font-size: 65px;
 }
 
 .direita-bottom {
     bottom: 5px;
     right: 30px;
+    transform: rotate(-10deg);
+    font-size: 90px;
 }
 
 .titulo-assinatura {
@@ -273,13 +311,11 @@ body::before {
     font-family: 'Dancing Script', cursive;
     font-size: 110px;
     font-weight: 700;
+    margin: 0;
+    padding: 0;
+    border: none;
 
-    background: linear-gradient(
-        180deg,
-        #ffffff 20%,
-        #f3cbd4 100%
-    );
-
+    background: linear-gradient(180deg, #ffffff 20%, #f3cbd4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -288,13 +324,76 @@ body::before {
         drop-shadow(0 0 25px rgba(201, 79, 115, 0.6));
 }
 
+.brilhos-titulo {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.elemento-float {
+    position: absolute;
+    color: rgba(255, 192, 203, 0.6);
+    filter: drop-shadow(0 0 5px #ff69b4);
+    animation: flutuarSuave 4s ease-in-out infinite alternate;
+}
+
+.pos-1 {
+    top: 25%;
+    left: 22%;
+    font-size: 20px;
+    animation-delay: 0s;
+}
+
+.pos-2 {
+    top: 18%;
+    right: 25%;
+    font-size: 24px;
+    animation-delay: 1s;
+}
+
+.pos-3 {
+    bottom: 35%;
+    left: 28%;
+    font-size: 18px;
+    animation-delay: 1.5s;
+}
+
+.pos-4 {
+    bottom: 40%;
+    right: 22%;
+    font-size: 22px;
+    animation-delay: 0.5s;
+}
+
+.pos-5 {
+    top: 45%;
+    right: 18%;
+    font-size: 16px;
+    animation-delay: 2s;
+}
+
+@keyframes flutuarSuave {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(-8px) rotate(12deg);
+        opacity: 0.9;
+    }
+}
+
 .divisor-banner {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
     max-width: 450px;
-    margin: 10px auto 0;
+    margin: 10px auto 0 auto;
 }
 
 .linha-lado {
@@ -314,12 +413,48 @@ body::before {
     text-shadow: 0 0 8px #ff69b4;
 }
 
-/* SEÇÕES */
+/* =========================================
+   🎵 SEÇÕES, TÍTULOS E EFEITO DE BRILHO
+========================================= */
 
 .secao-musica {
     margin-bottom: 50px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     border-radius: 20px;
     padding: 10px;
+}
+
+/* A seção FICA GRANDE (scale 1.03) do começo ao fim da animação.
+   Apenas as luzes ao redor (box-shadow) piscam! */
+.efeito-brilho-secao {
+    animation: piscarBrilhoSemZoom 2.4s ease-in-out;
+}
+
+@keyframes piscarBrilhoSemZoom {
+    0% {
+        transform: scale(1.03);
+        box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+    }
+    20% {
+        transform: scale(1.03);
+        box-shadow: 0 0 35px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 105, 180, 0.8);
+    }
+    40% {
+        transform: scale(1.03);
+        box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+    }
+    60% {
+        transform: scale(1.03);
+        box-shadow: 0 0 35px rgba(255, 215, 0, 0.9), 0 0 60px rgba(255, 105, 180, 0.8);
+    }
+    80% {
+        transform: scale(1.03);
+        box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0px transparent;
+    }
 }
 
 h2 {
@@ -331,7 +466,9 @@ h2 {
     text-shadow: 0 0 10px rgba(255, 180, 200, 0.4);
 }
 
-/* CARDS */
+/* =========================================
+   📺 CARDS DOS VÍDEOS & PLAY CUSTOMIZADO
+========================================= */
 
 .videos {
     display: flex;
@@ -345,26 +482,12 @@ h2 {
     flex-shrink: 0;
     border-radius: 20px;
     padding: 3px;
-    background: linear-gradient(
-        135deg,
-        #6e1833,
-        #c94f73
-    );
-
-    box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.6);
-
+    background: linear-gradient(135deg, #6e1833, #c94f73);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
     transition:
         transform 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-.card-video:hover {
-    transform: translateY(-8px) scale(1.03);
-
-    box-shadow:
-        0 12px 25px rgba(0, 0, 0, 0.8),
-        0 0 20px rgba(255, 105, 180, 0.6);
+        box-shadow 0.35s ease,
+        background 0.35s ease;
 }
 
 .titulo-video {
@@ -380,22 +503,17 @@ h2 {
     height: 215px;
     border-radius: 18px;
     overflow: hidden;
-    background: #000;
-}
-
-.yt-player-container {
-    width: 100%;
-    height: 100%;
 }
 
 iframe {
     width: 100%;
     height: 100%;
+    border-radius: 18px;
     border: none;
     display: block;
 }
 
-/* CAPA DE PLAY */
+/* Overlay da imagem do vídeo e botão de Play */
 
 .overlay-play {
     position: absolute;
@@ -405,7 +523,7 @@ iframe {
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.3);
-    z-index: 5;
+    transition: background 0.3s ease;
 }
 
 .overlay-play img {
@@ -419,12 +537,7 @@ iframe {
     content: "";
     position: absolute;
     inset: 0;
-    background:
-        radial-gradient(
-            circle,
-            rgba(18, 7, 13, 0.2),
-            rgba(18, 7, 13, 0.7)
-        );
+    background: radial-gradient(circle, rgba(18, 7, 13, 0.2) 0%, rgba(18, 7, 13, 0.7) 100%);
 }
 
 .botao-play-custom {
@@ -433,21 +546,15 @@ iframe {
     width: 65px;
     height: 65px;
     border-radius: 50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff69b4,
-            #8b1538
-        );
-
+    background: linear-gradient(135deg, #ff69b4, #8b1538);
     border: 2px solid #ffffff;
-
     box-shadow:
         0 0 15px rgba(255, 105, 180, 0.8),
         0 0 30px rgba(139, 21, 56, 0.6);
-
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
 .botao-play-custom::before {
@@ -455,186 +562,62 @@ iframe {
     display: block;
     width: 0;
     height: 0;
-
     border-style: solid;
     border-width: 10px 0 10px 18px;
-    border-color:
-        transparent
-        transparent
-        transparent
-        #ffffff;
-
-    margin-left: 21px;
-    margin-top: 19px;
+    border-color: transparent transparent transparent #ffffff;
+    margin-left: 4px;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
 }
 
-/* BOTÃO LETRA */
-
-.botao-letra {
-    position: absolute;
-
-    right: 10px;
-    bottom: 10px;
-
-    z-index: 20;
-
-    border: 1px solid rgba(255, 255, 255, 0.7);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 105, 180, 0.95),
-            rgba(110, 24, 51, 0.95)
-        );
-
-    color: white;
-
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-
-    padding: 8px 13px;
-
-    border-radius: 20px;
-
-    cursor: pointer;
-
-    opacity: 0;
-    transform: translateY(8px);
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-/* APARECE QUANDO PASSA O MOUSE */
-
-.card-video:hover .botao-letra {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.botao-letra:hover {
+.overlay-play:hover .botao-play-custom {
+    transform: scale(1.15);
+    background: linear-gradient(135deg, #ffffff, #ff69b4);
     box-shadow:
-        0 0 12px #ff69b4,
-        0 0 25px rgba(255, 105, 180, 0.6);
-
-    transform: scale(1.08);
+        0 0 25px #ff69b4,
+        0 0 45px rgba(255, 255, 255, 0.9);
 }
 
-/* LETRA */
+.overlay-play:hover .botao-play-custom::before {
+    border-color: transparent transparent transparent #6e1833;
+}
 
-.letra-container {
-    position: absolute;
-
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-
-    z-index: 15;
-
-    max-height: 85px;
-
-    padding: 10px 14px;
-
-    border-radius: 15px;
-
-    background:
-        rgba(18, 7, 13, 0.92);
-
-    border:
-        1px solid rgba(255, 105, 180, 0.6);
+.card-video:hover {
+    transform: translateY(-8px) scale(1.03);
+    background: linear-gradient(135deg, #ff69b4, #ffb6c1);
 
     box-shadow:
-        0 0 15px rgba(255, 105, 180, 0.4);
-
-    backdrop-filter: blur(8px);
-
-    opacity: 0;
-    visibility: hidden;
-
-    transform: translateY(15px);
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.3s ease,
-        visibility 0.3s ease;
+        0 12px 25px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 105, 180, 0.6);
 }
 
-.letra-container.letra-aberta {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.letra-titulo {
-    font-family: 'Dancing Script', cursive;
-    color: #f3cbd4;
-    font-size: 18px;
-    margin-bottom: 4px;
-}
-
-.letra-texto {
-    color: white;
-    font-size: 12px;
-    line-height: 1.4;
-    text-align: center;
-}
-
-.letra-aparecendo {
-    animation: aparecerLetra 0.25s ease;
-}
-
-@keyframes aparecerLetra {
-
-    from {
-        opacity: 0;
-        transform: translateY(5px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-/* BUSCA */
+/* ✨ DESTAQUE DA BUSCA */
 
 .card-video.destaque-busca {
     transform: scale(1.08);
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff69b4,
-            #ffffff
-        );
+    background: linear-gradient(135deg, #ff69b4, #ffffff);
 
     box-shadow:
         0 0 35px #ff69b4,
         0 0 15px #ffffff;
 
-    animation:
-        pulsarGlow 1.5s infinite alternate;
+    animation: pulsarGlow 1.5s infinite alternate;
 }
 
 @keyframes pulsarGlow {
-
-    from {
+    0% {
         box-shadow: 0 0 20px #ff69b4;
     }
 
-    to {
+    100% {
         box-shadow:
             0 0 40px #ff69b4,
             0 0 15px #ffffff;
     }
-
 }
 
-/* PARTÍCULAS */
+/* =========================================
+   ✨ PARTICULAS E NOTAS FLUTUANTES
+========================================= */
 
 .particulas {
     position: fixed;
@@ -679,11 +662,8 @@ iframe {
 }
 
 @keyframes flutuarNotas {
-
     0% {
-        transform:
-            translateY(105vh)
-            rotate(0deg);
+        transform: translateY(105vh) rotate(0deg);
         opacity: 0;
     }
 
@@ -696,15 +676,14 @@ iframe {
     }
 
     100% {
-        transform:
-            translateY(-10vh)
-            rotate(360deg);
+        transform: translateY(-10vh) rotate(360deg);
         opacity: 0;
     }
-
 }
 
-/* ROLAGEM */
+/* =========================================
+   📜 BARRA DE ROLAGEM
+========================================= */
 
 ::-webkit-scrollbar {
     height: 8px;
@@ -720,22 +699,17 @@ iframe {
     border-radius: 10px;
 }
 
-/* RODAPÉ */
+/* =========================================
+   🌸 RODAPÉ ELEGANTE
+========================================= */
 
 footer {
     position: relative;
     z-index: 2;
-
-    background:
-        rgba(18, 7, 13, 0.95);
-
-    border-top:
-        1px solid rgba(255, 180, 200, 0.2);
-
+    background: rgba(18, 7, 13, 0.95);
+    border-top: 1px solid rgba(255, 180, 200, 0.2);
     padding: 30px 20px;
-
     text-align: center;
-
     margin-top: 40px;
 }
 
@@ -751,48 +725,31 @@ footer {
     font-size: 14px;
 }
 
-.criadora {
-    font-family: 'Dancing Script', cursive;
-
-    font-size: 25px !important;
-
-    font-weight: 700;
-
-    color: #f3cbd4 !important;
-
-    margin: 12px 0 8px;
-
-    text-shadow:
-        0 0 8px rgba(255, 105, 180, 0.7),
-        0 0 18px rgba(201, 79, 115, 0.5);
-}
-
 .linha-decorativa {
     width: 100px;
     height: 2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #ff69b4,
-            transparent
-        );
-
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ff69b4,
+        transparent
+    );
     margin: 15px auto;
 }
 
 .direitos {
-    font-size: 12px !important;
-    color: #8c737e !important;
+    font-size: 12px;
+    color: #8c737e;
 }
 
-/* CELULAR */
+/* =========================================
+   📱 RESPONSIVIDADE PARA CELULARES
+========================================= */
 
 @media (max-width: 850px) {
 
     html {
-        scroll-padding-top: 180px;
+        scroll-padding-top: 180px; /* Ajuste para o menu em celulares */
     }
 
     .menu-superior {
@@ -812,12 +769,16 @@ footer {
     }
 
     .banner-destaque {
-        margin: 15px auto 30px;
-        padding: 40px 10px 25px;
+        margin: 15px auto 30px auto;
+        padding: 40px 10px 25px 10px;
     }
 
     .titulo-assinatura {
         font-size: 70px;
+    }
+
+    .icone-fundo {
+        font-size: 45px;
     }
 
     h2 {
@@ -828,10 +789,4 @@ footer {
         width: 280px;
         height: 170px;
     }
-
-    .botao-letra {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
 }
