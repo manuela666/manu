@@ -344,31 +344,24 @@
             });
         }
 
-        // Toca o próximo vídeo da mesma seção quando a música atual terminar
-        function tocarProximoVideo(videoIdAtual) {
-            const playerDivAtual = document.getElementById('player-' + videoIdAtual);
-            if (!playerDivAtual) return;
+        // Restaura a capa e o botão de play bonitinho ao terminar
+        function restaurarCapaAoTerminar(videoId) {
+            const playerDiv = document.getElementById('player-' + videoId);
+            if (!playerDiv) return;
 
-            const cardAtual = playerDivAtual.closest('.card-video');
-            if (!cardAtual) return;
+            const wrapper = playerDiv.closest('.wrapper-video');
+            if (!wrapper) return;
 
-            const proximoCard = cardAtual.nextElementSibling;
+            const overlay = wrapper.querySelector('.overlay-play');
+            if (overlay) {
+                // Torna a capa visível novamente
+                overlay.style.display = 'flex';
+            }
 
-            if (proximoCard && proximoCard.classList.contains('card-video')) {
-                const overlayProximo = proximoCard.querySelector('.overlay-play');
-                
-                // Pega o ID do próximo vídeo a partir da imagem do overlay
-                if (overlayProximo) {
-                    const imgOverlay = overlayProximo.querySelector('img');
-                    if (imgOverlay) {
-                        const urlImg = imgOverlay.src;
-                        const match = urlImg.match(/\/vi\/([^\/]+)\//);
-                        if (match && match[1]) {
-                            const proximoVideoId = match[1];
-                            iniciarVideo(overlayProximo, proximoVideoId);
-                        }
-                    }
-                }
+            // Reinicia o vídeo no player para o segundo 0 (para que, se for tocado de novo, comece do início)
+            if (players[videoId] && typeof players[videoId].seekTo === 'function') {
+                players[videoId].seekTo(0);
+                players[videoId].stopVideo();
             }
         }
 
@@ -395,9 +388,9 @@
                             if (event.data === YT.PlayerState.PLAYING) {
                                 pausarOutrosVideos(videoId);
                             }
-                            // Quando o vídeo acabar (Estado 0/ENDED), chama a próxima música
+                            // Quando o vídeo acabar (YT.PlayerState.ENDED = 0), volta a capa linda!
                             if (event.data === YT.PlayerState.ENDED) {
-                                tocarProximoVideo(videoId);
+                                restaurarCapaAoTerminar(videoId);
                             }
                         }
                     }
