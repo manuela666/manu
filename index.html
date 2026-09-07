@@ -1,880 +1,365 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Lily - Músicas</title>
-
+    <title>Lily Music</title>
+    
     <style>
-        /* ESTILOS DE ELEMENTOS ARTÍSTICOS E SVG (Sem Emojis) */
-        .svg-icon {
-            display: inline-block;
-            vertical-align: middle;
-            fill: currentColor;
+        /* ESTILOS GERAIS (CSS) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* BANNER */
-        .banner-destaque {
-            position: relative;
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO E NAVEGAÇÃO */
+        .cabecalho {
+            background-color: #1e1e1e;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #333;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff0055;
+            text-decoration: none;
+        }
+
+        .menu-navegacao a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        .menu-navegacao a:hover {
+            color: #ff0055;
+        }
+
+        /* BARRA DE PESQUISA */
+        .container-busca {
+            display: flex;
+            align-items: center;
+            background-color: #2b2b2b;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        .container-busca input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            padding: 8px;
+            outline: none;
+            width: 180px;
+        }
+
+        .container-busca button {
+            background-color: #ff0055;
+            border: none;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .container-busca button:hover {
+            background-color: #d60047;
+        }
+
+        /* SEÇÕES DE MÚSICA */
+        main {
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .secao-genero {
+            margin-bottom: 40px;
+        }
+
+        .titulo-secao {
+            font-size: 22px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff0055;
+            padding-left: 10px;
+            transition: background 0.5s;
+        }
+
+        /* GRID DE VÍDEOS */
+        .grid-videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* CARD DE VÍDEO */
+        .card-video {
+            background-color: #1e1e1e;
+            border-radius: 10px;
             overflow: hidden;
-            perspective: 1000px;
-            padding: 60px 20px 50px 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, outline 0.3s ease;
+        }
+
+        .card-video:hover {
+            transform: translateY(-5px);
+        }
+
+        /* EFEITO DE DESTAQUE NA PESQUISA */
+        .card-destacado {
+            transform: scale(1.05);
+            outline: 3px solid #ff0055;
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.8);
+        }
+
+        .wrapper-video {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* Proporção 16:9 */
+            background-color: #000;
+        }
+
+        .yt-player-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .overlay-play {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .overlay-play img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .botao-play-custom {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 0, 85, 0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .botao-play-custom::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            border-style: solid;
+            border-width: 8px 0 8px 14px;
+            border-color: transparent transparent transparent #ffffff;
+        }
+
+        .titulo-video {
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
             text-align: center;
         }
 
-        /* PAUTAS MUSICAIS CONTINUAS (5 LINHAS REAIS EM PERSPECTIVA) */
-        .ondas-perspectiva-fundo {
-            position: absolute;
-            top: 0;
-            left: -5%;
-            width: 110%;
-            height: 100%;
-            z-index: 1;
-            transform: rotateX(20deg) rotateZ(-1deg) scale(1.05);
-            transform-origin: bottom center;
-            pointer-events: none;
-            opacity: 0.85;
+        /* SEÇÃO SOBRE E RODAPÉ */
+        .secao-sobre {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
         }
 
-        .pauta-linha-svg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
+        .rodape {
+            text-align: center;
+            padding: 20px;
+            background-color: #1e1e1e;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            color: #888;
         }
 
-        /* DISCOS */
-        .disco {
-            position: absolute;
-            z-index: 2;
+        /* ANIMAÇÃO PARA DESTAQUE DO TÍTULO DO MENU */
+        .destaque-temporario {
+            background-color: rgba(255, 0, 85, 0.3);
+            padding-left: 15px;
+            border-radius: 5px;
         }
-
-        /* NOTAS ROSA / VINHO TRANSPARENTES EM VETOR ESPALHADAS */
-        .notas-rosa-espalhadas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 3;
-            pointer-events: none;
-        }
-
-        .nota-vetor {
-            position: absolute;
-            fill: #8b004f;
-            opacity: 0.32;
-            filter: drop-shadow(0 0 6px rgba(219, 112, 147, 0.4));
-            animation: flutuarNotas 4s ease-in-out infinite alternate;
-        }
-
-        @keyframes flutuarNotas {
-            from { transform: translateY(0px) rotate(0deg); }
-            to { transform: translateY(-8px) rotate(8deg); }
-        }
-
-        .pos-n1 { top: 18%; left: 14%; width: 22px; animation-delay: 0s; }
-        .pos-n2 { top: 62%; left: 20%; width: 28px; opacity: 0.22; animation-delay: 1s; }
-        .pos-n3 { top: 25%; right: 16%; width: 26px; animation-delay: 0.5s; }
-        .pos-n4 { top: 68%; right: 22%; width: 24px; opacity: 0.28; animation-delay: 1.5s; }
-        .pos-n5 { top: 12%; left: 48%; width: 18px; animation-delay: 0.8s; }
-        .pos-n6 { top: 72%; left: 52%; width: 20px; animation-delay: 1.2s; }
-
-        /* CONTAINER DA COROA E TÍTULO */
-        .container-titulo-coroa {
-            position: relative;
-            z-index: 5;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* NOVA COROA ELEGANTE, PONTUDA, ROSA/VINHO E BRILHANTE */
-        .coroa-caligrafica-svg {
-            width: 85px;
-            height: 55px;
-            margin-bottom: -18px; /* Bem próxima do título "Músicas" */
-            filter: drop-shadow(0 0 10px rgba(219, 112, 147, 0.85)) drop-shadow(0 0 18px rgba(139, 0, 79, 0.6));
-            animation: brilharEFlutuarCoroa 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes brilharEFlutuarCoroa {
-            0% {
-                transform: translateY(0) scale(1);
-                filter: drop-shadow(0 0 8px rgba(219, 112, 147, 0.75)) drop-shadow(0 0 12px rgba(139, 0, 79, 0.5));
-            }
-            100% {
-                transform: translateY(-4px) scale(1.03);
-                filter: drop-shadow(0 0 14px rgba(255, 182, 193, 0.95)) drop-shadow(0 0 22px rgba(219, 112, 147, 0.8));
-            }
-        }
-
-        /* BRILHOS EM SVG */
-        .brilho-svg {
-            position: absolute;
-            fill: #ffb6c1;
-            opacity: 0.8;
-            filter: drop-shadow(0 0 6px #ffb6c1);
-            pointer-events: none;
-            z-index: 4;
-        }
-
-        .pos-b1 { top: 20%; left: 32%; width: 14px; }
-        .pos-b2 { top: 15%; right: 30%; width: 18px; }
-        .pos-b3 { top: 75%; left: 38%; width: 12px; }
     </style>
 </head>
-
 <body>
 
-    <!-- PARTICULAS COM NOTAS VETORIAIS -->
-    <div class="particulas">
-        <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
-
-        <div class="nota-musical">
-            <svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16"><path fill="#db7093" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-        </div>
-        <div class="nota-musical">
-            <svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16"><path fill="#db7093" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-        </div>
-    </div>
-
-    <div id="container-estrelas"></div>
-
-    <header class="menu-superior">
-
-        <div class="logo">
-            <svg class="svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="#ffd700"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
-            Lily Music
-        </div>
-
-        <nav class="nav-central">
-            <ul>
-                <li><a href="#inicio">Início</a></li>
-
-                <li>
-                    <a href="#rap" onclick="destacarTitulo('titulo-rap')">
-                        Rap / Hip Hop
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#sertanejo" onclick="destacarTitulo('titulo-sertanejo')">
-                        Sertanejo
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#funk" onclick="destacarTitulo('titulo-funk')">
-                        Funk
-                    </a>
-                </li>
-
-                <li><a href="#sobre">Sobre</a></li>
-            </ul>
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <a href="#" class="logo">Lily Music</a>
+        
+        <nav class="menu-navegacao">
+            <a href="#rap" onclick="destacarTitulo('titulo-rap')">Rap</a>
+            <a href="#sertanejo" onclick="destacarTitulo('titulo-sertanejo')">Sertanejo</a>
+            <a href="#funk" onclick="destacarTitulo('titulo-funk')">Funk</a>
+            <a href="#sobre">Sobre</a>
         </nav>
 
-        <div class="caixa-pesquisa">
-            <input
-                type="text"
-                id="campo-busca"
-                placeholder="Buscar música..."
-                onkeypress="verificarEnter(event)"
-            >
-            <button onclick="buscarMusica()">
-                <!-- ÍCONE DE LUPA VETORIAL -->
-                <svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="#fff">
-                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                </svg>
-            </button>
+        <div class="container-busca">
+            <input type="text" id="campo-busca" placeholder="Pesquisar música..." onkeypress="verificarEnter(event)">
+            <button onclick="buscarMusica()">Buscar</button>
         </div>
-
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
 
-    <main id="inicio" class="conteudo-principal">
-
-        <!-- BANNER REVISADO -->
-        <div class="banner-destaque">
-
-            <!-- PAUTAS MUSICAIS COMPLETAS (5 LINHAS CONTINUAS SUAVES EM PERSPECTIVA) -->
-            <div class="ondas-perspectiva-fundo">
-                <svg viewBox="0 0 1200 350" preserveAspectRatio="none" class="pauta-linha-svg">
-                    <!-- PRIMEIRA PAUTA (5 LINHAS) -->
-                    <path d="M 0,80 Q 300,30 600,90 T 1200,60" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
-                    <path d="M 0,95 Q 300,45 600,105 T 1200,75" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
-                    <path d="M 0,110 Q 300,60 600,120 T 1200,90" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
-                    <path d="M 0,125 Q 300,75 600,135 T 1200,105" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
-                    <path d="M 0,140 Q 300,90 600,150 T 1200,120" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
-
-                    <!-- SEGUNDA PAUTA SUAVE DE FUNDO (5 LINHAS) -->
-                    <path d="M 0,180 Q 350,240 700,170 T 1200,210" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
-                    <path d="M 0,195 Q 350,255 700,185 T 1200,225" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
-                    <path d="M 0,210 Q 350,270 700,200 T 1200,240" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
-                    <path d="M 0,225 Q 350,285 700,215 T 1200,255" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
-                    <path d="M 0,240 Q 350,300 700,230 T 1200,270" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
-                </svg>
-            </div>
-
-            <!-- DISCOS DECORATIVOS -->
-            <div class="disco disco-esquerdo">
-                <div class="anel-disco"></div>
-                <div class="centro-disco"></div>
-            </div>
-
-            <div class="disco disco-direito">
-                <div class="anel-disco"></div>
-                <div class="centro-disco"></div>
-            </div>
-
-            <!-- NOTAS MUSICAIS VETORIAIS ROSA/VINHO TRANSPARENTES -->
-            <div class="notas-rosa-espalhadas">
-                <svg class="nota-vetor pos-n1" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                <svg class="nota-vetor pos-n2" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                <svg class="nota-vetor pos-n3" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                <svg class="nota-vetor pos-n4" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                <svg class="nota-vetor pos-n5" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                <svg class="nota-vetor pos-n6" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-            </div>
-
-            <!-- BRILHOS EM VETOR -->
-            <svg class="brilho-svg pos-b1" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
-            <svg class="brilho-svg pos-b2" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
-            <svg class="brilho-svg pos-b3" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
-
-            <!-- COROA PONTUDA ELEGANTE ROSA/VINHO + TÍTULO "MÚSICAS" -->
-            <div class="container-titulo-coroa">
-                <svg class="coroa-caligrafica-svg" viewBox="0 0 120 70">
-                    <defs>
-                        <!-- DEGRADÊ ROSA A VINHO -->
-                        <linearGradient id="gradCoroa" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#ffb6c1" />
-                            <stop offset="40%" stop-color="#db7093" />
-                            <stop offset="100%" stop-color="#8b004f" />
-                        </linearGradient>
-                        
-                        <!-- DEGRADÊ DOURADO DE BRILHO PARA DETALHES -->
-                        <linearGradient id="gradDourado" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#ffffff" />
-                            <stop offset="50%" stop-color="#ffd700" />
-                            <stop offset="100%" stop-color="#db7093" />
-                        </linearGradient>
-                    </defs>
-
-                    <!-- CORPO DA COROA PONTUDA E ELEGANTE -->
-                    <path d="M 15 52 L 5 22 L 35 38 L 60 10 L 85 38 L 115 22 L 105 52 Z" 
-                          fill="url(#gradCoroa)" 
-                          stroke="url(#gradDourado)" 
-                          stroke-width="1.8" 
-                          stroke-linejoin="round" />
-
-                    <!-- CURVAS CALIGRÁFICAS INTERNAS -->
-                    <path d="M 22 50 C 35 32 50 48 60 25 C 70 48 85 32 98 50" 
-                          fill="none" 
-                          stroke="url(#gradDourado)" 
-                          stroke-width="1.2" 
-                          opacity="0.85" />
-
-                    <!-- BASE DA COROA TRABALHADA -->
-                    <path d="M 12 56 C 40 60 80 60 108 56" 
-                          fill="none" 
-                          stroke="url(#gradDourado)" 
-                          stroke-width="2" 
-                          stroke-linecap="round" />
-
-                    <!-- GEMAS / BRILHOS NAS PONTAS -->
-                    <circle cx="5" cy="22" r="3.5" fill="#fff" stroke="#db7093" stroke-width="1" />
-                    <circle cx="35" cy="38" r="2.5" fill="#fff" stroke="#db7093" stroke-width="1" />
-                    <circle cx="60" cy="10" r="4.5" fill="#ffffff" stroke="#ffd700" stroke-width="1.2" />
-                    <circle cx="85" cy="38" r="2.5" fill="#fff" stroke="#db7093" stroke-width="1" />
-                    <circle cx="115" cy="22" r="3.5" fill="#fff" stroke="#db7093" stroke-width="1" />
-                    
-                    <!-- PEQUENO DIAMANTE NO CENTRO DA BASE -->
-                    <polygon points="60,46 64,52 60,58 56,52" fill="#ffffff" opacity="0.9" />
-                </svg>
-
-                <h1 class="titulo-assinatura">Músicas</h1>
-            </div>
-
-            <div class="divisor-banner">
-                <div class="linha-lado"></div>
-                <span class="estrela-central">
-                    <svg class="svg-icon" viewBox="0 0 24 24" width="12" height="12" fill="#e0e0e0"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
-                </span>
-                <div class="linha-lado"></div>
-            </div>
-
-        </div>
-
-
-        <!-- RAP / HIP HOP -->
-        <section id="rap" class="secao-musica">
-
-            <h2 id="titulo-rap">Rap / Hip Hop</h2>
-
-            <div class="videos">
-
-                <div class="card-video" data-nome="futil chris mc l7nnon">
+        <!-- SEÇÃO RAP -->
+        <section id="rap" class="secao-genero">
+            <h2 id="titulo-rap" class="titulo-secao">Rap</h2>
+            <div class="grid-videos">
+                
+                <div class="card-video" data-nome="rap 1">
                     <div class="wrapper-video">
-                        <div id="player-7c3SWrQIE0A" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, '7c3SWrQIE0A')">
-                            <img
-                                src="https://img.youtube.com/vi/7c3SWrQIE0A/hqdefault.jpg"
-                                alt="Fútil"
-                            >
+                        <div id="player-rap1" class="yt-player-container"></div>
+                        <div class="overlay-play" onclick="iniciarVideo(this, 'rap1')">
+                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Rap 1">
                             <button class="botao-play-custom"></button>
                         </div>
                     </div>
-
-                    <p class="titulo-video">Fútil - Chris MC ft. L7NNON</p>
-                </div>
-
-
-                <div class="card-video" data-nome="sofa breja netflix">
-                    <div class="wrapper-video">
-                        <div id="player-ncLaAaENRWY" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'ncLaAaENRWY')">
-                            <img
-                                src="https://img.youtube.com/vi/ncLaAaENRWY/hqdefault.jpg"
-                                alt="Sofá Breja e Netflix"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Sofá, Breja e Netflix</p>
-                </div>
-
-
-                <div class="card-video" data-nome="poesia acustica 6">
-                    <div class="wrapper-video">
-                        <div id="player-jK2k1P56Cno" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'jK2k1P56Cno')">
-                            <img
-                                src="https://img.youtube.com/vi/jK2k1P56Cno/hqdefault.jpg"
-                                alt="Poesia Acústica 6"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Poesia Acústica #6</p>
-                </div>
-
-
-                <div class="card-video" data-nome="te encontrar na lapa">
-                    <div class="wrapper-video">
-                        <div id="player-439kVuNoNrA" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, '439kVuNoNrA')">
-                            <img
-                                src="https://img.youtube.com/vi/439kVuNoNrA/hqdefault.jpg"
-                                alt="Te Encontrar na Lapa"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Te Encontrar na Lapa</p>
-                </div>
-
-
-                <div class="card-video" data-nome="pensando em mim">
-                    <div class="wrapper-video">
-                        <div id="player-uK6UB4yVXMU" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'uK6UB4yVXMU')">
-                            <img
-                                src="https://img.youtube.com/vi/uK6UB4yVXMU/hqdefault.jpg"
-                                alt="Pensando em Mim"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Pensando em Mim</p>
-                </div>
-
-
-                <div class="card-video" data-nome="beatriz">
-                    <div class="wrapper-video">
-                        <div id="player-qcbrCmIt7ww" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'qcbrCmIt7ww')">
-                            <img
-                                src="https://img.youtube.com/vi/qcbrCmIt7ww/hqdefault.jpg"
-                                alt="Beatriz"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Beatriz</p>
+                    <p class="titulo-video">Música de Rap 1</p>
                 </div>
 
             </div>
         </section>
 
-
-        <!-- SERTANEJO -->
-        <section id="sertanejo" class="secao-musica">
-
-            <h2 id="titulo-sertanejo">Sertanejo</h2>
-
-            <div class="videos">
-
-                <div class="card-video" data-nome="ao vivo e a cores">
+        <!-- SEÇÃO SERTANEJO -->
+        <section id="sertanejo" class="secao-genero">
+            <h2 id="titulo-sertanejo" class="titulo-secao">Sertanejo</h2>
+            <div class="grid-videos">
+                
+                <div class="card-video" data-nome="sertanejo 1">
                     <div class="wrapper-video">
-                        <div id="player-iyI9RMkEzbQ" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'iyI9RMkEzbQ')">
-                            <img
-                                src="https://img.youtube.com/vi/iyI9RMkEzbQ/hqdefault.jpg"
-                                alt="Ao Vivo E A Cores"
-                            >
+                        <div id="player-sert1" class="yt-player-container"></div>
+                        <div class="overlay-play" onclick="iniciarVideo(this, 'sert1')">
+                            <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Sertanejo 1">
                             <button class="botao-play-custom"></button>
                         </div>
                     </div>
-
-                    <p class="titulo-video">
-                        Ao Vivo E A Cores - Matheus & Kauan ft. Anitta
-                    </p>
-                </div>
-
-
-                <div class="card-video" data-nome="suite 14">
-                    <div class="wrapper-video">
-                        <div id="player-gmvFLIuVAbA" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'gmvFLIuVAbA')">
-                            <img
-                                src="https://img.youtube.com/vi/gmvFLIuVAbA/hqdefault.jpg"
-                                alt="Suíte 14"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">
-                        Suíte 14 - Henrique & Diego ft. MC Guimê
-                    </p>
-                </div>
-
-
-                <div class="card-video" data-nome="coladinho em mim">
-                    <div class="wrapper-video">
-                        <div id="player-e5Ct8ZW_rcs" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'e5Ct8ZW_rcs')">
-                            <img
-                                src="https://img.youtube.com/vi/e5Ct8ZW_rcs/hqdefault.jpg"
-                                alt="Coladinho em Mim"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">
-                        Coladinho Em Mim - Gustavo Mioto ft. Anitta
-                    </p>
-                </div>
-
-
-                <div class="card-video" data-nome="vinganca">
-                    <div class="wrapper-video">
-                        <div id="player-ex-cr18tKDE" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'ex-cr18tKDE')">
-                            <img
-                                src="https://img.youtube.com/vi/ex-cr18tKDE/hqdefault.jpg"
-                                alt="Vingança"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Vingança - Luan Santana</p>
-                </div>
-
-
-                <div class="card-video" data-nome="intencao">
-                    <div class="wrapper-video">
-                        <div id="player-1qKz_QohN7g" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, '1qKz_QohN7g')">
-                            <img
-                                src="https://img.youtube.com/vi/1qKz_QohN7g/hqdefault.jpg"
-                                alt="Intenção"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Intenção - Marília Mendonça</p>
-                </div>
-
-
-                <div class="card-video" data-nome="seu astral">
-                    <div class="wrapper-video">
-                        <div id="player-SETK2maosQY" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'SETK2maosQY')">
-                            <img
-                                src="https://img.youtube.com/vi/SETK2maosQY/hqdefault.jpg"
-                                alt="Seu Astral"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Seu Astral - Jorge & Mateus</p>
+                    <p class="titulo-video">Música de Sertanejo 1</p>
                 </div>
 
             </div>
         </section>
 
-
-        <!-- FUNK -->
-        <section id="funk" class="secao-musica">
-
-            <h2 id="titulo-funk">Funk</h2>
-
-            <div class="videos">
-
-                <div class="card-video" data-nome="vai embrazando">
-                    <div class="wrapper-video">
-                        <div id="player-Nk7S7D0CQOY" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'Nk7S7D0CQOY')">
-                            <img
-                                src="https://img.youtube.com/vi/Nk7S7D0CQOY/hqdefault.jpg"
-                                alt="Vai Embrazando"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Vai Embrazando - MC Zaac</p>
-                </div>
-
-
-                <div class="card-video" data-nome="hit contagiante">
-                    <div class="wrapper-video">
-                        <div id="player-WaOicuaHdzo" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'WaOicuaHdzo')">
-                            <img
-                                src="https://img.youtube.com/vi/WaOicuaHdzo/hqdefault.jpg"
-                                alt="Hit Contagiante"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Hit Contagiante - Felipe Original</p>
-                </div>
-
-
-                <div class="card-video" data-nome="fuleragem">
-                    <div class="wrapper-video">
-                        <div id="player-sdcoyDUfbG0" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'sdcoyDUfbG0')">
-                            <img
-                                src="https://img.youtube.com/vi/sdcoyDUfbG0/hqdefault.jpg"
-                                alt="Fuleragem"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Fuleragem - MC WM</p>
-                </div>
-
-
-                <div class="card-video" data-nome="pandora">
-                    <div class="wrapper-video">
-                        <div id="player-6MNxuMgg58k" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, '6MNxuMgg58k')">
-                            <img
-                                src="https://img.youtube.com/vi/6MNxuMgg58k/hqdefault.jpg"
-                                alt="Pandora"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Pandora</p>
-                </div>
-
+        <!-- SEÇÃO FUNK -->
+        <section id="funk" class="secao-genero">
+            <h2 id="titulo-funk" class="titulo-secao">Funk</h2>
+            <div class="grid-videos">
 
                 <div class="card-video" data-nome="trilogia 150">
                     <div class="wrapper-video">
                         <div id="player-UTYNURBuv7o" class="yt-player-container"></div>
-
                         <div class="overlay-play" onclick="iniciarVideo(this, 'UTYNURBuv7o')">
-                            <img
-                                src="https://img.youtube.com/vi/UTYNURBuv7o/hqdefault.jpg"
-                                alt="Trilogia 150"
-                            >
+                            <img src="https://img.youtube.com/vi/UTYNURBuv7o/hqdefault.jpg" alt="Trilogia 150">
                             <button class="botao-play-custom"></button>
                         </div>
                     </div>
-
-                    <p class="titulo-video">Trilogia 150</p>
-                </div>
-
-
-                <div class="card-video" data-nome="ate o ceu">
-                    <div class="wrapper-video">
-                        <div id="player-49ez6OpzU6c" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, '49ez6OpzU6c')">
-                            <img
-                                src="https://img.youtube.com/vi/49ez6OpzU6c/hqdefault.jpg"
-                                alt="Até o Céu"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">
-                        Até o Céu - Anitta feat. MC Cabelinho
-                    </p>
-                </div>
-
-
-                <div class="card-video" data-nome="eterna sacanagem">
-                    <div class="wrapper-video">
-                        <div id="player-2ndgHnrJkhA" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, '2ndgHnrJkhA')">
-                            <img
-                                src="https://img.youtube.com/vi/2ndgHnrJkhA/hqdefault.jpg"
-                                alt="Eterna Sacanagem"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">Eterna Sacanagem</p>
-                </div>
-
-
-                <div class="card-video" data-nome="tudo aconteceu">
-                    <div class="wrapper-video">
-                        <div id="player-wU1U7Jgq_uo" class="yt-player-container"></div>
-
-                        <div class="overlay-play" onclick="iniciarVideo(this, 'wU1U7Jgq_uo')">
-                            <img
-                                src="https://img.youtube.com/vi/wU1U7Jgq_uo/hqdefault.jpg"
-                                alt="Tudo Aconteceu"
-                            >
-                            <button class="botao-play-custom"></button>
-                        </div>
-                    </div>
-
-                    <p class="titulo-video">
-                        Tudo Aconteceu - MC Du Black, Delacruz
-                    </p>
+                    <p class="titulo-video">Trilogia 150 BPM</p>
                 </div>
 
             </div>
         </section>
 
+        <!-- SOBRE -->
+        <section id="sobre" class="secao-sobre">
+            <h2>Sobre o Lily Music</h2>
+            <p>O Lily Music é um espaço dedicado à seleção e reprodução das melhores faixas de Rap, Sertanejo e Funk.</p>
+        </section>
+
     </main>
 
-
-    <!-- SOBRE -->
-    <footer id="sobre">
-
-        <div class="conteudo-rodape">
-
-            <h3>Músicas</h3>
-
-            <p>
-                Encontre seus estilos favoritos e aproveite o som!
-            </p>
-
-            <div class="linha-decorativa"></div>
-
-            <p class="criadora">
-                Site feito por Manuela Miranda
-            </p>
-
-            <p class="direitos">
-                © 2026 - Todos os direitos reservados
-            </p>
-
-        </div>
-
+    <footer class="rodape">
+        <p>&copy; 2026 Lily Music. Todos os direitos reservados.</p>
     </footer>
 
-
-    <script src="https://www.youtube.com/iframe_api"></script>
-
+    <!-- INTERAÇÕES E PESQUISA -->
     <script>
-        const players = {};
+        // Carrega a API de vídeos do YouTube
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        function destacarTitulo(idTitulo) {
-            const titulo = document.getElementById(idTitulo);
-            if (!titulo) return;
+        var players = {};
 
-            titulo.classList.remove('efeito-titulo-menu');
-            void titulo.offsetWidth;
-            titulo.classList.add('efeito-titulo-menu');
+        function iniciarVideo(overlayElement, videoId) {
+            overlayElement.style.display = 'none';
 
-            setTimeout(() => {
-                titulo.classList.remove('efeito-titulo-menu');
-            }, 3000);
-        }
-
-        function pausarOutrosVideos(idAtual) {
-            Object.keys(players).forEach(id => {
-                if (
-                    id !== idAtual &&
-                    players[id] &&
-                    typeof players[id].pauseVideo === 'function'
-                ) {
-                    players[id].pauseVideo();
+            players[videoId] = new YT.Player('player-' + videoId, {
+                height: '100%',
+                width: '100%',
+                videoId: videoId,
+                playerVars: {
+                    'autoplay': 1,
+                    'rel': 0
                 }
             });
         }
 
-        function restaurarCapa(videoId) {
-            const playerDiv = document.getElementById('player-' + videoId);
-            if (!playerDiv) return;
-
-            const wrapper = playerDiv.closest('.wrapper-video');
-            if (!wrapper) return;
-
-            const overlay = wrapper.querySelector('.overlay-play');
-            if (overlay) {
-                overlay.style.display = 'flex';
-            }
-
-            if (
-                players[videoId] &&
-                typeof players[videoId].seekTo === 'function'
-            ) {
-                players[videoId].seekTo(0);
-                players[videoId].stopVideo();
-            }
-        }
-
-        function tocarProximoVideo(videoIdAtual) {
-            const playerDivAtual = document.getElementById('player-' + videoIdAtual);
-            if (!playerDivAtual) return;
-
-            const cardAtual = playerDivAtual.closest('.card-video');
-            if (!cardAtual) return;
-
-            const proximoCard = cardAtual.nextElementSibling;
-            if (proximoCard && proximoCard.classList.contains('card-video')) {
-                const overlayProximo = proximoCard.querySelector('.overlay-play');
-                if (overlayProximo) {
-                    const imgOverlay = overlayProximo.querySelector('img');
-                    if (imgOverlay) {
-                        const urlImg = imgOverlay.src;
-                        const match = urlImg.match(/\/vi\/([^\/]+)\//);
-
-                        if (match && match[1]) {
-                            const proximoVideoId = match[1];
-
-                            proximoCard.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'nearest',
-                                inline: 'center'
-                            });
-
-                            iniciarVideo(overlayProximo, proximoVideoId);
-                        }
-                    }
-                }
-            }
-        }
-
-        function iniciarVideo(elementoOverlay, videoId) {
-            elementoOverlay.style.display = 'none';
-            pausarOutrosVideos(videoId);
-
-            if (players[videoId]) {
-                players[videoId].playVideo();
-            } else {
-                players[videoId] = new YT.Player('player-' + videoId, {
-                    videoId: videoId,
-                    playerVars: {
-                        'autoplay': 1,
-                        'rel': 0
-                    },
-                    events: {
-                        'onReady': function(event) {
-                            event.target.playVideo();
-                        },
-                        'onStateChange': function(event) {
-                            if (event.data === YT.PlayerState.PLAYING) {
-                                pausarOutrosVideos(videoId);
-                            }
-                            if (event.data === YT.PlayerState.ENDED) {
-                                restaurarCapa(videoId);
-                                tocarProximoVideo(videoId);
-                            }
-                        }
-                    }
-                });
-            }
-        }
-
-        function gerarEstrelasPrata() {
-            const container = document.getElementById('container-estrelas');
-            if (!container) return;
-
-            const totalEstrelas = 50;
-
-            for (let i = 0; i < totalEstrelas; i++) {
-                const estrela = document.createElement('div');
-                estrela.classList.add('estrela-prata');
-
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const tamanho = Math.random() * 4 + 2;
-                const duracaoPiscar = Math.random() * 1.2 + 0.5;
-                const duracaoMovimento = Math.random() * 4 + 3;
-                const atraso = Math.random() * 3;
-
-                estrela.style.left = posX + '%';
-                estrela.style.top = posY + '%';
-                estrela.style.width = tamanho + 'px';
-                estrela.style.height = tamanho + 'px';
-                estrela.style.animationDuration = `${duracaoPiscar}s, ${duracaoMovimento}s`;
-                estrela.style.animationDelay = `${atraso}s`;
-
-                container.appendChild(estrela);
-            }
-        }
-
+        // BUSCA QUE MANTÉM TODAS AS MÚSICAS E ROLA ATÉ A PESQUISADA
         function buscarMusica() {
-            const termo = document.getElementById('campo-busca').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.card-video');
+            var termo = document.getElementById('campo-busca').value.toLowerCase().trim();
+            
+            if (termo === '') return;
 
-            cards.forEach(card => {
-                const nome = card.getAttribute('data-nome') || '';
-                const titulo = card.querySelector('.titulo-video')?.innerText.toLowerCase() || '';
+            var cards = document.querySelectorAll('.card-video');
+            var encontrado = false;
 
-                if (nome.includes(termo) || titulo.includes(termo)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
+            cards.forEach(function(card) {
+                var nome = card.getAttribute('data-nome') || '';
+                var titulo = card.querySelector('.titulo-video').textContent.toLowerCase();
+
+                // Procura a primeira música que corresponde ao termo digitado
+                if (!encontrado && (nome.includes(termo) || titulo.includes(termo))) {
+                    encontrado = true;
+
+                    // Rola a tela suavemente até a música encontrada
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Destaca o card temporariamente com borda e brilho
+                    card.classList.add('card-destacado');
+                    setTimeout(function() {
+                        card.classList.remove('card-destacado');
+                    }, 2500);
                 }
             });
+
+            if (!encontrado) {
+                alert('Música não encontrada!');
+            }
         }
 
         function verificarEnter(event) {
@@ -883,10 +368,15 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            gerarEstrelasPrata();
-        });
+        function destacarTitulo(idTitulo) {
+            var titulo = document.getElementById(idTitulo);
+            if (titulo) {
+                titulo.classList.add('destaque-temporario');
+                setTimeout(function() {
+                    titulo.classList.remove('destaque-temporario');
+                }, 2000);
+            }
+        }
     </script>
 </body>
-
 </html>
