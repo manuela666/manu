@@ -71,17 +71,21 @@ body::before {
     animation:
         piscarBrilho 1s infinite alternate ease-in-out,
         movimentoFlutuante 5s infinite linear;
-    will-change: transform, opacity;
 }
 
 @keyframes piscarBrilho {
     0% {
         opacity: 0.15;
         transform: scale(0.5);
+        box-shadow: 0 0 2px #ffffff;
     }
     100% {
         opacity: 1;
         transform: scale(1.5);
+        box-shadow:
+            0 0 10px #ffffff,
+            0 0 20px #d8e6ff,
+            0 0 30px rgba(255, 255, 255, 0.9);
     }
 }
 
@@ -124,10 +128,12 @@ body::before {
     white-space: nowrap;
 }
 
+/* CENTRALIZAÇÃO DOS LINKS DO MENU */
+
 .nav-central {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-central ul {
@@ -135,6 +141,8 @@ body::before {
     list-style: none;
     gap: 12px;
 }
+
+/* EFEITO BOLA AO PASSAR O MOUSE */
 
 .nav-central a {
     position: relative;
@@ -269,10 +277,32 @@ body::before {
     filter: drop-shadow(0 0 10px #ff69b4);
 }
 
-.esquerda-top { top: 10px; left: 30px; transform: rotate(-15deg); }
-.esquerda-bottom { bottom: 10px; left: 60px; transform: rotate(10deg); font-size: 60px; }
-.direita-top { top: 15px; right: 40px; transform: rotate(20deg); font-size: 65px; }
-.direita-bottom { bottom: 5px; right: 30px; transform: rotate(-10deg); font-size: 90px; }
+.esquerda-top {
+    top: 10px;
+    left: 30px;
+    transform: rotate(-15deg);
+}
+
+.esquerda-bottom {
+    bottom: 10px;
+    left: 60px;
+    transform: rotate(10deg);
+    font-size: 60px;
+}
+
+.direita-top {
+    top: 15px;
+    right: 40px;
+    transform: rotate(20deg);
+    font-size: 65px;
+}
+
+.direita-bottom {
+    bottom: 5px;
+    right: 30px;
+    transform: rotate(-10deg);
+    font-size: 90px;
+}
 
 .titulo-assinatura {
     position: relative;
@@ -307,15 +337,51 @@ body::before {
     animation: flutuarSuave 4s ease-in-out infinite alternate;
 }
 
-.pos-1 { top: 25%; left: 22%; font-size: 20px; animation-delay: 0s; }
-.pos-2 { top: 18%; right: 25%; font-size: 24px; animation-delay: 1s; }
-.pos-3 { bottom: 35%; left: 28%; font-size: 18px; animation-delay: 1.5s; }
-.pos-4 { bottom: 40%; right: 22%; font-size: 22px; animation-delay: 0.5s; }
-.pos-5 { top: 45%; right: 18%; font-size: 16px; animation-delay: 2s; }
+.pos-1 {
+    top: 25%;
+    left: 22%;
+    font-size: 20px;
+    animation-delay: 0s;
+}
+
+.pos-2 {
+    top: 18%;
+    right: 25%;
+    font-size: 24px;
+    animation-delay: 1s;
+}
+
+.pos-3 {
+    bottom: 35%;
+    left: 28%;
+    font-size: 18px;
+    animation-delay: 1.5s;
+}
+
+.pos-4 {
+    bottom: 40%;
+    right: 22%;
+    font-size: 22px;
+    animation-delay: 0.5s;
+}
+
+.pos-5 {
+    top: 45%;
+    right: 18%;
+    font-size: 16px;
+    animation-delay: 2s;
+}
 
 @keyframes flutuarSuave {
-    0% { transform: translateY(0px) rotate(0deg); opacity: 0.4; }
-    100% { transform: translateY(-8px) rotate(12deg); opacity: 0.9; }
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(-8px) rotate(12deg);
+        opacity: 0.9;
+    }
 }
 
 .divisor-banner {
@@ -332,7 +398,12 @@ body::before {
 .linha-lado {
     flex: 1;
     height: 1.5px;
-    background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.7), transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 182, 193, 0.7),
+        transparent
+    );
 }
 
 .estrela-central {
@@ -342,13 +413,11 @@ body::before {
 }
 
 /* =========================================
-   🎵 SEÇÕES E TÍTULOS (AJUSTE SEM JAVASCRIPT)
+   🎵 SEÇÕES E TÍTULOS
 ========================================= */
 
 .secao-musica {
     margin-bottom: 50px;
-    /* Evita que o menu fixo cubra o título ao clicar no link */
-    scroll-margin-top: 90px;
 }
 
 h2 {
@@ -358,20 +427,6 @@ h2 {
     margin-bottom: 20px;
     margin-left: 15px;
     text-shadow: 0 0 10px rgba(255, 180, 200, 0.4);
-    display: inline-block;
-    transition: all 0.4s ease-in-out;
-}
-
-/* ✨ EFETO DE TÍTULO MAIOR E BRILHOSO QUANDO SELECIONADO NO MENU */
-.secao-musica:target h2 {
-    font-size: 58px;
-    color: #ffffff;
-    text-shadow:
-        0 0 10px #ff69b4,
-        0 0 20px #ff69b4,
-        0 0 35px #c94f73,
-        0 0 50px rgba(255, 105, 180, 0.9);
-    transform: translateX(10px) scale(1.05);
 }
 
 /* =========================================
@@ -392,7 +447,10 @@ h2 {
     padding: 3px;
     background: linear-gradient(135deg, #6e1833, #c94f73);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
 }
 
 .titulo-video {
@@ -408,8 +466,17 @@ h2 {
     height: 215px;
     border-radius: 18px;
     overflow: hidden;
-    background: #1a0812;
 }
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    border: none;
+    display: block;
+}
+
+/* Overlay da imagem do vídeo e botão de Play */
 
 .overlay-play {
     position: absolute;
@@ -420,6 +487,13 @@ h2 {
     justify-content: center;
     background: rgba(0, 0, 0, 0.3);
     transition: background 0.3s ease;
+}
+
+.overlay-play img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .overlay-play::after {
@@ -437,7 +511,9 @@ h2 {
     border-radius: 50%;
     background: linear-gradient(135deg, #ff69b4, #8b1538);
     border: 2px solid #ffffff;
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.8), 0 0 30px rgba(139, 21, 56, 0.6);
+    box-shadow:
+        0 0 15px rgba(255, 105, 180, 0.8),
+        0 0 30px rgba(139, 21, 56, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -459,7 +535,9 @@ h2 {
 .overlay-play:hover .botao-play-custom {
     transform: scale(1.15);
     background: linear-gradient(135deg, #ffffff, #ff69b4);
-    box-shadow: 0 0 25px #ff69b4, 0 0 45px rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 0 25px #ff69b4,
+        0 0 45px rgba(255, 255, 255, 0.9);
 }
 
 .overlay-play:hover .botao-play-custom::before {
@@ -469,7 +547,35 @@ h2 {
 .card-video:hover {
     transform: translateY(-8px) scale(1.03);
     background: linear-gradient(135deg, #ff69b4, #ffb6c1);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 105, 180, 0.6);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 105, 180, 0.6);
+}
+
+/* ✨ DESTAQUE DA BUSCA */
+
+.card-video.destaque-busca {
+    transform: scale(1.08);
+    background: linear-gradient(135deg, #ff69b4, #ffffff);
+
+    box-shadow:
+        0 0 35px #ff69b4,
+        0 0 15px #ffffff;
+
+    animation: pulsarGlow 1.5s infinite alternate;
+}
+
+@keyframes pulsarGlow {
+    0% {
+        box-shadow: 0 0 20px #ff69b4;
+    }
+
+    100% {
+        box-shadow:
+            0 0 40px #ff69b4,
+            0 0 15px #ffffff;
+    }
 }
 
 /* =========================================
@@ -490,17 +596,52 @@ h2 {
     animation: flutuarNotas 12s infinite linear;
 }
 
-.nota-musical:nth-child(1) { left: 10%; animation-duration: 8s; }
-.nota-musical:nth-child(2) { left: 30%; animation-duration: 11s; animation-delay: 2s; }
-.nota-musical:nth-child(3) { left: 50%; animation-duration: 9s; animation-delay: 1s; }
-.nota-musical:nth-child(4) { left: 70%; animation-duration: 13s; }
-.nota-musical:nth-child(5) { left: 90%; animation-duration: 10s; animation-delay: 3s; }
+.nota-musical:nth-child(1) {
+    left: 10%;
+    animation-duration: 8s;
+}
+
+.nota-musical:nth-child(2) {
+    left: 30%;
+    animation-duration: 11s;
+    animation-delay: 2s;
+}
+
+.nota-musical:nth-child(3) {
+    left: 50%;
+    animation-duration: 9s;
+    animation-delay: 1s;
+}
+
+.nota-musical:nth-child(4) {
+    left: 70%;
+    animation-duration: 13s;
+}
+
+.nota-musical:nth-child(5) {
+    left: 90%;
+    animation-duration: 10s;
+    animation-delay: 3s;
+}
 
 @keyframes flutuarNotas {
-    0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
-    20% { opacity: 0.8; }
-    80% { opacity: 0.8; }
-    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    0% {
+        transform: translateY(105vh) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /* =========================================
@@ -550,7 +691,12 @@ footer {
 .linha-decorativa {
     width: 100px;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #ff69b4, transparent);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ff69b4,
+        transparent
+    );
     margin: 15px auto;
 }
 
@@ -564,6 +710,7 @@ footer {
 ========================================= */
 
 @media (max-width: 850px) {
+
     .menu-superior {
         flex-direction: column;
         gap: 15px;
@@ -571,7 +718,8 @@ footer {
     }
 
     .nav-central {
-        width: 100%;
+        position: static;
+        transform: none;
     }
 
     .nav-central ul {
@@ -596,12 +744,8 @@ footer {
         font-size: 35px;
     }
 
-    .secao-musica:target h2 {
-        font-size: 42px;
-    }
-
     .wrapper-video {
         width: 280px;
         height: 170px;
     }
-}
+} 
