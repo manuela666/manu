@@ -333,12 +333,22 @@
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
-        // Armazena as instâncias dos players do YouTube
         const players = {};
 
-        // Inicia o vídeo diretamente com áudio ao clicar na capa rosa
+        // Pausa todos os outros vídeos que estiverem tocando
+        function pausarOutrosVideos(idAtual) {
+            Object.keys(players).forEach(id => {
+                if (id !== idAtual && players[id] && typeof players[id].pauseVideo === 'function') {
+                    players[id].pauseVideo();
+                }
+            });
+        }
+
+        // Inicia o vídeo selecionado e pausa os anteriores
         function iniciarVideo(elementoOverlay, videoId) {
             elementoOverlay.style.display = 'none';
+
+            pausarOutrosVideos(videoId);
 
             if (players[videoId]) {
                 players[videoId].playVideo();
@@ -352,6 +362,12 @@
                     events: {
                         'onReady': function(event) {
                             event.target.playVideo();
+                        },
+                        'onStateChange': function(event) {
+                            // Se o usuário clicar manualmente no play do leitor nativo do YT, também pausa os outros
+                            if (event.data === YT.PlayerState.PLAYING) {
+                                pausarOutrosVideos(videoId);
+                            }
                         }
                     }
                 });
@@ -460,4 +476,4 @@
     </script>
 
 </body>
-</html>
+</html>f
