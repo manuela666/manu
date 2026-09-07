@@ -29,9 +29,9 @@
         <nav class="nav-central">
             <ul>
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#rap">Rap / Hip Hop</a></li>
-                <li><a href="#sertanejo">Sertanejo</a></li>
-                <li><a href="#funk">Funk</a></li>
+                <li><a href="#rap" onclick="destacarSecao('rap')">Rap / Hip Hop</a></li>
+                <li><a href="#sertanejo" onclick="destacarSecao('sertanejo')">Sertanejo</a></li>
+                <li><a href="#funk" onclick="destacarSecao('funk')">Funk</a></li>
                 <li><a href="#sobre">Sobre</a></li>
             </ul>
         </nav>
@@ -335,7 +335,26 @@
     <script>
         const players = {};
 
-        // Pausa todos os outros vídeos que estiverem tocando
+        // Ativa a animação de piscar brilhante e zoom na seção clicada
+        function destacarSecao(idSecao) {
+            const secao = document.getElementById(idSecao);
+            if (!secao) return;
+
+            // Remove a classe de animações anteriores
+            secao.classList.remove('efeito-brilho-secao');
+            
+            // Força o navegador a reiniciar a animação
+            void secao.offsetWidth;
+
+            // Adiciona a classe que faz piscar e aumentar
+            secao.classList.add('efeito-brilho-secao');
+
+            // Remove a animação depois que ela termina (3 segundos)
+            setTimeout(() => {
+                secao.classList.remove('efeito-brilho-secao');
+            }, 3000);
+        }
+
         function pausarOutrosVideos(idAtual) {
             Object.keys(players).forEach(id => {
                 if (id !== idAtual && players[id] && typeof players[id].pauseVideo === 'function') {
@@ -344,7 +363,6 @@
             });
         }
 
-        // Restaura a capa e o botão de play bonitinho
         function restaurarCapa(videoId) {
             const playerDiv = document.getElementById('player-' + videoId);
             if (!playerDiv) return;
@@ -363,7 +381,6 @@
             }
         }
 
-        // Encontra e toca automaticamente o próximo vídeo na lista
         function tocarProximoVideo(videoIdAtual) {
             const playerDivAtual = document.getElementById('player-' + videoIdAtual);
             if (!playerDivAtual) return;
@@ -384,14 +401,12 @@
                         if (match && match[1]) {
                             const proximoVideoId = match[1];
 
-                            // Rola a página suavemente até o próximo vídeo
                             proximoCard.scrollIntoView({
                                 behavior: 'smooth',
                                 block: 'nearest',
                                 inline: 'center'
                             });
 
-                            // Executa a inicialização do próximo vídeo
                             iniciarVideo(overlayProximo, proximoVideoId);
                         }
                     }
@@ -399,7 +414,6 @@
             }
         }
 
-        // Inicia o vídeo selecionado e gerencia o evento de término
         function iniciarVideo(elementoOverlay, videoId) {
             elementoOverlay.style.display = 'none';
 
@@ -423,12 +437,8 @@
                                 pausarOutrosVideos(videoId);
                             }
                             
-                            // Quando a música acabar (ENDED = 0)
                             if (event.data === YT.PlayerState.ENDED) {
-                                // 1. Restaura a capa da música que acabou
                                 restaurarCapa(videoId);
-                                
-                                // 2. Toca a próxima música automaticamente
                                 tocarProximoVideo(videoId);
                             }
                         }
@@ -437,7 +447,6 @@
             }
         }
 
-        // Função para gerar as 50 estrelinhas prateadas
         function gerarEstrelasPrata() {
             const container = document.getElementById('container-estrelas');
             const totalEstrelas = 50;

@@ -12,6 +12,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 110px; /* Impede que o menu fixo cubra os títulos das seções */
 }
 
 /* =========================================
@@ -413,11 +414,34 @@ body::before {
 }
 
 /* =========================================
-   🎵 SEÇÕES E TÍTULOS
+   🎵 SEÇÕES, TÍTULOS E EFEITO DE BRILHO
 ========================================= */
 
 .secao-musica {
     margin-bottom: 50px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+/* Animação acionada ao clicar no menu */
+.efeito-brilho-secao {
+    animation: piscarBrilhanteZoom 0.8s ease-in-out 3;
+}
+
+@keyframes piscarBrilhanteZoom {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0px transparent;
+    }
+    50% {
+        transform: scale(1.03); /* Fica um pouco maior */
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 105, 180, 0.7); /* Brilho Dourado e Rosa */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0px transparent;
+    }
 }
 
 h2 {
@@ -711,6 +735,10 @@ footer {
 
 @media (max-width: 850px) {
 
+    html {
+        scroll-padding-top: 180px; /* Ajuste para o menu em celulares */
+    }
+
     .menu-superior {
         flex-direction: column;
         gap: 15px;
@@ -748,4 +776,4 @@ footer {
         width: 280px;
         height: 170px;
     }
-} 
+}
