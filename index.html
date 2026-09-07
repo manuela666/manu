@@ -15,112 +15,45 @@
             fill: currentColor;
         }
 
-        /* =========================================================
-           BANNER PRINCIPAL (FUNDO ORIGINAL MANTIDO)
-           ========================================================= */
-
+        /* BANNER */
         .banner-destaque {
             position: relative;
             overflow: hidden;
-            padding: 70px 20px 60px 20px;
+            perspective: 1000px;
+            padding: 60px 20px 50px 20px;
             text-align: center;
-            background: linear-gradient(135deg, #2b0213 0%, #580026 50%, #1a000b 100%);
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
         }
 
-        /* 1. DISCOS DE VINIL REALISTAS E ELEGANTES NAS LATERAIS */
-        .disco-gigante {
-            position: absolute;
-            top: 50%;
-            width: 380px;
-            height: 380px;
-            border-radius: 50%;
-            /* Camadas de cor preta profunda com reflexo de luz e sulcos em repetição */
-            background: 
-                radial-gradient(
-                    circle at 50% 50%,
-                    transparent 0%,
-                    transparent 24%,
-                    #121212 25%,
-                    #050505 100%
-                ),
-                repeating-radial-gradient(
-                    circle at 50% 50%,
-                    #000000 0px,
-                    #000000 2px,
-                    #1c1c1c 3px,
-                    #0a0a0a 4px,
-                    #000000 5px
-                );
-            /* Sombra, brilhos de reflexo no vinil e sulcos marcados */
-            box-shadow: 
-                0 0 35px rgba(0, 0, 0, 0.9),
-                inset 0 0 0 2px rgba(255, 255, 255, 0.12),
-                inset 0 0 0 8px rgba(0, 0, 0, 0.8),
-                inset 0 0 0 9px rgba(255, 255, 255, 0.05),
-                inset 0 0 0 22px rgba(0, 0, 0, 0.85),
-                inset 0 0 0 23px rgba(255, 255, 255, 0.04),
-                inset 0 0 0 45px rgba(0, 0, 0, 0.9),
-                inset 0 0 0 46px rgba(255, 255, 255, 0.04),
-                inset 0 0 0 75px rgba(0, 0, 0, 0.85),
-                inset 0 0 0 76px rgba(255, 255, 255, 0.03);
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        /* Disco Esquerdo Cortado na Borda */
-        .disco-gigante.esquerdo {
-            left: 0;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Disco Direito Cortado na Borda */
-        .disco-gigante.direito {
-            right: 0;
-            transform: translate(50%, -50%);
-        }
-
-        /* Centro do Vinil em Rosa/Vinho com Borda e Brilho */
-        .centro-vinil-rosa {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 105px;
-            height: 105px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #db7093 0%, #a0154e 60%, #4a0028 100%);
-            border: 2px solid #ffb6c1;
-            box-shadow: 0 0 12px rgba(219, 112, 147, 0.6), inset 0 0 8px rgba(0, 0, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Furo Central do Disco */
-        .furo-vinil {
-            width: 20px;
-            height: 20px;
-            background-color: #0b0b0b;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.25);
-            box-shadow: inset 0 0 4px #000;
-        }
-
-        /* 2. LINHAS DE PAUTA MUSICAL CURVAS */
-        .pauta-fundo-banner {
+        /* PAUTAS MUSICAIS CONTINUAS (5 LINHAS REAIS EM PERSPECTIVA) */
+        .ondas-perspectiva-fundo {
             position: absolute;
             top: 0;
-            left: 0;
-            width: 100%;
+            left: -5%;
+            width: 110%;
             height: 100%;
             z-index: 1;
+            transform: rotateX(20deg) rotateZ(-1deg) scale(1.05);
+            transform-origin: bottom center;
             pointer-events: none;
-            opacity: 0.65;
+            opacity: 0.85;
         }
 
-        /* 3. NOTAS E BRILHOS ESPALHADOS */
-        .camada-elementos-banner {
+        .pauta-linha-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        /* DISCOS */
+        .disco {
+            position: absolute;
+            z-index: 2;
+        }
+
+        /* NOTAS ROSA / VINHO TRANSPARENTES EM VETOR ESPALHADAS */
+        .notas-rosa-espalhadas {
             position: absolute;
             top: 0;
             left: 0;
@@ -130,33 +63,27 @@
             pointer-events: none;
         }
 
-        .nota-banner {
+        .nota-vetor {
             position: absolute;
-            fill: #ffb6c1;
-            opacity: 0.45;
-            filter: drop-shadow(0 0 5px rgba(255, 182, 193, 0.6));
-            animation: flutuarSuave 4s ease-in-out infinite alternate;
+            fill: #8b004f;
+            opacity: 0.32;
+            filter: drop-shadow(0 0 6px rgba(219, 112, 147, 0.4));
+            animation: flutuarNotas 4s ease-in-out infinite alternate;
         }
 
-        .brilho-estrela-banner {
-            position: absolute;
-            fill: #ffffff;
-            opacity: 0.85;
-            filter: drop-shadow(0 0 6px #ffb6c1);
-            animation: piscarGlow 2.5s ease-in-out infinite alternate;
+        @keyframes flutuarNotas {
+            from { transform: translateY(0px) rotate(0deg); }
+            to { transform: translateY(-8px) rotate(8deg); }
         }
 
-        @keyframes flutuarSuave {
-            0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-7px) rotate(6deg); }
-        }
+        .pos-n1 { top: 18%; left: 14%; width: 22px; animation-delay: 0s; }
+        .pos-n2 { top: 62%; left: 20%; width: 28px; opacity: 0.22; animation-delay: 1s; }
+        .pos-n3 { top: 25%; right: 16%; width: 26px; animation-delay: 0.5s; }
+        .pos-n4 { top: 68%; right: 22%; width: 24px; opacity: 0.28; animation-delay: 1.5s; }
+        .pos-n5 { top: 12%; left: 48%; width: 18px; animation-delay: 0.8s; }
+        .pos-n6 { top: 72%; left: 52%; width: 20px; animation-delay: 1.2s; }
 
-        @keyframes piscarGlow {
-            0% { opacity: 0.3; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1.15); }
-        }
-
-        /* 4. CONTAINER DA COROA E TÍTULO CENTRALIZADO */
+        /* CONTAINER DA COROA E TÍTULO */
         .container-titulo-coroa {
             position: relative;
             z-index: 5;
@@ -165,25 +92,39 @@
             align-items: center;
         }
 
-        /* COROA ELEGANTE, ROSA/VINHO E PONTUDA */
+        /* NOVA COROA ELEGANTE, PONTUDA, ROSA/VINHO E BRILHANTE */
         .coroa-caligrafica-svg {
-            width: 80px;
-            height: 52px;
-            margin-bottom: -18px;
-            filter: drop-shadow(0 0 10px rgba(219, 112, 147, 0.9)) drop-shadow(0 0 18px rgba(139, 0, 79, 0.7));
-            animation: brilhoCoroa 3s ease-in-out infinite alternate;
+            width: 85px;
+            height: 55px;
+            margin-bottom: -18px; /* Bem próxima do título "Músicas" */
+            filter: drop-shadow(0 0 10px rgba(219, 112, 147, 0.85)) drop-shadow(0 0 18px rgba(139, 0, 79, 0.6));
+            animation: brilharEFlutuarCoroa 3s ease-in-out infinite alternate;
         }
 
-        @keyframes brilhoCoroa {
+        @keyframes brilharEFlutuarCoroa {
             0% {
                 transform: translateY(0) scale(1);
-                filter: drop-shadow(0 0 8px rgba(219, 112, 147, 0.8));
+                filter: drop-shadow(0 0 8px rgba(219, 112, 147, 0.75)) drop-shadow(0 0 12px rgba(139, 0, 79, 0.5));
             }
             100% {
-                transform: translateY(-3px) scale(1.02);
-                filter: drop-shadow(0 0 16px rgba(255, 182, 193, 1)) drop-shadow(0 0 24px rgba(219, 112, 147, 0.9));
+                transform: translateY(-4px) scale(1.03);
+                filter: drop-shadow(0 0 14px rgba(255, 182, 193, 0.95)) drop-shadow(0 0 22px rgba(219, 112, 147, 0.8));
             }
         }
+
+        /* BRILHOS EM SVG */
+        .brilho-svg {
+            position: absolute;
+            fill: #ffb6c1;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 6px #ffb6c1);
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .pos-b1 { top: 20%; left: 32%; width: 14px; }
+        .pos-b2 { top: 15%; right: 30%; width: 18px; }
+        .pos-b3 { top: 75%; left: 38%; width: 12px; }
     </style>
 </head>
 
@@ -245,6 +186,7 @@
                 onkeypress="verificarEnter(event)"
             >
             <button onclick="buscarMusica()">
+                <!-- ÍCONE DE LUPA VETORIAL -->
                 <svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="#fff">
                     <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                 </svg>
@@ -256,63 +198,66 @@
 
     <main id="inicio" class="conteudo-principal">
 
-        <!-- BANNER PRINCIPAL COM DISCOS DE VINIL REALISTAS -->
+        <!-- BANNER REVISADO -->
         <div class="banner-destaque">
 
-            <!-- DISCO GIGANTE ESQUERDO -->
-            <div class="disco-gigante esquerdo">
-                <div class="centro-vinil-rosa">
-                    <div class="furo-vinil"></div>
-                </div>
-            </div>
+            <!-- PAUTAS MUSICAIS COMPLETAS (5 LINHAS CONTINUAS SUAVES EM PERSPECTIVA) -->
+            <div class="ondas-perspectiva-fundo">
+                <svg viewBox="0 0 1200 350" preserveAspectRatio="none" class="pauta-linha-svg">
+                    <!-- PRIMEIRA PAUTA (5 LINHAS) -->
+                    <path d="M 0,80 Q 300,30 600,90 T 1200,60" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
+                    <path d="M 0,95 Q 300,45 600,105 T 1200,75" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
+                    <path d="M 0,110 Q 300,60 600,120 T 1200,90" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
+                    <path d="M 0,125 Q 300,75 600,135 T 1200,105" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
+                    <path d="M 0,140 Q 300,90 600,150 T 1200,120" fill="none" stroke="rgba(255, 182, 193, 0.22)" stroke-width="1.8" />
 
-            <!-- DISCO GIGANTE DIREITO -->
-            <div class="disco-gigante direito">
-                <div class="centro-vinil-rosa">
-                    <div class="furo-vinil"></div>
-                </div>
-            </div>
-
-            <!-- LINHAS DE PAUTA MUSICAL CURVAS -->
-            <div class="pauta-fundo-banner">
-                <svg viewBox="0 0 1200 300" preserveAspectRatio="none" style="width: 100%; height: 100%;">
-                    <path d="M -50,60 Q 300,10 600,70 T 1250,40" fill="none" stroke="rgba(255, 182, 193, 0.25)" stroke-width="1.8" />
-                    <path d="M -50,75 Q 300,25 600,85 T 1250,55" fill="none" stroke="rgba(255, 182, 193, 0.25)" stroke-width="1.8" />
-                    <path d="M -50,90 Q 300,40 600,100 T 1250,70" fill="none" stroke="rgba(255, 182, 193, 0.25)" stroke-width="1.8" />
-                    <path d="M -50,105 Q 300,55 600,115 T 1250,85" fill="none" stroke="rgba(255, 182, 193, 0.25)" stroke-width="1.8" />
-                    <path d="M -50,120 Q 300,70 600,130 T 1250,100" fill="none" stroke="rgba(255, 182, 193, 0.25)" stroke-width="1.8" />
-
-                    <path d="M -50,180 Q 350,230 700,160 T 1250,200" fill="none" stroke="rgba(219, 112, 147, 0.2)" stroke-width="1.5" />
-                    <path d="M -50,195 Q 350,245 700,175 T 1250,215" fill="none" stroke="rgba(219, 112, 147, 0.2)" stroke-width="1.5" />
-                    <path d="M -50,210 Q 350,260 700,190 T 1250,230" fill="none" stroke="rgba(219, 112, 147, 0.2)" stroke-width="1.5" />
-                    <path d="M -50,225 Q 350,275 700,205 T 1250,245" fill="none" stroke="rgba(219, 112, 147, 0.2)" stroke-width="1.5" />
-                    <path d="M -50,240 Q 350,290 700,220 T 1250,260" fill="none" stroke="rgba(219, 112, 147, 0.2)" stroke-width="1.5" />
+                    <!-- SEGUNDA PAUTA SUAVE DE FUNDO (5 LINHAS) -->
+                    <path d="M 0,180 Q 350,240 700,170 T 1200,210" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
+                    <path d="M 0,195 Q 350,255 700,185 T 1200,225" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
+                    <path d="M 0,210 Q 350,270 700,200 T 1200,240" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
+                    <path d="M 0,225 Q 350,285 700,215 T 1200,255" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
+                    <path d="M 0,240 Q 350,300 700,230 T 1200,270" fill="none" stroke="rgba(219, 112, 147, 0.18)" stroke-width="1.5" />
                 </svg>
             </div>
 
-            <!-- NOTAS MUSICAIS E ESTRELAS/BRILHOS DISCRETOS -->
-            <div class="camada-elementos-banner">
-                <svg class="nota-banner" style="top: 18%; left: 28%; width: 22px;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                <svg class="nota-banner" style="top: 65%; left: 32%; width: 26px; animation-delay: 1s;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                <svg class="nota-banner" style="top: 22%; right: 28%; width: 24px; animation-delay: 0.5s;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                <svg class="nota-banner" style="top: 68%; right: 31%; width: 20px; animation-delay: 1.5s;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-
-                <svg class="brilho-estrela-banner" style="top: 15%; left: 38%; width: 14px;" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
-                <svg class="brilho-estrela-banner" style="top: 20%; right: 36%; width: 16px; animation-delay: 0.8s;" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
-                <svg class="brilho-estrela-banner" style="top: 75%; left: 42%; width: 12px; animation-delay: 1.2s;" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
-                <svg class="brilho-estrela-banner" style="top: 70%; right: 41%; width: 14px; animation-delay: 0.4s;" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
+            <!-- DISCOS DECORATIVOS -->
+            <div class="disco disco-esquerdo">
+                <div class="anel-disco"></div>
+                <div class="centro-disco"></div>
             </div>
 
-            <!-- COROA BRILHANTE + TÍTULO CENTRALIZADO -->
+            <div class="disco disco-direito">
+                <div class="anel-disco"></div>
+                <div class="centro-disco"></div>
+            </div>
+
+            <!-- NOTAS MUSICAIS VETORIAIS ROSA/VINHO TRANSPARENTES -->
+            <div class="notas-rosa-espalhadas">
+                <svg class="nota-vetor pos-n1" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <svg class="nota-vetor pos-n2" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <svg class="nota-vetor pos-n3" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <svg class="nota-vetor pos-n4" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <svg class="nota-vetor pos-n5" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <svg class="nota-vetor pos-n6" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            </div>
+
+            <!-- BRILHOS EM VETOR -->
+            <svg class="brilho-svg pos-b1" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
+            <svg class="brilho-svg pos-b2" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
+            <svg class="brilho-svg pos-b3" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
+
+            <!-- COROA PONTUDA ELEGANTE ROSA/VINHO + TÍTULO "MÚSICAS" -->
             <div class="container-titulo-coroa">
                 <svg class="coroa-caligrafica-svg" viewBox="0 0 120 70">
                     <defs>
+                        <!-- DEGRADÊ ROSA A VINHO -->
                         <linearGradient id="gradCoroa" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#ffb6c1" />
                             <stop offset="40%" stop-color="#db7093" />
                             <stop offset="100%" stop-color="#8b004f" />
                         </linearGradient>
                         
+                        <!-- DEGRADÊ DOURADO DE BRILHO PARA DETALHES -->
                         <linearGradient id="gradDourado" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" stop-color="#ffffff" />
                             <stop offset="50%" stop-color="#ffd700" />
@@ -320,37 +265,41 @@
                         </linearGradient>
                     </defs>
 
+                    <!-- CORPO DA COROA PONTUDA E ELEGANTE -->
                     <path d="M 15 52 L 5 22 L 35 38 L 60 10 L 85 38 L 115 22 L 105 52 Z" 
                           fill="url(#gradCoroa)" 
                           stroke="url(#gradDourado)" 
                           stroke-width="1.8" 
                           stroke-linejoin="round" />
 
+                    <!-- CURVAS CALIGRÁFICAS INTERNAS -->
                     <path d="M 22 50 C 35 32 50 48 60 25 C 70 48 85 32 98 50" 
                           fill="none" 
                           stroke="url(#gradDourado)" 
                           stroke-width="1.2" 
                           opacity="0.85" />
 
+                    <!-- BASE DA COROA TRABALHADA -->
                     <path d="M 12 56 C 40 60 80 60 108 56" 
                           fill="none" 
                           stroke="url(#gradDourado)" 
                           stroke-width="2" 
                           stroke-linecap="round" />
 
+                    <!-- GEMAS / BRILHOS NAS PONTAS -->
                     <circle cx="5" cy="22" r="3.5" fill="#fff" stroke="#db7093" stroke-width="1" />
                     <circle cx="35" cy="38" r="2.5" fill="#fff" stroke="#db7093" stroke-width="1" />
                     <circle cx="60" cy="10" r="4.5" fill="#ffffff" stroke="#ffd700" stroke-width="1.2" />
                     <circle cx="85" cy="38" r="2.5" fill="#fff" stroke="#db7093" stroke-width="1" />
                     <circle cx="115" cy="22" r="3.5" fill="#fff" stroke="#db7093" stroke-width="1" />
                     
+                    <!-- PEQUENO DIAMANTE NO CENTRO DA BASE -->
                     <polygon points="60,46 64,52 60,58 56,52" fill="#ffffff" opacity="0.9" />
                 </svg>
 
                 <h1 class="titulo-assinatura">Músicas</h1>
             </div>
 
-            <!-- DIVISOR INFERIOR DO BANNER -->
             <div class="divisor-banner">
                 <div class="linha-lado"></div>
                 <span class="estrela-central">
