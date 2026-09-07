@@ -12,7 +12,6 @@
 
     <div class="particulas">
         <span></span><span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span><span></span>
 
         <div class="nota-musical">🎵</div>
         <div class="nota-musical">🎶</div>
@@ -21,7 +20,7 @@
         <div class="nota-musical">🎶</div>
     </div>
 
-    <!-- Container das 50 estrelas prateadas -->
+    <!-- Container das estrelas prateadas -->
     <div id="container-estrelas"></div>
 
     <header class="menu-superior">
@@ -54,11 +53,18 @@
 
         <div class="banner-destaque">
 
+            <!-- DISCOS DE VINIL -->
+            <div class="disco-vinil disco-esquerdo">
+                <div class="miolo-disco"></div>
+            </div>
+
+            <div class="disco-vinil disco-direito">
+                <div class="miolo-disco"></div>
+            </div>
+
             <div class="fundo-decorativo-banner">
-                <span class="icone-fundo esquerda-top">🎧</span>
                 <span class="icone-fundo esquerda-bottom">🎶</span>
                 <span class="icone-fundo direita-top">🎵</span>
-                <span class="icone-fundo direita-bottom">💿</span>
             </div>
 
             <div class="brilhos-titulo">
@@ -433,9 +439,7 @@
                         </div>
                     </div>
 
-                    <p class="titulo-video">
-                        Eterna Sacanagem - MC Jottapê, MC Kekel e Kevinho
-                    </p>
+                    <p class="titulo-video">Eterna Sacanagem</p>
                 </div>
 
 
@@ -496,7 +500,6 @@
 
         const players = {};
 
-        // Ativa a animação de piscar brilhante e zoom na seção clicada
         function destacarSecao(idSecao) {
 
             const secao = document.getElementById(idSecao);
@@ -511,7 +514,7 @@
 
             setTimeout(() => {
                 secao.classList.remove('efeito-brilho-secao');
-            }, 3000);
+            }, 3500);
         }
 
 
