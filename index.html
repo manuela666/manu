@@ -534,19 +534,14 @@
     <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
-
         const players = {};
 
         function destacarTitulo(idTitulo) {
-
             const titulo = document.getElementById(idTitulo);
-
             if (!titulo) return;
 
             titulo.classList.remove('efeito-titulo-menu');
-
             void titulo.offsetWidth;
-
             titulo.classList.add('efeito-titulo-menu');
 
             setTimeout(() => {
@@ -554,11 +549,8 @@
             }, 3000);
         }
 
-
         function pausarOutrosVideos(idAtual) {
-
             Object.keys(players).forEach(id => {
-
                 if (
                     id !== idAtual &&
                     players[id] &&
@@ -566,26 +558,17 @@
                 ) {
                     players[id].pauseVideo();
                 }
-
             });
         }
 
-
         function restaurarCapa(videoId) {
-
-            const playerDiv =
-                document.getElementById('player-' + videoId);
-
+            const playerDiv = document.getElementById('player-' + videoId);
             if (!playerDiv) return;
 
-            const wrapper =
-                playerDiv.closest('.wrapper-video');
-
+            const wrapper = playerDiv.closest('.wrapper-video');
             if (!wrapper) return;
 
-            const overlay =
-                wrapper.querySelector('.overlay-play');
-
+            const overlay = wrapper.querySelector('.overlay-play');
             if (overlay) {
                 overlay.style.display = 'flex';
             }
@@ -599,47 +582,24 @@
             }
         }
 
-
         function tocarProximoVideo(videoIdAtual) {
-
-            const playerDivAtual =
-                document.getElementById('player-' + videoIdAtual);
-
+            const playerDivAtual = document.getElementById('player-' + videoIdAtual);
             if (!playerDivAtual) return;
 
-            const cardAtual =
-                playerDivAtual.closest('.card-video');
-
+            const cardAtual = playerDivAtual.closest('.card-video');
             if (!cardAtual) return;
 
-            const proximoCard =
-                cardAtual.nextElementSibling;
-
-            if (
-                proximoCard &&
-                proximoCard.classList.contains('card-video')
-            ) {
-
-                const overlayProximo =
-                    proximoCard.querySelector('.overlay-play');
-
+            const proximoCard = cardAtual.nextElementSibling;
+            if (proximoCard && proximoCard.classList.contains('card-video')) {
+                const overlayProximo = proximoCard.querySelector('.overlay-play');
                 if (overlayProximo) {
-
-                    const imgOverlay =
-                        overlayProximo.querySelector('img');
-
+                    const imgOverlay = overlayProximo.querySelector('img');
                     if (imgOverlay) {
-
-                        const urlImg =
-                            imgOverlay.src;
-
-                        const match =
-                            urlImg.match(/\/vi\/([^\/]+)\//);
+                        const urlImg = imgOverlay.src;
+                        const match = urlImg.match(/\/vi\/([^\/]+)\//);
 
                         if (match && match[1]) {
-
-                            const proximoVideoId =
-                                match[1];
+                            const proximoVideoId = match[1];
 
                             proximoCard.scrollIntoView({
                                 behavior: 'smooth',
@@ -647,246 +607,99 @@
                                 inline: 'center'
                             });
 
-                            iniciarVideo(
-                                overlayProximo,
-                                proximoVideoId
-                            );
+                            iniciarVideo(overlayProximo, proximoVideoId);
                         }
                     }
                 }
             }
         }
 
-
         function iniciarVideo(elementoOverlay, videoId) {
-
             elementoOverlay.style.display = 'none';
-
             pausarOutrosVideos(videoId);
 
             if (players[videoId]) {
-
                 players[videoId].playVideo();
-
             } else {
-
-                players[videoId] =
-                    new YT.Player(
-                        'player-' + videoId,
-                        {
-                            videoId: videoId,
-
-                            playerVars: {
-                                'autoplay': 1,
-                                'rel': 0
-                            },
-
-                            events: {
-
-                                'onReady': function(event) {
-                                    event.target.playVideo();
-                                },
-
-                                'onStateChange': function(event) {
-
-                                    if (
-                                        event.data ===
-                                        YT.PlayerState.PLAYING
-                                    ) {
-                                        pausarOutrosVideos(videoId);
-                                    }
-
-                                    if (
-                                        event.data ===
-                                        YT.PlayerState.ENDED
-                                    ) {
-                                        restaurarCapa(videoId);
-                                        tocarProximoVideo(videoId);
-                                    }
-
-                                }
+                players[videoId] = new YT.Player('player-' + videoId, {
+                    videoId: videoId,
+                    playerVars: {
+                        'autoplay': 1,
+                        'rel': 0
+                    },
+                    events: {
+                        'onReady': function(event) {
+                            event.target.playVideo();
+                        },
+                        'onStateChange': function(event) {
+                            if (event.data === YT.PlayerState.PLAYING) {
+                                pausarOutrosVideos(videoId);
+                            }
+                            if (event.data === YT.PlayerState.ENDED) {
+                                restaurarCapa(videoId);
+                                tocarProximoVideo(videoId);
                             }
                         }
-                    );
+                    }
+                });
             }
         }
 
-
         function gerarEstrelasPrata() {
-
-            const container =
-                document.getElementById('container-estrelas');
+            const container = document.getElementById('container-estrelas');
+            if (!container) return;
 
             const totalEstrelas = 50;
 
-            for (
-                let i = 0;
-                i < totalEstrelas;
-                i++
-            ) {
+            for (let i = 0; i < totalEstrelas; i++) {
+                const estrela = document.createElement('div');
+                estrela.classList.add('estrela-prata');
 
-                const estrela =
-                    document.createElement('div');
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const tamanho = Math.random() * 4 + 2;
+                const duracaoPiscar = Math.random() * 1.2 + 0.5;
+                const duracaoMovimento = Math.random() * 4 + 3;
+                const atraso = Math.random() * 3;
 
-                estrela.classList.add(
-                    'estrela-prata'
-                );
-
-                const posX =
-                    Math.random() * 100;
-
-                const posY =
-                    Math.random() * 100;
-
-                const tamanho =
-                    Math.random() * 4 + 2;
-
-                const duracaoPiscar =
-                    Math.random() * 1.2 + 0.5;
-
-                const duracaoMovimento =
-                    Math.random() * 4 + 3;
-
-                const atraso =
-                    Math.random() * 3;
-
-                estrela.style.left =
-                    `${posX}%`;
-
-                estrela.style.top =
-                    `${posY}%`;
-
-                estrela.style.width =
-                    `${tamanho}px`;
-
-                estrela.style.height =
-                    `${tamanho}px`;
-
-                estrela.style.animationDuration =
-                    `${duracaoPiscar}s, ${duracaoMovimento}s`;
-
-                estrela.style.animationDelay =
-                    `${atraso}s, ${atraso}s`;
+                estrela.style.left = posX + '%';
+                estrela.style.top = posY + '%';
+                estrela.style.width = tamanho + 'px';
+                estrela.style.height = tamanho + 'px';
+                estrela.style.animationDuration = `${duracaoPiscar}s, ${duracaoMovimento}s`;
+                estrela.style.animationDelay = `${atraso}s`;
 
                 container.appendChild(estrela);
             }
         }
 
-
-        window.addEventListener(
-            'DOMContentLoaded',
-            gerarEstrelasPrata
-        );
-
-
-        function limparTexto(texto) {
-
-            if (!texto) return "";
-
-            return texto
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-                .replace(/[^a-z0-9\s]/g, "")
-                .trim();
-        }
-
-
         function buscarMusica() {
+            const termo = document.getElementById('campo-busca').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card-video');
 
-            const campo =
-                document.getElementById('campo-busca');
+            cards.forEach(card => {
+                const nome = card.getAttribute('data-nome') || '';
+                const titulo = card.querySelector('.titulo-video')?.innerText.toLowerCase() || '';
 
-            const termoLimpo =
-                limparTexto(campo.value);
-
-            if (!termoLimpo) return;
-
-            const cards =
-                document.querySelectorAll(
-                    '.card-video'
-                );
-
-            let encontrado = false;
-
-            cards.forEach(card =>
-                card.classList.remove(
-                    'destaque-busca'
-                )
-            );
-
-            const palavrasBusca =
-                termoLimpo.split(/\s+/);
-
-            for (let card of cards) {
-
-                const dataNome =
-                    limparTexto(
-                        card.getAttribute(
-                            'data-nome'
-                        )
-                    );
-
-                const atendeBusca =
-                    palavrasBusca.every(
-                        palavra =>
-                            dataNome.includes(
-                                palavra
-                            )
-                    );
-
-                if (atendeBusca) {
-
-                    encontrado = true;
-
-                    card.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center'
-                    });
-
-                    setTimeout(() => {
-
-                        const container =
-                            card.parentElement;
-
-                        const deslocamentoEsquerda =
-                            card.offsetLeft -
-                            (container.clientWidth / 2) +
-                            (card.clientWidth / 2);
-
-                        container.scrollTo({
-                            left: deslocamentoEsquerda,
-                            behavior: 'smooth'
-                        });
-
-                        card.classList.add(
-                            'destaque-busca'
-                        );
-
-                    }, 250);
-
-                    break;
+                if (nome.includes(termo) || titulo.includes(termo)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
                 }
-            }
-
-            if (!encontrado) {
-
-                alert(
-                    'Música não encontrada! Tente pesquisar por uma palavra mais simples.'
-                );
-            }
+            });
         }
-
 
         function verificarEnter(event) {
-
             if (event.key === 'Enter') {
                 buscarMusica();
             }
         }
 
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            gerarEstrelasPrata();
+        });
     </script>
-
 </body>
 
 </html>
