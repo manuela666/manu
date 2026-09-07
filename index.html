@@ -31,7 +31,7 @@
             left: -5%;
             width: 110%;
             height: 100%;
-            z-index: 1; /* Atrás dos discos */
+            z-index: 1;
             transform: rotateX(20deg) rotateZ(-1deg) scale(1.05);
             transform-origin: bottom center;
             pointer-events: none;
@@ -49,7 +49,7 @@
         /* DISCOS */
         .disco {
             position: absolute;
-            z-index: 2; /* À frente das ondas de fundo */
+            z-index: 2;
         }
 
         /* NOTAS ROSA / VINHO TRANSPARENTES EM VETOR ESPALHADAS */
@@ -83,7 +83,7 @@
         .pos-n5 { top: 12%; left: 48%; width: 18px; animation-delay: 0.8s; }
         .pos-n6 { top: 72%; left: 52%; width: 20px; animation-delay: 1.2s; }
 
-        /* COROA CALIGRÁFICA E TÍTULO */
+        /* CONTAINER DA COROA E TÍTULO */
         .container-titulo-coroa {
             position: relative;
             z-index: 5;
@@ -92,30 +92,32 @@
             align-items: center;
         }
 
+        /* NOVA COROA ELEGANTE, PONTUDA, ROSA/VINHO E BRILHANTE */
         .coroa-caligrafica-svg {
-            width: 55px;
-            height: 35px;
-            fill: none;
-            stroke: #ffd700;
-            stroke-width: 1.8;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
-            margin-bottom: -5px;
-            animation: flutuarCoroa 3s ease-in-out infinite alternate;
+            width: 85px;
+            height: 55px;
+            margin-bottom: -18px; /* Bem próxima do título "Músicas" */
+            filter: drop-shadow(0 0 10px rgba(219, 112, 147, 0.85)) drop-shadow(0 0 18px rgba(139, 0, 79, 0.6));
+            animation: brilharEFlutuarCoroa 3s ease-in-out infinite alternate;
         }
 
-        @keyframes flutuarCoroa {
-            from { transform: translateY(0) scale(1); }
-            to { transform: translateY(-5px) scale(1.05); }
+        @keyframes brilharEFlutuarCoroa {
+            0% {
+                transform: translateY(0) scale(1);
+                filter: drop-shadow(0 0 8px rgba(219, 112, 147, 0.75)) drop-shadow(0 0 12px rgba(139, 0, 79, 0.5));
+            }
+            100% {
+                transform: translateY(-4px) scale(1.03);
+                filter: drop-shadow(0 0 14px rgba(255, 182, 193, 0.95)) drop-shadow(0 0 22px rgba(219, 112, 147, 0.8));
+            }
         }
 
         /* BRILHOS EM SVG */
         .brilho-svg {
             position: absolute;
-            fill: #fff8dc;
-            opacity: 0.7;
-            filter: drop-shadow(0 0 4px #fff8dc);
+            fill: #ffb6c1;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 6px #ffb6c1);
             pointer-events: none;
             z-index: 4;
         }
@@ -231,7 +233,6 @@
 
             <!-- NOTAS MUSICAIS VETORIAIS ROSA/VINHO TRANSPARENTES -->
             <div class="notas-rosa-espalhadas">
-                <!-- Nota Clave de Sol / Colcheia em SVG -->
                 <svg class="nota-vetor pos-n1" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
                 <svg class="nota-vetor pos-n2" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
                 <svg class="nota-vetor pos-n3" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
@@ -245,14 +246,55 @@
             <svg class="brilho-svg pos-b2" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
             <svg class="brilho-svg pos-b3" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
 
-            <!-- COROA CALIGRÁFICA EM DESENHO DE VETOR E TÍTULO "MÚSICAS" -->
+            <!-- COROA PONTUDA ELEGANTE ROSA/VINHO + TÍTULO "MÚSICAS" -->
             <div class="container-titulo-coroa">
-                <svg class="coroa-caligrafica-svg" viewBox="0 0 100 60">
-                    <path d="M 10,45 C 20,42 35,48 50,45 C 65,42 80,48 90,45 C 85,25 75,30 68,18 C 60,32 50,12 50,12 C 50,12 40,32 32,18 C 25,30 15,25 10,45 Z" />
-                    <circle cx="50" cy="8" r="3" fill="#ffd700" />
-                    <circle cx="21" cy="14" r="2.5" fill="#ffd700" />
-                    <circle cx="79" cy="14" r="2.5" fill="#ffd700" />
-                    <path d="M 15,49 C 35,52 65,52 85,49" stroke="#ffd700" stroke-width="1.2" />
+                <svg class="coroa-caligrafica-svg" viewBox="0 0 120 70">
+                    <defs>
+                        <!-- DEGRADÊ ROSA A VINHO -->
+                        <linearGradient id="gradCoroa" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffb6c1" />
+                            <stop offset="40%" stop-color="#db7093" />
+                            <stop offset="100%" stop-color="#8b004f" />
+                        </linearGradient>
+                        
+                        <!-- DEGRADÊ DOURADO DE BRILHO PARA DETALHES -->
+                        <linearGradient id="gradDourado" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" />
+                            <stop offset="50%" stop-color="#ffd700" />
+                            <stop offset="100%" stop-color="#db7093" />
+                        </linearGradient>
+                    </defs>
+
+                    <!-- CORPO DA COROA PONTUDA E ELEGANTE -->
+                    <path d="M 15 52 L 5 22 L 35 38 L 60 10 L 85 38 L 115 22 L 105 52 Z" 
+                          fill="url(#gradCoroa)" 
+                          stroke="url(#gradDourado)" 
+                          stroke-width="1.8" 
+                          stroke-linejoin="round" />
+
+                    <!-- CURVAS CALIGRÁFICAS INTERNAS -->
+                    <path d="M 22 50 C 35 32 50 48 60 25 C 70 48 85 32 98 50" 
+                          fill="none" 
+                          stroke="url(#gradDourado)" 
+                          stroke-width="1.2" 
+                          opacity="0.85" />
+
+                    <!-- BASE DA COROA TRABALHADA -->
+                    <path d="M 12 56 C 40 60 80 60 108 56" 
+                          fill="none" 
+                          stroke="url(#gradDourado)" 
+                          stroke-width="2" 
+                          stroke-linecap="round" />
+
+                    <!-- GEMAS / BRILHOS NAS PONTAS -->
+                    <circle cx="5" cy="22" r="3.5" fill="#fff" stroke="#db7093" stroke-width="1" />
+                    <circle cx="35" cy="38" r="2.5" fill="#fff" stroke="#db7093" stroke-width="1" />
+                    <circle cx="60" cy="10" r="4.5" fill="#ffffff" stroke="#ffd700" stroke-width="1.2" />
+                    <circle cx="85" cy="38" r="2.5" fill="#fff" stroke="#db7093" stroke-width="1" />
+                    <circle cx="115" cy="22" r="3.5" fill="#fff" stroke="#db7093" stroke-width="1" />
+                    
+                    <!-- PEQUENO DIAMANTE NO CENTRO DA BASE -->
+                    <polygon points="60,46 64,52 60,58 56,52" fill="#ffffff" opacity="0.9" />
                 </svg>
 
                 <h1 class="titulo-assinatura">Músicas</h1>
