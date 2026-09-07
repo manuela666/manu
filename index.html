@@ -16,7 +16,7 @@
         }
 
         /* =========================================================
-           BANNER PRINCIPAL REVISADO (REFERÊNCIA DE VINIL GIGANTE)
+           BANNER PRINCIPAL (FUNDO ORIGINAL MANTIDO)
            ========================================================= */
 
         .banner-destaque {
@@ -28,54 +28,59 @@
             box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
         }
 
-        /* 1. DISCOS DE VINIL GIGANTES NAS LATERAIS (MOLDURA) */
+        /* 1. DISCOS DE VINIL REALISTAS E ELEGANTES NAS LATERAIS */
         .disco-gigante {
             position: absolute;
             top: 50%;
             width: 380px;
             height: 380px;
             border-radius: 50%;
-            background: radial-gradient(
-                circle,
-                #000 0%,
-                #111 25%,
-                #080808 30%,
-                #1a1a1a 35%,
-                #0d0d0d 40%,
-                #222 45%,
-                #080808 50%,
-                #171717 55%,
-                #050505 70%
-            );
-            /* Sulcos do Vinil (Linhas Concêntricas) e Sombra Imergente */
+            /* Camadas de cor preta profunda com reflexo de luz e sulcos em repetição */
+            background: 
+                radial-gradient(
+                    circle at 50% 50%,
+                    transparent 0%,
+                    transparent 24%,
+                    #121212 25%,
+                    #050505 100%
+                ),
+                repeating-radial-gradient(
+                    circle at 50% 50%,
+                    #000000 0px,
+                    #000000 2px,
+                    #1c1c1c 3px,
+                    #0a0a0a 4px,
+                    #000000 5px
+                );
+            /* Sombra, brilhos de reflexo no vinil e sulcos marcados */
             box-shadow: 
-                inset 0 0 0 2px rgba(255,255,255,0.08),
-                inset 0 0 0 10px rgba(0,0,0,0.8),
-                inset 0 0 0 12px rgba(255,255,255,0.05),
-                inset 0 0 0 25px rgba(0,0,0,0.9),
-                inset 0 0 0 27px rgba(255,255,255,0.04),
-                inset 0 0 0 45px rgba(0,0,0,0.85),
-                inset 0 0 0 47px rgba(255,255,255,0.05),
-                inset 0 0 0 70px rgba(0,0,0,0.9),
-                inset 0 0 0 72px rgba(255,255,255,0.04),
-                0 0 25px rgba(0, 0, 0, 0.7);
+                0 0 35px rgba(0, 0, 0, 0.9),
+                inset 0 0 0 2px rgba(255, 255, 255, 0.12),
+                inset 0 0 0 8px rgba(0, 0, 0, 0.8),
+                inset 0 0 0 9px rgba(255, 255, 255, 0.05),
+                inset 0 0 0 22px rgba(0, 0, 0, 0.85),
+                inset 0 0 0 23px rgba(255, 255, 255, 0.04),
+                inset 0 0 0 45px rgba(0, 0, 0, 0.9),
+                inset 0 0 0 46px rgba(255, 255, 255, 0.04),
+                inset 0 0 0 75px rgba(0, 0, 0, 0.85),
+                inset 0 0 0 76px rgba(255, 255, 255, 0.03);
             z-index: 2;
             pointer-events: none;
         }
 
-        /* Disco Esquerdo Gigante Cortado na Borda */
+        /* Disco Esquerdo Cortado na Borda */
         .disco-gigante.esquerdo {
             left: 0;
             transform: translate(-50%, -50%);
         }
 
-        /* Disco Direito Gigante Cortado na Borda */
+        /* Disco Direito Cortado na Borda */
         .disco-gigante.direito {
             right: 0;
             transform: translate(50%, -50%);
         }
 
-        /* Centro do Vinil em Rosa/Vermelho Brilhante */
+        /* Centro do Vinil em Rosa/Vinho com Borda e Brilho */
         .centro-vinil-rosa {
             position: absolute;
             top: 50%;
@@ -84,9 +89,9 @@
             width: 105px;
             height: 105px;
             border-radius: 50%;
-            background: radial-gradient(circle, #ff2a75 0%, #db7093 45%, #8b004f 85%, #4a0028 100%);
-            border: 3px solid #ffb6c1;
-            box-shadow: 0 0 15px rgba(255, 42, 117, 0.8), inset 0 0 10px rgba(0, 0, 0, 0.5);
+            background: radial-gradient(circle, #db7093 0%, #a0154e 60%, #4a0028 100%);
+            border: 2px solid #ffb6c1;
+            box-shadow: 0 0 12px rgba(219, 112, 147, 0.6), inset 0 0 8px rgba(0, 0, 0, 0.6);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -94,12 +99,12 @@
 
         /* Furo Central do Disco */
         .furo-vinil {
-            width: 22px;
-            height: 22px;
-            background-color: #111;
+            width: 20px;
+            height: 20px;
+            background-color: #0b0b0b;
             border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: inset 0 0 5px #000;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: inset 0 0 4px #000;
         }
 
         /* 2. LINHAS DE PAUTA MUSICAL CURVAS */
@@ -164,7 +169,7 @@
         .coroa-caligrafica-svg {
             width: 80px;
             height: 52px;
-            margin-bottom: -18px; /* Mantém bem próxima da palavra Músicas */
+            margin-bottom: -18px;
             filter: drop-shadow(0 0 10px rgba(219, 112, 147, 0.9)) drop-shadow(0 0 18px rgba(139, 0, 79, 0.7));
             animation: brilhoCoroa 3s ease-in-out infinite alternate;
         }
@@ -240,7 +245,6 @@
                 onkeypress="verificarEnter(event)"
             >
             <button onclick="buscarMusica()">
-                <!-- ÍCONE DE LUPA VETORIAL -->
                 <svg class="svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="#fff">
                     <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                 </svg>
@@ -252,24 +256,24 @@
 
     <main id="inicio" class="conteudo-principal">
 
-        <!-- BANNER PRINCIPAL REVISADO CONFORME REFERÊNCIA -->
+        <!-- BANNER PRINCIPAL COM DISCOS DE VINIL REALISTAS -->
         <div class="banner-destaque">
 
-            <!-- DISCO GIGANTE ESQUERDO (Aparece parcialmente cortado na borda) -->
+            <!-- DISCO GIGANTE ESQUERDO -->
             <div class="disco-gigante esquerdo">
                 <div class="centro-vinil-rosa">
                     <div class="furo-vinil"></div>
                 </div>
             </div>
 
-            <!-- DISCO GIGANTE DIREITO (Aparece parcialmente cortado na borda) -->
+            <!-- DISCO GIGANTE DIREITO -->
             <div class="disco-gigante direito">
                 <div class="centro-vinil-rosa">
                     <div class="furo-vinil"></div>
                 </div>
             </div>
 
-            <!-- LINHAS DE PAUTA MUSICAL CURVAS (ATRAVESSANDO O BANNER) -->
+            <!-- LINHAS DE PAUTA MUSICAL CURVAS -->
             <div class="pauta-fundo-banner">
                 <svg viewBox="0 0 1200 300" preserveAspectRatio="none" style="width: 100%; height: 100%;">
                     <path d="M -50,60 Q 300,10 600,70 T 1250,40" fill="none" stroke="rgba(255, 182, 193, 0.25)" stroke-width="1.8" />
@@ -288,20 +292,18 @@
 
             <!-- NOTAS MUSICAIS E ESTRELAS/BRILHOS DISCRETOS -->
             <div class="camada-elementos-banner">
-                <!-- Notas -->
                 <svg class="nota-banner" style="top: 18%; left: 28%; width: 22px;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
                 <svg class="nota-banner" style="top: 65%; left: 32%; width: 26px; animation-delay: 1s;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
                 <svg class="nota-banner" style="top: 22%; right: 28%; width: 24px; animation-delay: 0.5s;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
                 <svg class="nota-banner" style="top: 68%; right: 31%; width: 20px; animation-delay: 1.5s;" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
 
-                <!-- Brilhos / Estrelas -->
                 <svg class="brilho-estrela-banner" style="top: 15%; left: 38%; width: 14px;" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
                 <svg class="brilho-estrela-banner" style="top: 20%; right: 36%; width: 16px; animation-delay: 0.8s;" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
                 <svg class="brilho-estrela-banner" style="top: 75%; left: 42%; width: 12px; animation-delay: 1.2s;" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
                 <svg class="brilho-estrela-banner" style="top: 70%; right: 41%; width: 14px; animation-delay: 0.4s;" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5H24l-7 5 2.5 8.5-7-5-7 5 2.5-8.5-7-5h8.5z"/></svg>
             </div>
 
-            <!-- COROA BRILHANTE + TÍTULO "MÚSICAS" CENTRALIZADO -->
+            <!-- COROA BRILHANTE + TÍTULO CENTRALIZADO -->
             <div class="container-titulo-coroa">
                 <svg class="coroa-caligrafica-svg" viewBox="0 0 120 70">
                     <defs>
@@ -318,28 +320,24 @@
                         </linearGradient>
                     </defs>
 
-                    <!-- Pontas e corpo da coroa -->
                     <path d="M 15 52 L 5 22 L 35 38 L 60 10 L 85 38 L 115 22 L 105 52 Z" 
                           fill="url(#gradCoroa)" 
                           stroke="url(#gradDourado)" 
                           stroke-width="1.8" 
                           stroke-linejoin="round" />
 
-                    <!-- Desenhos caligráficos internos -->
                     <path d="M 22 50 C 35 32 50 48 60 25 C 70 48 85 32 98 50" 
                           fill="none" 
                           stroke="url(#gradDourado)" 
                           stroke-width="1.2" 
                           opacity="0.85" />
 
-                    <!-- Base trabalhada -->
                     <path d="M 12 56 C 40 60 80 60 108 56" 
                           fill="none" 
                           stroke="url(#gradDourado)" 
                           stroke-width="2" 
                           stroke-linecap="round" />
 
-                    <!-- Joias/Gemas brilhantes nas pontas -->
                     <circle cx="5" cy="22" r="3.5" fill="#fff" stroke="#db7093" stroke-width="1" />
                     <circle cx="35" cy="38" r="2.5" fill="#fff" stroke="#db7093" stroke-width="1" />
                     <circle cx="60" cy="10" r="4.5" fill="#ffffff" stroke="#ffd700" stroke-width="1.2" />
